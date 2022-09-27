@@ -1,0 +1,92 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5BB66F1E-B0E4-4AFE-915A-4BC919397493}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>serin_viaticosRules</RootNamespace>
+    <AssemblyName>serin_viaticosData</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\serin_viaticosData.XML</DocumentationFile>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\serin_viaticosData.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cooperator.Framework.Core, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8f7f403e20325116, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CooperatorAssemblies\\Cooperator.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cooperator.Framework.Data, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8f7f403e20325116, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CooperatorAssemblies\\Cooperator.Framework.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Cooperator.Framework.Library, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8f7f403e20325116, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CooperatorAssemblies\\Cooperator.Framework.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LazyProviders\DefaultLazyProvider.cs" />
+    <Compile Include="Mappers\CategoriasGastoMapper.cs" />
+    <Compile Include="Mappers\Auto\CategoriasGastoMapper.Auto.cs" />
+    <Compile Include="Gateways\CategoriasGastoGateway.cs" />
+    <Compile Include="Gateways\Auto\CategoriasGastoGateway.Auto.cs" />
+    <Compile Include="Mappers\PerfilesMapper.cs" />
+    <Compile Include="Mappers\Auto\PerfilesMapper.Auto.cs" />
+    <Compile Include="Gateways\PerfilesGateway.cs" />
+    <Compile Include="Gateways\Auto\PerfilesGateway.Auto.cs" />
+    <Compile Include="Mappers\PerfilesUsuariosMapper.cs" />
+    <Compile Include="Mappers\Auto\PerfilesUsuariosMapper.Auto.cs" />
+    <Compile Include="Gateways\PerfilesUsuariosGateway.cs" />
+    <Compile Include="Gateways\Auto\PerfilesUsuariosGateway.Auto.cs" />
+    <Compile Include="Mappers\UsuariosDependenciaMapper.cs" />
+    <Compile Include="Mappers\Auto\UsuariosDependenciaMapper.Auto.cs" />
+    <Compile Include="Gateways\UsuariosDependenciaGateway.cs" />
+    <Compile Include="Gateways\Auto\UsuariosDependenciaGateway.Auto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\serin_viaticosEntities\serin_viaticosEntities.csproj">
+      <Project>{50369562-f29e-430c-b43a-aa17c0ee47da}</Project>
+      <Name>
+        serin_viaticosEntities
+      </Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

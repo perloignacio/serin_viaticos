@@ -1,0 +1,15 @@
+﻿api/.vs/serin_viaticos/config/applicationhost.config
+api/.vs/serin_viaticos/v17
+api/Backup
+api/packages
+api/serin_viaticos/obj
+api/serin_viaticos
+api/serin_viaticosData/bin
+api/serin_viaticosData/obj
+api/serin_viaticosEntities/bin
+api/serin_viaticosEntities/obj
+api/serin_viaticosRules/obj
+api/serin_viaticosRules/bin
+api/WebApi/bin
+api/WebApi/obj
+web/.vscode

@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/base";
+@import '~bootstrap/scss/bootstrap';
+.pac-container{z-index: 1000000 !important;}
+.home{background-image: url('assets/bg3.jpg');background-size: cover;min-height: 100vh;}
+.itemsalir{display: none;}
+@media (max-width:768px) {
+    .card{margin-bottom: 30px;}
+    .logo-src{background-image: none !important;}
+    .v-sidebar-menu .vsm-list{left: 80px;position: relative;}
+    .itemsalir{display: block;}
+    .app-sidebar{transform: translateX(-280px)}
+    .closed-sidebar.closed-sidebar-open .app-sidebar{transform: translateX(-80px)}
+}
+/* Importing Bootstrap SCSS file. */
+

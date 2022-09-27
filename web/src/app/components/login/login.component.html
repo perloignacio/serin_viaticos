@@ -1,0 +1,42 @@
+<div class="h-100 bg-plum-plate bg-animation">
+    <div class="d-flex h-100 justify-content-center align-items-center">
+      <div class="mx-auto app-login-box col-md-6">
+        <div class="text-center"></div>
+        <div class="modal-dialog w-100 mx-auto bg-white p-5">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="h5 modal-title text-center">
+                <h4 class="mt-2">
+                  <div>Bienvenido a APP Viaticos,</div>
+                  <span>Ingresa tu usuario y contraseña.</span></h4>
+              </div>
+              <div id="exampleInputGroup1" role="group" aria-describedby="exampleInputGroup1__BV_description_"
+                   class="form-group">
+                <div><input id="exampleInput1" [(ngModel)]="usuario" placeholder="Ingrese su usuario" required="required"
+                            aria-required="true" class="form-control"
+                            aria-describedby="exampleInputGroup1__BV_description_">
+                  
+                </div>
+              </div>
+              <div id="exampleInputGroup2"  role="group" class="form-group mt-3">
+                <div><input id="exampleInput2" type="password" [(ngModel)]="contra" placeholder="Ingrese su contraseña" required="required"
+                            aria-required="true" class="form-control"></div>
+              </div>
+              
+              
+              </div>
+            <div class="modal-footer clearfix">
+              
+              <div class="float-right mt-3">
+                <button type="button" (click)="Ingresar()" class="btn btn-success btn-lg">Ingresar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center text-white opacity-8 mt-3">
+          Copyright © SERIN 2022
+        </div>
+      </div>
+    </div>
+  </div>
+  

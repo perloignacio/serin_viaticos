@@ -1,0 +1,41 @@
+<div [class]="'app-sidebar sidebar-shadow '" >
+  <div class="app-header__logo">
+    <div >
+        <a [routerLink]="'/'">VIÁTICOS</a>
+    </div>
+    <div class="header__pane ms-auto">
+      <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+              [ngClass]="{'is-active' : true}">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="app-sidebar-content">
+    <div class="app-sidebar-scroll">
+      <perfect-scrollbar [autoPropagation]="true">
+        <div class="v-sidebar-menu vsm-default">
+          <div class="vsm-list">
+            <div class="vsm-header">Gestión</div>
+            <div class="vsm-item">
+              <a [routerLink]="'proyectos'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
+                <i class="vsm-icon pe-7s-browser"></i>
+                <span class="vsm-title">Proyectos</span>
+              </a>
+            </div>
+            
+            <div class="vsm-item itemsalir">
+              <a (click)="Salir()" role="button"  class="vsm-link">
+                <i class="vsm-icon pe-7s-browser"></i>
+                <span class="vsm-title">Salir</span>
+              </a>
+            </div>
+            
+          </div>
+         
+        </div>
+      </perfect-scrollbar>
+    </div>
+  </div>
+</div>
