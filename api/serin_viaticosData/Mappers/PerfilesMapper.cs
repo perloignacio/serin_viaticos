@@ -14,6 +14,9 @@ using Cooperator.Framework.Data.Exceptions;
 using System.Data.Common;
 using System.Reflection;
 using System;
+using System.Web;
+using System.Data;
+
 
 namespace serin_viaticosRules.Mappers
 {
@@ -22,8 +25,10 @@ namespace serin_viaticosRules.Mappers
     /// Mapper for Perfiles entity
     /// This class provide persistence methods for this entity
     /// </summary>
-    public  partial class PerfilesMapper
+
+    public partial class TipoGastoMapper
     {
+
         // /// <summary>
         // /// Enables GetObjectBySQLText and GetObjectListBySQLText methods.
         // /// </summary>
@@ -51,10 +56,10 @@ namespace serin_viaticosRules.Mappers
         //    return false;
         //}
 
+    
+
     }
-
 }
-
 
 namespace serin_viaticosRules.Loaders
 {

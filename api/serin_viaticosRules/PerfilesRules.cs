@@ -1,4 +1,5 @@
-﻿using serin_viaticosRules.Mappers;
+﻿using serin_viaticosRules.Entities;
+using serin_viaticosRules.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,55 +9,42 @@ using System.Threading.Tasks;
 
 namespace serin_viaticosRules
 {
-    class PerfilesRules
+    public class PerfilesRules
     {
-        public void Agregar(int IdPerfil, string Nombre,byte   Activo, byte RequiereAutorizacion, byte Admin)
+        public void Agregar(string Nombre,bool Activo, bool RequiereAutorizacion, bool Admin)
         {
-
-            //            Validar(Codigo, Descripcion);
-
-            
-            if (PerfilesMapper.Instance().GetOne(IdPerfil) != null)
-            {
-                throw new Exception("El Perfil ya existe");
-            }
-
-
             Perfiles pf = new Perfiles();
-            
-            pf.idperfil = IdPerfil;
-            pf.nombre = Nombre;
-            pf.activo = Activo;
-            pf.requiereautorizacion= RequiereAutorizacion;
-            pf.admin = Admin;
-
-            
+            pf.Nombre = Nombre;
+            pf.Activo = Activo;
+            pf.RequiereAutorizacion= RequiereAutorizacion;
+            pf.Admin = Admin;
             PerfilesMapper.Instance().Insert(pf);
         }
 
 
-        public void Modificar(int IdPerfilBuscar, int IdPerfil, string Nombre, byte Activo, byte RequiereAutorizacion, byte Admin)        {
-            Validar(Codigo, Descripcion);
+        public void Modificar(int IdPerfil, string Nombre, bool Activo, bool RequiereAutorizacion, bool Admin)        
+        {
+            //Validar(Codigo, Descripcion);
 
         }
 
         public void Eliminar(int IdPerfil)
         {
-            TipoGasto pf = TipoGastoMapper.Instance().GetOne(IdPerfil);
+            Perfiles pf = PerfilesMapper.Instance().GetOne(IdPerfil);
             
             if (pf == null)
             {
                 throw new Exception("No se encuentra el perfil que ingresaste.");
             }
-            //TipoGastoMapper.Instance().Delete(tg);
+            PerfilesMapper.Instance().Delete(pf);
 
         }
 
-        public void Validar(int IdPerfil, string Nombre, byte Activo, byte RequiereAutorizacion, byte Admin)
+        public void Validar(int IdPerfil, string Nombre, bool Activo, bool RequiereAutorizacion, bool Admin)
         {
-            if (IdPerfil == 0) { throw new Exception("Debe ingresar un código."); }
+            //if (IdPerfil == 0) { throw new Exception("Debe ingresar un código."); }
             if (string.IsNullOrEmpty(Nombre)) { throw new Exception("Debe ingresar una descripción del perfil."); }
-            if (RequiereAutorizacion == 0) { throw new Exception("Debe seleccionar tipo de autorización."); }
+            if (RequiereAutorizacion == true)  { throw new Exception("Debe seleccionar tipo de autorización."); }
             
 
 
