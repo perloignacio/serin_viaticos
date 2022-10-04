@@ -24,7 +24,9 @@ namespace serin_viaticosRules
 
         public void Modificar(int IdPerfil, string Nombre, bool Activo, bool RequiereAutorizacion, bool Admin)        
         {
-            //Validar(Codigo, Descripcion);
+            
+            //me fijo si el id existe y si es tiene algo escrito
+            Validar(IdPerfil);
 
         }
 
@@ -40,11 +42,13 @@ namespace serin_viaticosRules
 
         }
 
-        public void Validar(int IdPerfil, string Nombre, bool Activo, bool RequiereAutorizacion, bool Admin)
+        public void Validar(int IdPerfil)
         {
-            //if (IdPerfil == 0) { throw new Exception("Debe ingresar un código."); }
-            if (string.IsNullOrEmpty(Nombre)) { throw new Exception("Debe ingresar una descripción del perfil."); }
-            if (RequiereAutorizacion == true)  { throw new Exception("Debe seleccionar tipo de autorización."); }
+            if (IdPerfil == 0) { throw new Exception("Debe ingresar un código."); }
+            
+            
+            //if (string.IsNullOrEmpty(Nombre)) { throw new Exception("Debe ingresar una descripción del perfil."); }
+            //if (RequiereAutorizacion == true)  { throw new Exception("Debe seleccionar tipo de autorización."); }
             
 
 
