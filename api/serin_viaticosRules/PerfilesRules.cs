@@ -13,7 +13,10 @@ namespace serin_viaticosRules
     {
         public void Agregar(string Nombre,bool Activo, bool RequiereAutorizacion, bool Admin)
         {
+            
+            Random rid= new Random () ;
             Perfiles pf = new Perfiles();
+            pf.IdPerfil = rid.Next();
             pf.Nombre = Nombre;
             pf.Activo = Activo;
             pf.RequiereAutorizacion= RequiereAutorizacion;
@@ -27,6 +30,18 @@ namespace serin_viaticosRules
             
             //me fijo si el id existe y si es tiene algo escrito
             Validar(IdPerfil);
+
+            Perfiles pf = PerfilesMapper.Instance().GetOne(IdPerfil);
+            if (pf == null)
+            {
+                throw new Exception("No se encuentra el codigo");
+            }
+            pf.Nombre = Nombre;
+            pf.Activo = Activo;
+            pf.RequiereAutorizacion = RequiereAutorizacion;
+            pf.Admin = Admin; 
+            
+            PerfilesMapper.Instance().Save(pf);
 
         }
 
@@ -46,12 +61,6 @@ namespace serin_viaticosRules
         {
             if (IdPerfil == 0) { throw new Exception("Debe ingresar un código."); }
             
-            
-            //if (string.IsNullOrEmpty(Nombre)) { throw new Exception("Debe ingresar una descripción del perfil."); }
-            //if (RequiereAutorizacion == true)  { throw new Exception("Debe seleccionar tipo de autorización."); }
-            
-
-
         }
 
     }

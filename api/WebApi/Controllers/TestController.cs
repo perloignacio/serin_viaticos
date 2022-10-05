@@ -20,11 +20,9 @@ namespace WebApi.Controllers
             try
             {
                 return Ok(PerfilesMapper.Instance().GetAll());
-
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
            
@@ -37,21 +35,17 @@ namespace WebApi.Controllers
         {
             try
             {
-
-
-
                 return Ok(PerfilesMapper.Instance().GetOne(IdPerfil));
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
-            
+         
 
         }
 
-        /*
+
         [Route("agregar")]
         [HttpPost]
         [AllowAnonymous]
@@ -59,29 +53,42 @@ namespace WebApi.Controllers
         {
             try
             {
-                Perfiles pf = new PerfilesRules();
-                /*if (IdPerfil != 0)
+                //int IdPerfil = 0;
+                PerfilesRules pfRules = new PerfilesRules();
+                if (pf.IdPerfil != 0)
                 {
-                    tpv.Modificar(codigo, tp.codigo, tp.descripcion);
+                    pfRules.Modificar(pf.IdPerfil, pf.Nombre, pf.Activo, pf.RequiereAutorizacion, pf.Admin);
                 }
                 else
                 {
-                    pf.Agregar(pf.Nombre, pf.Nombre, pf.Activo , pf.RequiereAutorizacion, pf.Admin);
-                //}
-
+                    pfRules.Agregar(pf.Nombre, pf.Activo, pf.RequiereAutorizacion, pf.Admin);
+                }
                 return Ok(true);
-
-
-
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
-        */
+        }
 
-        
+
+        [Route("modificar")]
+        [HttpPut]
+        [AllowAnonymous]
+        public IHttpActionResult Modificar([FromBody] Perfiles pf)
+        {
+            try
+            {
+                PerfilesRules pfRules = new PerfilesRules();
+                pfRules.Modificar(pf.IdPerfil, pf.Nombre, pf.Activo, pf.RequiereAutorizacion, pf.Admin);
+                return Ok(true);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
         [Route("Borrar")]
         [HttpDelete]
@@ -92,22 +99,14 @@ namespace WebApi.Controllers
             {
                 PerfilesRules pf = new serin_viaticosRules.PerfilesRules();
                 pf.Eliminar(IdPerfil);
-
                 return Ok(true);
-
-
-
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
 
-
         }
-
-
 
     }
 }
