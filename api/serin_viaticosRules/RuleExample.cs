@@ -15,45 +15,41 @@ using System;
 public class RuleExample: Cooperator.Framework.Data.BaseRule
 {
 
-    public static void DoSomething()
+    
+
+    public void Agregar()
+    {
+      
+        
+    }
+
+
+    public void Modificar()
     {
 
-        //Start transaction
-        DbTransaction tr = (new RuleExample()).DataBaseHelper.GetAndBeginTransaction();
-        DbConnection conn = tr.Connection;
-
-        try {
-            //Create entity
-            Entity1 myObj1 = new Entity1(1, "1000101");
-
-            //Insert myObj1 in transaction
-            Entity1Mapper.Instance().Insert(tr, myObj1);
-
-            //Create another entity
-            Entity2 myObj2 = new Entity2(22);
-
-            //Delete myObj2 in transaction
-            Entity2Mapper.Instance().Delete(tr, myObj2);
-
-            //Commit transaction
-            tr.Commit();
-
-        }
-        catch (Exception ex) {
-
-            //If an error occur, rollback the transaction
-            tr.Rollback();
-
-            //Throw the original error
-            throw;
-        }
-        finally
-        {
-            conn.Close();
-            tr.Dispose();
-        }
+        
 
     }
+
+    public void Activar()
+    {
+        
+
+    }
+
+    public void Eliminar()
+    {
+       
+
+    }
+
+    private void Validar()
+    {
+        
+
+    }
+
+   
 }
 
 

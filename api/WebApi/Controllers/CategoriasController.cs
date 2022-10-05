@@ -1,17 +1,17 @@
-﻿using serin_viaticosRules;
-using serin_viaticosRules.Entities;
-using serin_viaticosRules.Mappers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using serin_viaticosRules.Entities;
+using serin_viaticosRules.Mappers;
+using serin_viaticosRules;
 
 namespace WebApi.Controllers
 {
-    [RoutePrefix("perfiles")]
-    public class PerfilesController : ApiController
+    [RoutePrefix("categorias")]
+    public class CategoriasController : ApiController
     {
         [Route("GetTodos")]
         [HttpGet]
@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                return Ok(PerfilesMapper.Instance().GetAll());
+                return Ok(CategoriasGastoMapper.Instance().GetAll());
             }
             catch (Exception ex)
             {
@@ -36,7 +36,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                return Ok(PerfilesMapper.Instance().GetAll().Where(p=>p.Activo));
+                return Ok(CategoriasGastoMapper.Instance().GetAll().Where(p => p.Activo));
             }
             catch (Exception ex)
             {
@@ -45,14 +45,14 @@ namespace WebApi.Controllers
 
         }
 
-        [Route("Uno/{IdPerfil}")]
+        [Route("Uno/{IdCategoria}")]
         [HttpGet]
         [AllowAnonymous]
-        public IHttpActionResult Uno(int IdPerfil)
+        public IHttpActionResult Uno(int IdCategoria)
         {
             try
             {
-                return Ok(PerfilesMapper.Instance().GetOne(IdPerfil));
+                return Ok(CategoriasGastoMapper.Instance().GetOne(IdCategoria));
             }
             catch (Exception ex)
             {
@@ -62,15 +62,15 @@ namespace WebApi.Controllers
 
         }
 
-        [Route("Activar/{IdPerfil}")]
+        [Route("Activar/{IdCategoria}")]
         [HttpPost]
         [AllowAnonymous]
-        public IHttpActionResult Activar(int IdPerfil)
+        public IHttpActionResult Activar(int IdCategoria)
         {
             try
             {
-                PerfilesRules pfRules = new PerfilesRules();
-                pfRules.Activar(IdPerfil);
+                CategoriasRules cRules = new CategoriasRules();
+                cRules.Activar(IdCategoria);
                 return Ok(true);
             }
             catch (Exception ex)
@@ -82,21 +82,21 @@ namespace WebApi.Controllers
         }
 
 
-        [Route("AgregarEditar/{IdPerfil?}")]
+        [Route("AgregarEditar/{IdCategoria?}")]
         [HttpPost]
         [AllowAnonymous]
-        public IHttpActionResult AgregarEditar([FromBody] Perfiles pf,int? IdPerfil=null)
+        public IHttpActionResult AgregarEditar([FromBody] CategoriasGasto cg, int? IdCategoria = null)
         {
             try
             {
-                PerfilesRules pfRules = new PerfilesRules();
-                if (IdPerfil.HasValue)
+                CategoriasRules cRules = new CategoriasRules();
+                if (IdCategoria.HasValue)
                 {
-                    pfRules.Modificar(IdPerfil.Value, pf.Nombre,  pf.RequiereAutorizacion, pf.Admin);
+                    cRules.Modificar(IdCategoria.Value,cg.Nombre,cg.EmailNotificacion);
                 }
                 else
                 {
-                    pfRules.Agregar(pf.Nombre, pf.RequiereAutorizacion, pf.Admin);
+                    cRules.Agregar(cg.Nombre, cg.EmailNotificacion);
                 }
                 return Ok(true);
             }
@@ -107,18 +107,18 @@ namespace WebApi.Controllers
         }
 
 
-        
 
 
-        [Route("Borrar/{IdPerfil}")]
+
+        [Route("Borrar/{IdCategoria}")]
         [HttpDelete]
         [AllowAnonymous]
-        public IHttpActionResult Borrar(int IdPerfil)
+        public IHttpActionResult Borrar(int IdCategoria)
         {
             try
             {
-                PerfilesRules pf = new PerfilesRules();
-                pf.Eliminar(IdPerfil);
+                CategoriasRules cRules = new CategoriasRules();
+                cRules.Eliminar(IdCategoria);
                 return Ok(true);
             }
             catch (Exception ex)
@@ -127,5 +127,6 @@ namespace WebApi.Controllers
             }
 
         }
+
     }
 }

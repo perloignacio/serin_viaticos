@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "bfd9f622-e98b-4a7e-b9d8-baf2103fccf4",
+		"name": "Viaticos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Perfiles",
+			"item": [
+				{
+					"name": "http://localhost:60685/perfiles/GetTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/perfiles/GetTodos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"perfiles",
+								"GetTodos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/perfiles/Activos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/perfiles/Activos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"perfiles",
+								"Activos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/perfiles/Uno?IdPerfil=1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/perfiles/Uno/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"perfiles",
+								"Uno",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/perfiles/AgregarEditar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"Nombre\": \"Cliente modificado\",\r\n    \"RequiereAutorizacion\": true,\r\n    \"Admin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:60685/perfiles/AgregarEditar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"perfiles",
+								"AgregarEditar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/perfiles/AgregarEditar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombre\": \"Cliente\",\r\n    \"RequiereAutorizacion\": true,\r\n    \"Admin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:60685/perfiles/AgregarEditar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"perfiles",
+								"AgregarEditar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/Perfiles/Borrar/3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/Perfiles/Borrar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"Perfiles",
+								"Borrar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/Perfiles/Activar/3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/Perfiles/Activar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"Perfiles",
+								"Activar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "http://localhost:60685/categorias/GetTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/categorias/Activos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"categorias",
+								"Activos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/categorias/Activos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/perfiles/Activos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"perfiles",
+								"Activos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/categorias/Uno?IdPerfil=1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/categorias/Uno/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"categorias",
+								"Uno",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/categorias/AgregarEditar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"Nombre\": \"Transporte modificado\",\r\n        \"EmailNotificacion\": \"perloignacio@gmail.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:60685/categorias/AgregarEditar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"categorias",
+								"AgregarEditar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/categorias/AgregarEditar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"Nombre\": \"Transporte\",\r\n        \"EmailNotificacion\": \"perloignacio@gmail.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:60685/categorias/AgregarEditar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"categorias",
+								"AgregarEditar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/categorias/Borrar/2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/categorias/Borrar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"categorias",
+								"Borrar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:60685/categorias/Activar/2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:60685/categorias/Activar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "60685",
+							"path": [
+								"categorias",
+								"Activar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

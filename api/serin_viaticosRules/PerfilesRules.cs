@@ -73,7 +73,7 @@ namespace serin_viaticosRules
 
         }
 
-        public void Validar(string nombre)
+        private void Validar(string nombre)
         {
             if (string.IsNullOrEmpty(nombre)){ throw new Exception("Debe ingresar el nombre"); }
             
