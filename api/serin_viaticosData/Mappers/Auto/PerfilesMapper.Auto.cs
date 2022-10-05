@@ -395,10 +395,9 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Insert Perfiles
         /// </summary>
-        public void Insert(System.Int32 IdPerfil, System.String Nombre, System.Boolean Activo, System.Boolean RequiereAutorizacion, System.Boolean Admin){
+        public void Insert(System.String Nombre, System.Boolean Activo, System.Boolean RequiereAutorizacion, System.Boolean Admin){
             Entities.Perfiles entity = new Entities.Perfiles();
 
-            entity.IdPerfil = IdPerfil;
             entity.Nombre = Nombre;
             entity.Activo = Activo;
             entity.RequiereAutorizacion = RequiereAutorizacion;

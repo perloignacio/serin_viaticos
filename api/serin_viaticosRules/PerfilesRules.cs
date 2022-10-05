@@ -11,33 +11,33 @@ namespace serin_viaticosRules
 {
     public class PerfilesRules
     {
-        public void Agregar(string Nombre,bool Activo, bool RequiereAutorizacion, bool Admin)
+        public void Agregar(string Nombre, bool RequiereAutorizacion, bool Admin)
         {
-            
-            Random rid= new Random () ;
+            Validar(Nombre);
             Perfiles pf = new Perfiles();
-            pf.IdPerfil = rid.Next();
+            
             pf.Nombre = Nombre;
-            pf.Activo = Activo;
+            //El activo a la hora de crear lo seteamos en true
+            pf.Activo = true;
             pf.RequiereAutorizacion= RequiereAutorizacion;
             pf.Admin = Admin;
             PerfilesMapper.Instance().Insert(pf);
         }
 
 
-        public void Modificar(int IdPerfil, string Nombre, bool Activo, bool RequiereAutorizacion, bool Admin)        
+        public void Modificar(int IdPerfil, string Nombre, bool RequiereAutorizacion, bool Admin)        
         {
-            
-            //me fijo si el id existe y si es tiene algo escrito
-            Validar(IdPerfil);
 
+            //me fijo si el id existe y si es tiene algo escrito
+
+            Validar(Nombre);
             Perfiles pf = PerfilesMapper.Instance().GetOne(IdPerfil);
             if (pf == null)
             {
                 throw new Exception("No se encuentra el codigo");
             }
             pf.Nombre = Nombre;
-            pf.Activo = Activo;
+            //El activo no se toca, es un estado que lo maneja el metodo borrar / activar
             pf.RequiereAutorizacion = RequiereAutorizacion;
             pf.Admin = Admin; 
             
@@ -45,21 +45,37 @@ namespace serin_viaticosRules
 
         }
 
+        public void Activar(int IdPerfil)
+        {
+            // Como tenemos un metodo para borrar por las dudas agregamos un metodo para activar.
+            Perfiles pf = PerfilesMapper.Instance().GetOne(IdPerfil);
+
+            if (pf == null)
+            {
+                throw new Exception("No se encuentra el perfil que ingresaste.");
+            }
+            pf.Activo = true;
+            PerfilesMapper.Instance().Save(pf);
+
+        }
+
         public void Eliminar(int IdPerfil)
         {
+            // Aca habiamos acordado que hacemos borrado fisico, hacemos borrado logico, el campo que maneja es es el activo.
             Perfiles pf = PerfilesMapper.Instance().GetOne(IdPerfil);
             
             if (pf == null)
             {
                 throw new Exception("No se encuentra el perfil que ingresaste.");
             }
-            PerfilesMapper.Instance().Delete(pf);
+            pf.Activo = false;
+            PerfilesMapper.Instance().Save(pf);
 
         }
 
-        public void Validar(int IdPerfil)
+        public void Validar(string nombre)
         {
-            if (IdPerfil == 0) { throw new Exception("Debe ingresar un código."); }
+            if (string.IsNullOrEmpty(nombre)){ throw new Exception("Debe ingresar el nombre"); }
             
         }
 

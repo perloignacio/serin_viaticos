@@ -22,7 +22,7 @@ namespace serin_viaticosRules.Entities
     /// </summary>
     public partial class Perfiles : Objects.PerfilesObject, IMappeablePerfiles, IEquatable<Perfiles>, ICloneable
     {
-       
+
         #region "Ctor"
 
         /// <summary>

@@ -25,6 +25,7 @@ namespace serin_viaticosRules.Objects
         public PerfilesObject(): base()
         {
 
+			_IdPerfil =  ValuesGenerator.GetInt32;
 
         }
 
@@ -104,13 +105,6 @@ protected System.Boolean _Admin;
             get
             {
                 return _IdPerfil;
-            }
-            
-            set
-            {
-                base.PropertyModified();
-                _IdPerfil = value;
-                
             }
             
         }
@@ -269,13 +263,12 @@ _myArray[4] = _Admin;
         object[] IMappeablePerfilesObject.GetFieldsForUpdate()
         {
             
-            object[] _myArray = new object[6];
+            object[] _myArray = new object[5];
             _myArray[0] = _IdPerfil;
 _myArray[1] = _Nombre;
 _myArray[2] = _Activo;
 _myArray[3] = _RequiereAutorizacion;
 _myArray[4] = _Admin;
-_myArray[5] = this.OriginalValue()._IdPerfil;
 
             return _myArray;
         }
@@ -298,7 +291,8 @@ _myArray[5] = this.OriginalValue()._IdPerfil;
         /// </summary>
         void IMappeablePerfilesObject.UpdateObjectFromOutputParams(object[] parameters){
             // Update properties from Output parameters
-            
+            _IdPerfil = (System.Int32) parameters[0];
+
         }
 
 
