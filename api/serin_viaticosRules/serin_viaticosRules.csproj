@@ -79,6 +79,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriasRules.cs" />
+    <Compile Include="UsuariosDependenciaRules.cs" />
+    <Compile Include="PerfilesUsuariosRules.cs" />
     <Compile Include="PerfilesRules.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

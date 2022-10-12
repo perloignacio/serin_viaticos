@@ -211,6 +211,8 @@ reader.GetInt32(2));
         /// <summary>
         /// 
         /// </summary>
+        
+        //LE CAMBIO EL IDUSUARIOPERFIL POR IDUSUARIO
         public PerfilesUsuarios GetOne(System.Int32 IdUsuarioPerfil)
         {
             return base.GetOne(new PerfilesUsuarios(IdUsuarioPerfil));

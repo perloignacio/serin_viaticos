@@ -122,6 +122,8 @@
     <Compile Include="Clases\Helpers.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
     <Compile Include="Clases\TokenValidationHandler.cs" />
+    <Compile Include="Controllers\UsuariosDependenciaController.cs" />
+    <Compile Include="Controllers\PerfilesUsuariosController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\PerfilesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
