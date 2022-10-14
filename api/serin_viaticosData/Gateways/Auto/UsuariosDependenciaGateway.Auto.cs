@@ -191,6 +191,29 @@ reader.GetInt32(2));
 
         //Database Queries 
         
+            
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependenciaObject GetByUsuarioPadreHijo(System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependenciaObject GetByUsuarioPadreHijo(DbTransaction transaction , System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+
+        
 
 
 

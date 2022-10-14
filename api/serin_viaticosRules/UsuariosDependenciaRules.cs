@@ -66,7 +66,13 @@ namespace serin_viaticosRules
         
         private void Validar(int IdUsuarioPadre, int IdUsuarioHijo)
         {
+            UsuariosDependencia ud = UsuariosDependenciaMapper.Instance().GetByUsuarioPadreHijo(IdUsuarioPadre, IdUsuarioHijo);
+            if (ud != null)
+            {
+                throw new Exception("Ya existe esa relacion en la base de datos");
+            }
 
+            //Aca hay que validar por que existan los usuarios como se hace en perfiles.
             if (IdUsuarioPadre == 0) { throw new Exception("Debe ingresar un codigo Padre"); }
             if (IdUsuarioHijo == 0) { throw new Exception("Debe ingresar un codigo Hijo"); }
 

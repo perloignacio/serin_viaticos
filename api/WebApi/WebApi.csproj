@@ -126,11 +126,6 @@
     <Compile Include="Controllers\PerfilesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
-    <Compile Include="dsIntranet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsIntranet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,17 +135,6 @@
   <ItemGroup>
     <Content Include="LazyLoad.Config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dsIntranet.xsc">
-      <DependentUpon>dsIntranet.xsd</DependentUpon>
-    </Content>
-    <None Include="dsIntranet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsIntranet.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="dsIntranet.xss">
-      <DependentUpon>dsIntranet.xsd</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">

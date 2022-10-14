@@ -211,8 +211,6 @@ reader.GetInt32(2));
         /// <summary>
         /// 
         /// </summary>
-        
-        //LE CAMBIO EL IDUSUARIOPERFIL POR IDUSUARIO
         public PerfilesUsuarios GetOne(System.Int32 IdUsuarioPerfil)
         {
             return base.GetOne(new PerfilesUsuarios(IdUsuarioPerfil));
@@ -326,6 +324,29 @@ reader.GetInt32(2));
 
 
         //Database Queries 
+        
+            
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosList GetByUsuario(System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosList GetByUsuario(DbTransaction transaction , System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+
         
 
 
@@ -511,6 +532,17 @@ namespace serin_viaticosRules.Wrappers
 
 
         //Database Queries 
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosList GetByUsuario(System.Int32 IdUsuario) {
+            
+                return Instance().GetByUsuario( IdUsuario);
+        }
+
+
         
 
 
@@ -700,6 +732,27 @@ reader.GetInt32(2));
     
 
         //Database Queries 
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUsuario(System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUsuario(DbTransaction transaction , System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
         
 
 

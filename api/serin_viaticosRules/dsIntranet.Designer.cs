@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace WebApi {
+namespace serin_viaticosRules {
     
     
     /// <summary>
@@ -1115,7 +1115,7 @@ namespace WebApi {
         }
     }
 }
-namespace WebApi.dsIntranetTableAdapters {
+namespace serin_viaticosRules.dsIntranetTableAdapters {
     
     
     /// <summary>

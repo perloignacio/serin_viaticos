@@ -38,14 +38,12 @@ namespace serin_viaticosRules.Entities
         /// <summary>
         /// 
         /// </summary>
-
-        // CAMBIO IdUsuarioPerfil POR IdUsuario
         public PerfilesUsuarios(
 			System.Int32 IdUsuarioPerfil)
             : base()
         {
 
-            _IdUsuarioPerfil = IdUsuarioPerfil;
+			_IdUsuarioPerfil = IdUsuarioPerfil;
 
             if (_PerfilesEntity == null) _PerfilesEntity = new Objects.PerfilesObject();
 

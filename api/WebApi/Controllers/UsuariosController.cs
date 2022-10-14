@@ -1,5 +1,6 @@
 ﻿using Api.Clases;
 using serin_intranetRules;
+using serin_viaticosRules;
 using serin_viaticosRules.Mappers;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace WebApi.Controllers
             try
             {
                 dsIntranet intra = new dsIntranet();
-                dsIntranetTableAdapters.UsuariosTableAdapter usu = new dsIntranetTableAdapters.UsuariosTableAdapter();
+                serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter usu = new serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter();
                 usu.Login(intra.Usuarios, usuario, Utils.Encrypt(contra));
                 if (intra.Usuarios.Rows.Count > 0)
                 {

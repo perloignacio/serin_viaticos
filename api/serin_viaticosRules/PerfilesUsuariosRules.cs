@@ -29,14 +29,13 @@ namespace serin_viaticosRules
         public void Eliminar(int IdUsuario)
         {
             // ELIMINA POR IdUsuarioPerfil pero me parece deberia eliminar por idusuario
-            PerfilesUsuarios pu = PerfilesUsuariosMapper.Instance().GetOne(IdUsuario);
+            PerfilesUsuariosList puList = PerfilesUsuariosMapper.Instance().GetByUsuario(IdUsuario);
 
-            if (pu == null)
+            foreach (var pu in puList)
             {
-                throw new Exception("No se encuentra el Id.");
+                PerfilesUsuariosMapper.Instance().Delete(pu);
             }
             
-            PerfilesUsuariosMapper.Instance().Delete(pu);
 
         }
 
@@ -63,7 +62,10 @@ namespace serin_viaticosRules
         
         private void Validar(int IdUsuario, int IdPerfil)
         {
-
+            dsIntranet intra = new dsIntranet();
+            dsIntranetTableAdapters.UsuariosTableAdapter usu = new dsIntranetTableAdapters.UsuariosTableAdapter();
+            usu.Fill(intra.Usuarios, IdUsuario);
+            if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario"); }
             if (IdUsuario == 0) { throw new Exception("Debe ingresar un codigo de Usuario"); }
             if (IdPerfil == 0) { throw new Exception("Debe ingresar un codigo Perfil"); }
                        

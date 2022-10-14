@@ -262,6 +262,29 @@ reader.GetInt32(2));
 
         //Database Queries 
         
+            
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosObjectList GetByUsuario(System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosObjectList GetByUsuario(DbTransaction transaction , System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+
+        
 
 
 
