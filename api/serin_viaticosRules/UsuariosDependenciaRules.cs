@@ -15,6 +15,21 @@ namespace serin_viaticosRules
         public void Agregar(int IdUsuarioPadre, int IdUsuarioHijo)
         {
             //DEBERIAMOS VER QUE NO PUEDAS INGRESAR UN NRO DE IDusuarioPadre O IDusuarioHijo QUE NO EXISTA
+            //CUANDO INGRESAMOS EL PADRE PODRIAMOS VER QUE NO EXISTA EL HIJO YA CARGADO
+            /*
+            if (UsuariosDependenciaMapper.Instance().GetOne(IdUsuarioPadre) != null)
+            {
+                // throw new Exception("El codigo Usuario padre existe");
+                if (UsuariosDependenciaMapper.Instance().GetOne(IdUsuarioHijo) != null)
+                {
+                    throw new Exception("El codigo Usuario hijo ya existe");
+                }
+
+            }
+            */
+            Validar(IdUsuarioPadre, IdUsuarioHijo);
+
+
             UsuariosDependencia ud = new UsuariosDependencia();
 
             //IdDependenciaUsuario es autonumerico
@@ -65,18 +80,38 @@ namespace serin_viaticosRules
     
         
         private void Validar(int IdUsuarioPadre, int IdUsuarioHijo)
-        {
+        { 
+            //Aca hay que validar por que existan los usuarios como se hace en perfiles.
+            if (IdUsuarioPadre == 0) { throw new Exception("Debe ingresar un codigo Padre"); }
+            if (IdUsuarioHijo == 0) { throw new Exception("Debe ingresar un codigo Hijo"); }
+
+            //aca me fijo que el usuario exista
+            dsIntranet intra = new dsIntranet();
+            dsIntranetTableAdapters.UsuariosTableAdapter usu = new dsIntranetTableAdapters.UsuariosTableAdapter();
+            usu.Fill(intra.Usuarios, IdUsuarioPadre);
+            if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario PADRE"); }
+
+
+            //aca me fijo que el usuario exista
+            dsIntranet intra1 = new dsIntranet();
+            dsIntranetTableAdapters.UsuariosTableAdapter usu1 = new dsIntranetTableAdapters.UsuariosTableAdapter();
+            usu1.Fill(intra1.Usuarios, IdUsuarioHijo);
+            if (intra1.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario HIJO"); }
+
+
+
+
+
+            /*
             UsuariosDependencia ud = UsuariosDependenciaMapper.Instance().GetByUsuarioPadreHijo(IdUsuarioPadre, IdUsuarioHijo);
             if (ud != null)
             {
                 throw new Exception("Ya existe esa relacion en la base de datos");
             }
+            */
+           
 
-            //Aca hay que validar por que existan los usuarios como se hace en perfiles.
-            if (IdUsuarioPadre == 0) { throw new Exception("Debe ingresar un codigo Padre"); }
-            if (IdUsuarioHijo == 0) { throw new Exception("Debe ingresar un codigo Hijo"); }
-
-            
+            //ARIEL 2 - PRADO 2473
 
         }
         

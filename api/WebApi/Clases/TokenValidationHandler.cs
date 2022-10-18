@@ -36,7 +36,7 @@ namespace Api.Clases
         {
             HttpStatusCode statusCode;
             string token;
-
+            
             // determine whether a jwt exists or not
             
             if (!TryRetrieveToken(request, out token))
