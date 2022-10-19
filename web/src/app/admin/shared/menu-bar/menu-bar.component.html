@@ -19,6 +19,14 @@
           <div class="vsm-list">
             <div class="vsm-header">Gestión</div>
             <div class="vsm-item">
+              <a [routerLink]="'categorias'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
+                <i class="vsm-icon pe-7s-browser"></i>
+                <span class="vsm-title">Categorías</span>
+              </a>
+              <a [routerLink]="'perfiles'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
+                <i class="vsm-icon pe-7s-browser"></i>
+                <span class="vsm-title">Perfiles</span>
+              </a>
               <a [routerLink]="'proyectos'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
                 <i class="vsm-icon pe-7s-browser"></i>
                 <span class="vsm-title">Proyectos</span>

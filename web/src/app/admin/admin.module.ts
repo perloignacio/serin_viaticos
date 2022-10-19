@@ -13,6 +13,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LightboxModule } from 'ngx-lightbox';
 import { FileSaverModule } from 'ngx-filesaver';
 import { PerfilesComponent } from './components/perfiles/perfiles.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles-listado.component';
+import { CategoriasListadoComponent } from './components/categorias-listado/categorias-listado.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { PerfilesComponent } from './components/perfiles/perfiles.component';
     TopComponent,
     MenuBarComponent,
     MainComponent,
-    PerfilesComponent
+    PerfilesComponent,
+    CategoriasComponent,
+    PerfilesListadoComponent,
+    CategoriasListadoComponent
    
   ],
   exports:[

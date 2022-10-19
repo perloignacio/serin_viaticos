@@ -1,0 +1,50 @@
+<div class="app-page-title">
+  <div class="page-title-wrapper">
+    <div class="page-title-heading">
+
+      <div>
+        Perfiles
+        <div
+          class="page-title-subheading">
+          Agregar / Editar
+        </div>
+      </div>
+    </div>
+    <div class="page-title-actions">
+      <button type="button" (click)="Volver()" class="btn-shadow d-inline-flex align-items-center btn btn-dark">
+        Volver
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card-body">
+  <form>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="position-relative form-group mt-2">
+          <label for="exampleEmail11">Nombre</label>
+          <input type="text" [(ngModel)]="obj.Nombre" name="Nombre" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="position-relative form-group mt-2">
+          <label for="exampleEmail11">Requiere Autorización</label>
+          <input type="checkbox" [(ngModel)]="obj.RequiereAutorizacion" name="RequiereAutorizacion" class="form-check">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="position-relative form-group mt-2">
+          <label for="exampleEmail11">Admin</label>
+          <input type="checkbox" [(ngModel)]="obj.Admin" name="Admin" class="form-check">
+        </div>
+      </div>
+    </div>
+    
+    
+    <button class="mt-2 btn btn-success" (click)="Guardar()">Guardar cambios</button>
+  </form>
+</div>

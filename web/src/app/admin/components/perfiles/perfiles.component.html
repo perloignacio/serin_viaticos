@@ -1,64 +1,73 @@
-<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+
 <div class="app-page-title">
-    <div class="page-title-wrapper">
-      <div class="page-title-heading">
-  
-        <div>
-         Perfiles
-          <div
-            class="page-title-subheading">
-            Listado
-          </div>
+  <div class="page-title-wrapper">
+    <div class="page-title-heading">
+
+      <div>
+       Perfiles
+        <div
+          class="page-title-subheading">
+          Listado
         </div>
       </div>
-      <div class="page-title-actions">
-        
-      </div>
+    </div>
+    <div class="page-title-actions">
+      <button type="button" (click)="Nuevo()" class="btn-shadow d-inline-flex align-items-center btn btn-success">
+        Nuevo
+      </button>
     </div>
   </div>
-  
-  
-  <div class="main-card mb-3 card">
-    <div class="card-header">
-      <div class="row">
+</div>
+
+
+<div class="main-card mb-3 card">
+  <div class="card-header">
+    <div class="row">
         <div class="col-md-8">
           Perfiles
         </div>
         <div class="col-md-4 text-right">
-            <input type="text" class="form-control" placeholder="Filtro" >
+            <input type="text" class="form-control" placeholder="Filtro" [(ngModel)]="strFiltro" (keyup)="Filtro()">
         </div>
-      </div>
     </div>
+  </div>
   
-    <div class="table-responsive">
-        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
-            <thead>
-                <tr>
-                <th class="text-center">Id</th>
-                <th class="text-center">Nombre</th>
-                <th>Activo</th>
-                <th>Requiere Aut</th>
-                <th>Admin</th>
-                <th class="text-center">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-      
-                <tr>
-                    
-                </tr>
-            </tbody>
-          </table>
-    </div>
+  <div class="table-responsive">
+    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+      <thead>
+      <tr>
+        <th class="text-center">#ID</th>
+        <th>Nombre</th>
+        <th class="text-center" >Activo</th>
+        <th>Requiere Autorización</th>
+        <th>Admin</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let obj of ArrObj;">
+        <td class="text-center text-muted">#{{obj.IdPerfil}}</td>
+        <td>{{obj.Nombre}}</td>
+        <td class="text-center">{{obj.Activo ? 'Si':'NO'}}</td>
+        <td class="text-center">{{obj.RequiereAutorizacion ? 'Si':'NO'}}</td>
+        <td class="text-center">{{obj.Admin ? 'Si':'NO'}}</td>
+        <td class="text-center">
+
+          <i class="fas fa-trash me-2" role="button" (click)="Borrar(obj)" *ngIf="this.obj.Activo"></i>
+          <i class="fas fa-check me-2" role="button" (click)="Activar(obj)" *ngIf="!this.obj.Activo"></i>
+          <i class="fas fa-edit me-2" role="button" (click)="Editar(obj)"></i>
+         
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
     <div class="d-flex justify-content-between p-2">
       <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshData()">
       </ngb-pagination>
     </div>
-    <!--<div class="d-block text-center card-footer">
-      <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
-        <i class="pe-7s-trash btn-icon-wrapper"> </i>
-      </button>
-      <button class="btn-wide btn btn-success">Save</button>
-    </div>-->
   </div>
+</div>
+
   
