@@ -253,6 +253,29 @@ reader.GetInt32(2));
 
         //Database Queries 
         
+            
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependencia GetByUsuarioPadreHijo(System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependencia GetByUsuarioPadreHijo(DbTransaction transaction , System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+
+        
 
 
         #region IGenericGateway
@@ -401,6 +424,17 @@ namespace serin_viaticosRules.Wrappers
 
 
         //Database Queries 
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependencia GetByUsuarioPadreHijo(System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
+            
+                return Instance().GetByUsuarioPadreHijo( IdUsuarioPadre, IdUsuarioHijo);
+        }
+
+
         
 
 
@@ -554,6 +588,27 @@ reader.GetInt32(2));
         
 
         //Database Queries 
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public T GetByUsuarioPadreHijo(System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public T GetByUsuarioPadreHijo(DbTransaction transaction , System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
         
 
 

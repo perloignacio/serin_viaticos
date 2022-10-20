@@ -25,7 +25,7 @@ namespace serin_viaticosRules.Objects
         public PerfilesUsuariosObject(): base()
         {
 
-			_IdUsuarioPerfil =  ValuesGenerator.GetInt32;
+			_IdUsuario =  ValuesGenerator.GetInt32;
 
         }
 

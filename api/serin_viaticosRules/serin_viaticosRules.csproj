@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +80,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriasRules.cs" />
+    <Compile Include="dsIntranet.Designer.cs">
+      <DependentUpon>dsIntranet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="UsuariosDependenciaRules.cs" />
+    <Compile Include="PerfilesUsuariosRules.cs" />
     <Compile Include="PerfilesRules.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dsIntranet.xsc">
+      <DependentUpon>dsIntranet.xsd</DependentUpon>
+    </Content>
+    <None Include="dsIntranet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsIntranet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dsIntranet.xss">
+      <DependentUpon>dsIntranet.xsd</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

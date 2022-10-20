@@ -211,9 +211,9 @@ reader.GetInt32(2));
         /// <summary>
         /// 
         /// </summary>
-        public PerfilesUsuarios GetOne(System.Int32 IdUsuarioPerfil)
+        public PerfilesUsuarios GetOne(System.Int32 IdUsuario)
         {
-            return base.GetOne(new PerfilesUsuarios(IdUsuarioPerfil));
+            return base.GetOne(new PerfilesUsuarios(IdUsuario));
         }
 
 
@@ -325,6 +325,29 @@ reader.GetInt32(2));
 
         //Database Queries 
         
+            
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosList GetByUsuario(System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosList GetByUsuario(DbTransaction transaction , System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+
+        
 
 
         #region IGenericGateway
@@ -388,8 +411,8 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Get a PerfilesUsuariosEntity by calling a Stored Procedure
         /// </summary>
-        public Entities.PerfilesUsuarios GetOne(System.Int32 IdUsuarioPerfil) {
-            return Instance().GetOne( IdUsuarioPerfil);
+        public Entities.PerfilesUsuarios GetOne(System.Int32 IdUsuario) {
+            return Instance().GetOne( IdUsuario);
         }
 
         // GetBy Objects and Params
@@ -509,6 +532,17 @@ namespace serin_viaticosRules.Wrappers
 
 
         //Database Queries 
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public PerfilesUsuariosList GetByUsuario(System.Int32 IdUsuario) {
+            
+                return Instance().GetByUsuario( IdUsuario);
+        }
+
+
         
 
 
@@ -646,9 +680,9 @@ reader.GetInt32(2));
         /// <summary>
         /// GetOne By Params
         /// </summary>
-        public T GetOne(System.Int32 IdUsuarioPerfil)
+        public T GetOne(System.Int32 IdUsuario)
         {
-            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetOne", IdUsuarioPerfil);
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetOne", IdUsuario);
         }
 
 
@@ -698,6 +732,27 @@ reader.GetInt32(2));
     
 
         //Database Queries 
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUsuario(System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUsuario(DbTransaction transaction , System.Int32 IdUsuario) {
+            
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            
+        }
+
         
 
 

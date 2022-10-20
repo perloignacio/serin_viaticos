@@ -39,11 +39,11 @@ namespace serin_viaticosRules.Entities
         /// 
         /// </summary>
         public PerfilesUsuarios(
-			System.Int32 IdUsuarioPerfil)
+			System.Int32 IdUsuario)
             : base()
         {
 
-			_IdUsuarioPerfil = IdUsuarioPerfil;
+			_IdUsuario = IdUsuario;
 
             if (_PerfilesEntity == null) _PerfilesEntity = new Objects.PerfilesObject();
 
