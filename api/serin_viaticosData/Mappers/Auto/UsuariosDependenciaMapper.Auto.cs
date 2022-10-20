@@ -64,7 +64,7 @@ namespace serin_viaticosRules.Mappers
         public string[] GetPKPropertiesNames()
         {
             
-            string[] s ={"IdDependenciaUsuario"};
+            string[] s ={"IdUsuarioDependencia"};
             return s;
         }
         /// <summary>
@@ -211,9 +211,9 @@ reader.GetInt32(2));
         /// <summary>
         /// 
         /// </summary>
-        public UsuariosDependencia GetOne(System.Int32 IdDependenciaUsuario)
+        public UsuariosDependencia GetOne(System.Int32 IdUsuarioDependencia)
         {
-            return base.GetOne(new UsuariosDependencia(IdDependenciaUsuario));
+            return base.GetOne(new UsuariosDependencia(IdUsuarioDependencia));
         }
 
 
@@ -229,17 +229,17 @@ reader.GetInt32(2));
         /// <summary>
         /// 
         /// </summary>
-        public void Delete(System.Int32 IdDependenciaUsuario)
+        public void Delete(System.Int32 IdUsuarioDependencia)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdDependenciaUsuario);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdUsuarioDependencia);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void Delete(DbTransaction transaction, System.Int32 IdDependenciaUsuario)
+        public void Delete(DbTransaction transaction, System.Int32 IdUsuarioDependencia)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdDependenciaUsuario);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdUsuarioDependencia);
         }
 
 
@@ -271,6 +271,29 @@ reader.GetInt32(2));
         public UsuariosDependencia GetByUsuarioPadreHijo(DbTransaction transaction , System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
             
             return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+
+        
+            
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependencia GetPadreByHijo(System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetPadreByHijo" , IdUsuarioHijo);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependencia GetPadreByHijo(DbTransaction transaction , System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetPadreByHijo" , IdUsuarioHijo);
             
         }
 
@@ -339,8 +362,8 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Get a UsuariosDependenciaEntity by calling a Stored Procedure
         /// </summary>
-        public Entities.UsuariosDependencia GetOne(System.Int32 IdDependenciaUsuario) {
-            return Instance().GetOne( IdDependenciaUsuario);
+        public Entities.UsuariosDependencia GetOne(System.Int32 IdUsuarioDependencia) {
+            return Instance().GetOne( IdUsuarioDependencia);
         }
 
         // GetBy Objects and Params
@@ -366,8 +389,8 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Delete UsuariosDependencia 
         /// </summary>
-        public void Delete(System.Int32 IdDependenciaUsuario){
-            Instance().Delete(IdDependenciaUsuario);
+        public void Delete(System.Int32 IdUsuarioDependencia){
+            Instance().Delete(IdUsuarioDependencia);
         }
 
         /// <summary>
@@ -401,10 +424,10 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Save UsuariosDependencia 
         /// </summary>
-        public void Save(System.Int32 IdDependenciaUsuario, System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo){
-            Entities.UsuariosDependencia entity = Instance().GetOne(IdDependenciaUsuario);
+        public void Save(System.Int32 IdUsuarioDependencia, System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo){
+            Entities.UsuariosDependencia entity = Instance().GetOne(IdUsuarioDependencia);
             if (entity == null)
-                throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdDependenciaUsuario", IdDependenciaUsuario));
+                throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdUsuarioDependencia", IdUsuarioDependencia));
 
             entity.IdUsuarioPadre = IdUsuarioPadre;
             entity.IdUsuarioHijo = IdUsuarioHijo;
@@ -432,6 +455,17 @@ namespace serin_viaticosRules.Wrappers
         public UsuariosDependencia GetByUsuarioPadreHijo(System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
             
                 return Instance().GetByUsuarioPadreHijo( IdUsuarioPadre, IdUsuarioHijo);
+        }
+
+
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependencia GetPadreByHijo(System.Int32 IdUsuarioHijo) {
+            
+                return Instance().GetPadreByHijo( IdUsuarioHijo);
         }
 
 
@@ -490,7 +524,7 @@ namespace serin_viaticosRules.Loaders
         public string[] GetPKPropertiesNames()
         {
             
-            string[] s ={"IdDependenciaUsuario"};
+            string[] s ={"IdUsuarioDependencia"};
             return s;
         }
         /// <summary>
@@ -572,9 +606,9 @@ reader.GetInt32(2));
         /// <summary>
         /// GetOne By Params
         /// </summary>
-        public T GetOne(System.Int32 IdDependenciaUsuario)
+        public T GetOne(System.Int32 IdUsuarioDependencia)
         {
-            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetOne", IdDependenciaUsuario);
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetOne", IdUsuarioDependencia);
         }
 
 
@@ -606,6 +640,27 @@ reader.GetInt32(2));
         public T GetByUsuarioPadreHijo(DbTransaction transaction , System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
             
             return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+        
+            
+        /// <summary>
+        /// 
+        /// </summary>
+        public T GetPadreByHijo(System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetPadreByHijo" , IdUsuarioHijo);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public T GetPadreByHijo(DbTransaction transaction , System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetPadreByHijo" , IdUsuarioHijo);
             
         }
 

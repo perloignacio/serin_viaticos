@@ -14,25 +14,13 @@ namespace serin_viaticosRules
      
         public void Agregar(int IdUsuarioPadre, int IdUsuarioHijo)
         {
-            //DEBERIAMOS VER QUE NO PUEDAS INGRESAR UN NRO DE IDusuarioPadre O IDusuarioHijo QUE NO EXISTA
-            //CUANDO INGRESAMOS EL PADRE PODRIAMOS VER QUE NO EXISTA EL HIJO YA CARGADO
-            /*
-            if (UsuariosDependenciaMapper.Instance().GetOne(IdUsuarioPadre) != null)
-            {
-                // throw new Exception("El codigo Usuario padre existe");
-                if (UsuariosDependenciaMapper.Instance().GetOne(IdUsuarioHijo) != null)
-                {
-                    throw new Exception("El codigo Usuario hijo ya existe");
-                }
-
-            }
-            */
+            
             Validar(IdUsuarioPadre, IdUsuarioHijo);
 
 
             UsuariosDependencia ud = new UsuariosDependencia();
 
-            //IdDependenciaUsuario es autonumerico
+           
 
             ud.IdUsuarioPadre = IdUsuarioPadre;
             ud.IdUsuarioHijo = IdUsuarioHijo;
@@ -43,8 +31,7 @@ namespace serin_viaticosRules
                 
         public void Eliminar(int IdDependenciaUsuario)
         {
-            // ELIMINA POR IdDependenciaUsuario pero me parece deberia eliminar por idusuariohijo tambien idusuariopadre que eliminaria todos los hijos
-            //hay que ver si un hijo puede tener vs padres
+           
             UsuariosDependencia ud = UsuariosDependenciaMapper.Instance().GetOne(IdDependenciaUsuario);
 
             if (ud == null)
@@ -93,23 +80,27 @@ namespace serin_viaticosRules
 
 
             //aca me fijo que el usuario exista
-            dsIntranet intra1 = new dsIntranet();
-            dsIntranetTableAdapters.UsuariosTableAdapter usu1 = new dsIntranetTableAdapters.UsuariosTableAdapter();
-            usu1.Fill(intra1.Usuarios, IdUsuarioHijo);
-            if (intra1.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario HIJO"); }
+            usu.Fill(intra.Usuarios, IdUsuarioHijo);
+            if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario HIJO"); }
 
 
 
 
 
-            /*
+            
             UsuariosDependencia ud = UsuariosDependenciaMapper.Instance().GetByUsuarioPadreHijo(IdUsuarioPadre, IdUsuarioHijo);
             if (ud != null)
             {
                 throw new Exception("Ya existe esa relacion en la base de datos");
             }
-            */
-           
+
+            ud = UsuariosDependenciaMapper.Instance().GetPadreByHijo(IdUsuarioHijo);
+            if (ud != null)
+            {
+                throw new Exception("El usuario ya tiene asignado un responsable");
+            }
+
+
 
             //ARIEL 2 - PRADO 2473
 

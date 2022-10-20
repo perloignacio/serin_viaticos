@@ -31,7 +31,7 @@ namespace serin_viaticosRules.Entities
         public PerfilesUsuarios()
             :base()
         {
-            if (_PerfilesEntity == null) _PerfilesEntity = new Objects.PerfilesObject();
+            if (_PerfilesEntity == null) _PerfilesEntity = new Entities.Perfiles();
 
         }
 
@@ -39,13 +39,13 @@ namespace serin_viaticosRules.Entities
         /// 
         /// </summary>
         public PerfilesUsuarios(
-			System.Int32 IdUsuario)
+			System.Int32 IdUsuarioPerfil)
             : base()
         {
 
-			_IdUsuario = IdUsuario;
+			_IdUsuarioPerfil = IdUsuarioPerfil;
 
-            if (_PerfilesEntity == null) _PerfilesEntity = new Objects.PerfilesObject();
+            if (_PerfilesEntity == null) _PerfilesEntity = new Entities.Perfiles();
 
             Initialized();
         }
@@ -66,7 +66,7 @@ namespace serin_viaticosRules.Entities
 			_IdUsuario = IdUsuario;
 			_IdPerfil = IdPerfil;
 
-            if (_PerfilesEntity == null) _PerfilesEntity = new Objects.PerfilesObject();
+            if (_PerfilesEntity == null) _PerfilesEntity = new Entities.Perfiles();
 
             Initialized();
         }
@@ -78,7 +78,7 @@ namespace serin_viaticosRules.Entities
         /// <summary>
 /// 
 /// </summary>
-protected Objects.PerfilesObject _PerfilesEntity;
+protected Entities.Perfiles _PerfilesEntity;
 
         #endregion
 
@@ -89,15 +89,15 @@ bool _PerfilesEntityFetched;
         /// <summary>
         /// 
         /// </summary>
-        public virtual Objects.PerfilesObject PerfilesEntity
+        public virtual Entities.Perfiles PerfilesEntity
         {
             get
             {
                 if (_PerfilesEntity== null  && ! _PerfilesEntityFetched ) {
 _PerfilesEntityFetched = true;
-Objects.PerfilesObject _PerfilesEntityTemp = new Objects.PerfilesObject(this.IdPerfil); 
-ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Objects.PerfilesObject));
- _PerfilesEntity = lazyProvider.GetEntity(typeof(Objects.PerfilesObject), _PerfilesEntityTemp) as Objects.PerfilesObject;
+Entities.Perfiles _PerfilesEntityTemp = new Entities.Perfiles(this.IdPerfil); 
+ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Perfiles));
+ _PerfilesEntity = lazyProvider.GetEntity(typeof(Entities.Perfiles), _PerfilesEntityTemp) as Entities.Perfiles;
 }
 
                 return _PerfilesEntity;
@@ -140,7 +140,7 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Objects.PerfilesObje
                          
             if (this._PerfilesEntity != null)
             {
-                newObject._PerfilesEntity = (Objects.PerfilesObject)((ICloneable)this._PerfilesEntity).Clone();
+                newObject._PerfilesEntity = (Entities.Perfiles)((ICloneable)this._PerfilesEntity).Clone();
             }
             
             // Colections
@@ -154,7 +154,7 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Objects.PerfilesObje
                              
                 if (this.OriginalValue()._PerfilesEntity != null)
                 {
-                    newOriginalValue._PerfilesEntity = (Objects.PerfilesObject)((ICloneable)this.OriginalValue()._PerfilesEntity).Clone();
+                    newOriginalValue._PerfilesEntity = (Entities.Perfiles)((ICloneable)this.OriginalValue()._PerfilesEntity).Clone();
                 }
                 
                 // Colections
@@ -170,7 +170,7 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Objects.PerfilesObje
         /// <summary>
         /// 
         /// </summary>
-        void IMappeablePerfilesUsuarios.CompleteEntity(Objects.PerfilesObject PerfilesEntity)
+        void IMappeablePerfilesUsuarios.CompleteEntity(Entities.Perfiles PerfilesEntity)
         {
         _PerfilesEntity = PerfilesEntity;
         }
@@ -207,7 +207,7 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Objects.PerfilesObje
         /// <summary>
         /// 
         /// </summary>
-        void CompleteEntity(Objects.PerfilesObject PerfilesEntity);
+        void CompleteEntity(Entities.Perfiles PerfilesEntity);
         
         /// <summary>
         /// 

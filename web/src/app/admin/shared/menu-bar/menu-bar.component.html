@@ -17,22 +17,40 @@
       <perfect-scrollbar [autoPropagation]="true">
         <div class="v-sidebar-menu vsm-default">
           <div class="vsm-list">
-            <div class="vsm-header">Gestión</div>
+            <div class="vsm-header">Gestión viaticos</div>
+            
             <div class="vsm-item">
               <a [routerLink]="'categorias'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
                 <i class="vsm-icon pe-7s-browser"></i>
-                <span class="vsm-title">Categorías</span>
+                <span class="vsm-title">Solicitudes</span>
               </a>
-              <a [routerLink]="'perfiles'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
-                <i class="vsm-icon pe-7s-browser"></i>
-                <span class="vsm-title">Perfiles</span>
-              </a>
-              <a [routerLink]="'proyectos'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
-                <i class="vsm-icon pe-7s-browser"></i>
-                <span class="vsm-title">Proyectos</span>
-              </a>
+              
             </div>
+              
+            <div class="vsm-link"(click)="isCollapsed = ! isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+              <i class="vsm-icon pe-7s-browser"></i> Configuración 
+            </div>
+            <div class="vsm-dropdown collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" >
+              <div class="vsm-list">
+                <div class="vsm-item">
+                  <a [routerLink]="'categorias'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
+                    
+                    <span class="vsm-title">Categorías</span>
+                  </a>
+                </div>
+                <div class="vsm-item">
+                  <a [routerLink]="'perfiles'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
+                    
+                    <span class="vsm-title">Perfiles</span>
+                  </a>
+                </div>
+                
+              </div>
+            </div>
+
             
+              
+           
             <div class="vsm-item itemsalir">
               <a (click)="Salir()" role="button"  class="vsm-link">
                 <i class="vsm-icon pe-7s-browser"></i>

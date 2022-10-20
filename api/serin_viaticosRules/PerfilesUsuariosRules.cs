@@ -48,12 +48,9 @@ namespace serin_viaticosRules
         public void Eliminar(int IdUsuario)
         {
             // ELIMINA POR IdUsuarioPerfil pero me parece deberia eliminar por idusuario
-            PerfilesUsuariosList puList = PerfilesUsuariosMapper.Instance().GetByUsuario(IdUsuario);
-
-            foreach (var pu in puList)
-            {
-                PerfilesUsuariosMapper.Instance().Delete(pu);
-            }
+            PerfilesUsuarios pu = PerfilesUsuariosMapper.Instance().GetByUsuario(IdUsuario);
+            PerfilesUsuariosMapper.Instance().Delete(pu);
+            
             
 
         }

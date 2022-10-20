@@ -154,9 +154,9 @@ reader.GetInt32(2));
         /// <summary>
         /// Get a UsuariosDependenciaObject by calling a Stored Procedure
         /// </summary>
-        public UsuariosDependenciaObject GetOne(System.Int32 IdDependenciaUsuario)
+        public UsuariosDependenciaObject GetOne(System.Int32 IdUsuarioDependencia)
         {
-            return base.GetOne(new UsuariosDependenciaObject(IdDependenciaUsuario));
+            return base.GetOne(new UsuariosDependenciaObject(IdUsuarioDependencia));
         }
 
 
@@ -171,17 +171,17 @@ reader.GetInt32(2));
         /// <summary>
         /// Delete UsuariosDependencia
         /// </summary>
-        public void Delete(System.Int32 IdDependenciaUsuario)
+        public void Delete(System.Int32 IdUsuarioDependencia)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdDependenciaUsuario);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdUsuarioDependencia);
         }
 
         /// <summary>
         /// Delete UsuariosDependencia
         /// </summary>
-        public void Delete(DbTransaction transaction, System.Int32 IdDependenciaUsuario)
+        public void Delete(DbTransaction transaction, System.Int32 IdUsuarioDependencia)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdDependenciaUsuario);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_Delete", IdUsuarioDependencia);
         }
 
             
@@ -209,6 +209,29 @@ reader.GetInt32(2));
         public UsuariosDependenciaObject GetByUsuarioPadreHijo(DbTransaction transaction , System.Int32 IdUsuarioPadre, System.Int32 IdUsuarioHijo) {
             
             return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetByUsuarioPadreHijo" , IdUsuarioPadre, IdUsuarioHijo);
+            
+        }
+
+
+        
+            
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependenciaObject GetPadreByHijo(System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "UsuariosDependencia_GetPadreByHijo" , IdUsuarioHijo);
+            
+        }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public UsuariosDependenciaObject GetPadreByHijo(DbTransaction transaction , System.Int32 IdUsuarioHijo) {
+            
+            return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "UsuariosDependencia_GetPadreByHijo" , IdUsuarioHijo);
             
         }
 

@@ -79,7 +79,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoriasRules.cs" />
+    <Compile Include="SolicitudesCategoriasRules.cs" />
     <Compile Include="dsIntranet.Designer.cs">
       <DependentUpon>dsIntranet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>

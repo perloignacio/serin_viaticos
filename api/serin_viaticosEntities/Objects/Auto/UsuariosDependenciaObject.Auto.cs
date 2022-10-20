@@ -25,7 +25,7 @@ namespace serin_viaticosRules.Objects
         public UsuariosDependenciaObject(): base()
         {
 
-			_IdDependenciaUsuario =  ValuesGenerator.GetInt32;
+			_IdUsuarioDependencia =  ValuesGenerator.GetInt32;
 
         }
 
@@ -33,10 +33,10 @@ namespace serin_viaticosRules.Objects
         /// 
         /// </summary>
         public UsuariosDependenciaObject(
-			System.Int32 IdDependenciaUsuario): base()
+			System.Int32 IdUsuarioDependencia): base()
         {
 
-			_IdDependenciaUsuario = IdDependenciaUsuario;
+			_IdUsuarioDependencia = IdUsuarioDependencia;
 
             Initialized();
         }
@@ -46,12 +46,12 @@ namespace serin_viaticosRules.Objects
         /// 
         /// </summary>
         public UsuariosDependenciaObject(
-			System.Int32 IdDependenciaUsuario,
+			System.Int32 IdUsuarioDependencia,
 			System.Int32 IdUsuarioPadre,
 			System.Int32 IdUsuarioHijo): base()
         {
 
-			_IdDependenciaUsuario = IdDependenciaUsuario;
+			_IdUsuarioDependencia = IdUsuarioDependencia;
 			_IdUsuarioPadre = IdUsuarioPadre;
 			_IdUsuarioHijo = IdUsuarioHijo;
 
@@ -71,7 +71,7 @@ namespace serin_viaticosRules.Objects
             /// <summary>
 /// 
 /// </summary>
-protected System.Int32 _IdDependenciaUsuario;
+protected System.Int32 _IdUsuarioDependencia;
 /// <summary>
 /// 
 /// </summary>
@@ -88,11 +88,11 @@ protected System.Int32 _IdUsuarioHijo;
         /// <summary>
         /// 
         /// </summary>
-        public virtual System.Int32 IdDependenciaUsuario
+        public virtual System.Int32 IdUsuarioDependencia
         {
             get
             {
-                return _IdDependenciaUsuario;
+                return _IdUsuarioDependencia;
             }
             
         }
@@ -179,11 +179,11 @@ protected System.Int32 _IdUsuarioHijo;
         /// 
         /// </summary>
         void IMappeableUsuariosDependenciaObject.HydrateFields(
-			System.Int32 IdDependenciaUsuario,
+			System.Int32 IdUsuarioDependencia,
 			System.Int32 IdUsuarioPadre,
 			System.Int32 IdUsuarioHijo)
         {
-        _IdDependenciaUsuario = IdDependenciaUsuario;
+        _IdUsuarioDependencia = IdUsuarioDependencia;
 _IdUsuarioPadre = IdUsuarioPadre;
 _IdUsuarioHijo = IdUsuarioHijo;
         }
@@ -194,7 +194,7 @@ _IdUsuarioHijo = IdUsuarioHijo;
         object[] IMappeableUsuariosDependenciaObject.GetFieldsForInsert()
         {
             object[] _myArray = new object[3];
-            _myArray[0] = _IdDependenciaUsuario;
+            _myArray[0] = _IdUsuarioDependencia;
 _myArray[1] = _IdUsuarioPadre;
 _myArray[2] = _IdUsuarioHijo;
 
@@ -208,7 +208,7 @@ _myArray[2] = _IdUsuarioHijo;
         {
             
             object[] _myArray = new object[3];
-            _myArray[0] = _IdDependenciaUsuario;
+            _myArray[0] = _IdUsuarioDependencia;
 _myArray[1] = _IdUsuarioPadre;
 _myArray[2] = _IdUsuarioHijo;
 
@@ -222,7 +222,7 @@ _myArray[2] = _IdUsuarioHijo;
         {
             
             object[] _myArray = new object[1];
-            _myArray[0] = _IdDependenciaUsuario;
+            _myArray[0] = _IdUsuarioDependencia;
 
             return _myArray;
         }
@@ -233,7 +233,7 @@ _myArray[2] = _IdUsuarioHijo;
         /// </summary>
         void IMappeableUsuariosDependenciaObject.UpdateObjectFromOutputParams(object[] parameters){
             // Update properties from Output parameters
-            _IdDependenciaUsuario = (System.Int32) parameters[0];
+            _IdUsuarioDependencia = (System.Int32) parameters[0];
 
         }
 
@@ -250,7 +250,7 @@ _myArray[2] = _IdUsuarioHijo;
                 o = this;
 
             return new object[]
-            {o.IdDependenciaUsuario};
+            {o.IdUsuarioDependencia};
         }
 
 
@@ -272,7 +272,7 @@ _myArray[2] = _IdUsuarioHijo;
         /// <summary>
         /// 
         /// </summary>
-        void HydrateFields(System.Int32 IdDependenciaUsuario, 
+        void HydrateFields(System.Int32 IdUsuarioDependencia, 
 			System.Int32 IdUsuarioPadre, 
 			System.Int32 IdUsuarioHijo);
 

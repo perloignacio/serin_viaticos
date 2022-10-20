@@ -38,11 +38,11 @@ namespace serin_viaticosRules.Entities
         /// 
         /// </summary>
         public UsuariosDependencia(
-			System.Int32 IdDependenciaUsuario)
+			System.Int32 IdUsuarioDependencia)
             : base()
         {
 
-			_IdDependenciaUsuario = IdDependenciaUsuario;
+			_IdUsuarioDependencia = IdUsuarioDependencia;
 
             
             Initialized();
@@ -54,13 +54,13 @@ namespace serin_viaticosRules.Entities
         /// 
         /// </summary>
         public UsuariosDependencia(
-			System.Int32 IdDependenciaUsuario,
+			System.Int32 IdUsuarioDependencia,
 			System.Int32 IdUsuarioPadre,
 			System.Int32 IdUsuarioHijo)
             : base()
         {
 
-			_IdDependenciaUsuario = IdDependenciaUsuario;
+			_IdUsuarioDependencia = IdUsuarioDependencia;
 			_IdUsuarioPadre = IdUsuarioPadre;
 			_IdUsuarioHijo = IdUsuarioHijo;
 

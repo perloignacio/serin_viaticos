@@ -43,9 +43,21 @@ namespace serin_viaticosRules.LazyProviders
                     {
                         DefaultLazyProvider._mappersCache = new Dictionary<string, IGenericGateway>();
                         
-                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.CategoriasGasto", serin_viaticosRules.Mappers.CategoriasGastoMapper.Instance());
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.Configuraciones", serin_viaticosRules.Mappers.ConfiguracionesMapper.Instance());
                         
-                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.CategoriasGastoObject", serin_viaticosRules.Gateways.CategoriasGastoGateway.Instance());
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.ConfiguracionesObject", serin_viaticosRules.Gateways.ConfiguracionesGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.Hoteles", serin_viaticosRules.Mappers.HotelesMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.HotelesObject", serin_viaticosRules.Gateways.HotelesGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.Itinerario", serin_viaticosRules.Mappers.ItinerarioMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.ItinerarioObject", serin_viaticosRules.Gateways.ItinerarioGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.ItinerarioDetalle", serin_viaticosRules.Mappers.ItinerarioDetalleMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.ItinerarioDetalleObject", serin_viaticosRules.Gateways.ItinerarioDetalleGateway.Instance());
                     
                         DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.Perfiles", serin_viaticosRules.Mappers.PerfilesMapper.Instance());
                         
@@ -54,6 +66,42 @@ namespace serin_viaticosRules.LazyProviders
                         DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.PerfilesUsuarios", serin_viaticosRules.Mappers.PerfilesUsuariosMapper.Instance());
                         
                         DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.PerfilesUsuariosObject", serin_viaticosRules.Gateways.PerfilesUsuariosGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.ReservasAereos", serin_viaticosRules.Mappers.ReservasAereosMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.ReservasAereosObject", serin_viaticosRules.Gateways.ReservasAereosGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.ReservasAlquilerAuto", serin_viaticosRules.Mappers.ReservasAlquilerAutoMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.ReservasAlquilerAutoObject", serin_viaticosRules.Gateways.ReservasAlquilerAutoGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.ReservasHotel", serin_viaticosRules.Mappers.ReservasHotelMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.ReservasHotelObject", serin_viaticosRules.Gateways.ReservasHotelGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.Solicitudes", serin_viaticosRules.Mappers.SolicitudesMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.SolicitudesObject", serin_viaticosRules.Gateways.SolicitudesGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.SolicitudesCategorias", serin_viaticosRules.Mappers.SolicitudesCategoriasMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.SolicitudesCategoriasObject", serin_viaticosRules.Gateways.SolicitudesCategoriasGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.SolicitudesDetalle", serin_viaticosRules.Mappers.SolicitudesDetalleMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.SolicitudesDetalleObject", serin_viaticosRules.Gateways.SolicitudesDetalleGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.SolicitudesEstados", serin_viaticosRules.Mappers.SolicitudesEstadosMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.SolicitudesEstadosObject", serin_viaticosRules.Gateways.SolicitudesEstadosGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.SolicitudesUsuarios", serin_viaticosRules.Mappers.SolicitudesUsuariosMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.SolicitudesUsuariosObject", serin_viaticosRules.Gateways.SolicitudesUsuariosGateway.Instance());
+                    
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.Ubicaciones", serin_viaticosRules.Mappers.UbicacionesMapper.Instance());
+                        
+                        DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Objects.UbicacionesObject", serin_viaticosRules.Gateways.UbicacionesGateway.Instance());
                     
                         DefaultLazyProvider._mappersCache.Add("serin_viaticosRules.Entities.UsuariosDependencia", serin_viaticosRules.Mappers.UsuariosDependenciaMapper.Instance());
                         

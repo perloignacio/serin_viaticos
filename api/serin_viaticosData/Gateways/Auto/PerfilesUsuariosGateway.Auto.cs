@@ -267,9 +267,9 @@ reader.GetInt32(2));
         /// <summary>
         /// 
         /// </summary>
-        public PerfilesUsuariosObjectList GetByUsuario(System.Int32 IdUsuario) {
+        public PerfilesUsuariosObject GetByUsuario(System.Int32 IdUsuario) {
             
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            return base.GetObjectByAnyStoredProcedure(StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
             
         }
 
@@ -277,9 +277,9 @@ reader.GetInt32(2));
         /// <summary>
         /// 
         /// </summary>
-        public PerfilesUsuariosObjectList GetByUsuario(DbTransaction transaction , System.Int32 IdUsuario) {
+        public PerfilesUsuariosObject GetByUsuario(DbTransaction transaction , System.Int32 IdUsuario) {
             
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
+            return base.GetObjectByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "PerfilesUsuarios_GetByUsuario" , IdUsuario);
             
         }
 

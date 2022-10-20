@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/services/shared/shared.service';
   styleUrls: ['./menu-bar.component.css']
 })
 export class MenuBarComponent implements OnInit {
-  
+  public isCollapsed = false;
   constructor(public srvAut:AuthenticationService,private route:Router) { }
   Salir(){
     this.srvAut.logout();

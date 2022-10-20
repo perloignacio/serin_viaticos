@@ -14,7 +14,7 @@ const httpOptions = {
 export class CategoriasService {
   endpoint:string="";
   constructor(public httpClient: HttpClient) {
-    this.endpoint = environment.apiUrl+"categorias/";
+    this.endpoint = environment.apiUrl+"SolicitudesCategorias/";
   }
 
   borrar(id:number) {
