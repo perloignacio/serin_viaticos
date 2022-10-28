@@ -16,6 +16,7 @@ import { PerfilesComponent } from './components/perfiles/perfiles.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles-listado.component';
 import { CategoriasListadoComponent } from './components/categorias-listado/categorias-listado.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CategoriasListadoComponent } from './components/categorias-listado/cate
     PerfilesComponent,
     CategoriasComponent,
     PerfilesListadoComponent,
-    CategoriasListadoComponent
+    CategoriasListadoComponent,
+    UsuariosComponent
    
   ],
   exports:[
