@@ -120,9 +120,15 @@
     <Compile Include="Clases\Helpers.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
     <Compile Include="Clases\TokenValidationHandler.cs" />
+    <Compile Include="Controllers\HotelesController.cs" />
+    <Compile Include="Controllers\ItinerarioDetalleController.cs" />
+    <Compile Include="Controllers\ItinerarioController.cs" />
+    <Compile Include="Controllers\UbicacionesController.cs" />
+    <Compile Include="Controllers\ReservasAereosController.cs" />
+    <Compile Include="Controllers\SolicitudesEstadosController.cs" />
+    <Compile Include="Controllers\SolicitudesCategoriasController.cs" />
     <Compile Include="Controllers\UsuariosDependenciaController.cs" />
     <Compile Include="Controllers\PerfilesUsuariosController.cs" />
-    <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\PerfilesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
