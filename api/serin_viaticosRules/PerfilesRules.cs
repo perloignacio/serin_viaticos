@@ -40,9 +40,8 @@ namespace serin_viaticosRules
             //El activo no se toca, es un estado que lo maneja el metodo borrar / activar
             pf.RequiereAutorizacion = RequiereAutorizacion;
             pf.Admin = Admin; 
-            
+           
             PerfilesMapper.Instance().Save(pf);
-
         }
 
         public void Activar(int IdPerfil)
