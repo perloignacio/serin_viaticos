@@ -5,6 +5,7 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { MainComponent } from './components/main/main.component';
 import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles-listado.component';
 import { PerfilesComponent } from './components/perfiles/perfiles.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'categoriasListado',
         component: CategoriasListadoComponent,
+      },
+      {
+        path: 'usuarios',
+        component: UsuariosComponent,
       },      
     ]
   }
