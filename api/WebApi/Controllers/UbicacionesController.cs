@@ -57,11 +57,11 @@ namespace WebApi.Controllers
                 UbicacionesRules pfRules = new UbicacionesRules();
                 if (IdUbicacion.HasValue)
                 {
-                    pfRules.Modificar(IdUbicacion.Value, pf.Nombre, (long)pf.Lat, (long)pf.Lng);
+                    pfRules.Modificar(IdUbicacion.Value, pf.Nombre,pf.Lat, pf.Lng);
                 }
                 else
                 {
-                    pfRules.Agregar(pf.Nombre, (long)pf.Lat, (long)pf.Lng); 
+                    pfRules.Agregar(pf.Nombre,pf.Lat, pf.Lng); 
                 }
                 return Ok(true);
             }

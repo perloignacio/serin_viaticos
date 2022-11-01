@@ -11,7 +11,7 @@ namespace serin_viaticosRules
 {
     public class ReservasAereosRules
     {
-        public void Agregar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal Precio)
+        public void Agregar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio)
         {
             //Validar(Nombre);
             ReservasAereos pf = new ReservasAereos();
@@ -22,13 +22,15 @@ namespace serin_viaticosRules
             pf.CantPasajeros = CantPasajeros;
             pf.FechaViaje = FechaViaje;
             pf.IdaVuelta = IdaVuelta;
-            pf.Precio = Precio;
+            if (Precio != null){
+                pf.Precio = Precio.Value;
+            }
 
             ReservasAereosMapper.Instance().Insert(pf);
         }
 
 
-        public void Modificar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal Precio)
+        public void Modificar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio)
         {
 
             //Validar(Nombre);
@@ -44,7 +46,10 @@ namespace serin_viaticosRules
             pf.CantPasajeros = CantPasajeros;
             pf.FechaViaje = FechaViaje;
             pf.IdaVuelta = IdaVuelta;
-            pf.Precio = Precio;
+            if (Precio != null)
+            {
+                pf.Precio = Precio.Value;
+            }
 
             ReservasAereosMapper.Instance().Save(pf);
         }

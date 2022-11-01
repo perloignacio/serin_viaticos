@@ -57,11 +57,11 @@ namespace WebApi.Controllers
                 ReservasAereosRules pfRules = new ReservasAereosRules();
                 if (IdReservaAereo.HasValue)
                 {
-                    pfRules.Modificar(IdReservaAereo.Value, pf.IdOrigen,  pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta, (decimal)pf.Precio);
+                    pfRules.Modificar(IdReservaAereo.Value, pf.IdOrigen,  pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta, pf.Precio);
                 }
                 else
                 {
-                    pfRules.Agregar(pf.IdReservaAereo, pf.IdOrigen, pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta, (decimal)pf.Precio);
+                    pfRules.Agregar(pf.IdReservaAereo, pf.IdOrigen, pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta,pf.Precio);
                 }
                 return Ok(true);
             }

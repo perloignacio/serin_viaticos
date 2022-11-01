@@ -11,19 +11,24 @@ namespace serin_viaticosRules
 {
     public class UbicacionesRules
     {
-        public void Agregar(string Nombre,Int64 Lat, Int64 Lng)
+        public void Agregar(string Nombre,long? Lat, long? Lng)
         {
             Validar(Nombre);
             Ubicaciones pf = new Ubicaciones();
             
             pf.Nombre = Nombre;
-            pf.Lat= Lat;
-            pf.Lng = Lng;
+            if (Lat != null){
+                pf.Lat= Lat.Value;
+            }
+            if (Lng != null)
+            {
+                pf.Lng = Lng.Value;
+            }
             UbicacionesMapper.Instance().Insert(pf);
         }
 
 
-        public void Modificar(int IdUbicacion, string Nombre, Int64 Lat, Int64 Lng)
+        public void Modificar(int IdUbicacion, string Nombre, long? Lat, long? Lng)
         {
             Validar(Nombre);
 
@@ -33,8 +38,15 @@ namespace serin_viaticosRules
                 throw new Exception("No se encuentra el codigo");
             }
             pf.Nombre = Nombre;
-            pf.Lat = Lat;
-            pf.Lng = Lng;
+            if (Lat != null)
+            {
+                pf.Lat = Lat.Value;
+            }
+            if (Lng != null)
+            {
+                pf.Lng = Lng.Value;
+            }
+
             UbicacionesMapper.Instance().Save(pf);
         }
 
