@@ -1,0 +1,70 @@
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+      <div class="page-title-heading">
+  
+        <div>
+         Usuarios Dependencia
+          <div
+            class="page-title-subheading">
+            Listado
+          </div>
+        </div>
+      </div>
+      <div class="page-title-actions">
+        <button type="button" (click)="Nuevo()" class="btn-shadow d-inline-flex align-items-center btn btn-success">
+          Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-card mb-3 card">
+    <div class="card-header">
+      <div class="row">
+          <div class="col-md-8">
+            Usuarios Dependencia
+          </div>
+          <div class="col-md-4 text-right">
+              <input type="text" class="form-control" placeholder="Filtro" [(ngModel)]="strFiltro" (keyup)="Filtro()">
+          </div>
+      </div>
+    </div>
+    
+    <div class="table-responsive">
+      <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+        <thead>
+        <tr>
+          <th class="text-center">#ID Dependencia</th>  
+          <th>ID Usuario Hijo</th>
+          <th>Nombre Usuario Hijo</th>
+          <th>ID Usuario Padre</th>
+          <th>Nombre Usuario Padre</th>
+        </tr>
+        </thead>
+        <tbody>
+  
+        <tr *ngFor="let obj of ArrObj;">
+          <td class="text-center text-muted">#{{obj.IdDependenciaUsuario}}</td>
+          <td>{{obj.IdUsuarioHijo}}</td>
+          <td>{{obj.NombreHijoEntity.Nombre}} {{obj.ApellidoHijoEntity.Apellido}}</td>
+          <td>{{obj.IdUsuarioPadre}}</td>
+          <td>{{obj.NombrePadreEntity.Nombre}} {{obj.ApellidoPadreEntity.Apellido}}</td>
+          <td class="text-center">
+  
+            <i class="fas fa-trash me-2" role="button" (click)="Borrar(obj)"></i>
+            <i class="fas fa-edit me-2" role="button" (click)="Editar(obj)"></i>
+        
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshData()">
+        </ngb-pagination>
+      </div>
+    </div>
+  </div>
+  
+    

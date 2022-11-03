@@ -16,7 +16,9 @@ import { PerfilesComponent } from './components/perfiles/perfiles.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles-listado.component';
 import { CategoriasListadoComponent } from './components/categorias-listado/categorias-listado.component';
-import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { UsuariosDependenciaComponent } from './components/usuarios-dependencia/usuarios-dependencia.component';
+import { UsuariosDependenciaFormComponent } from './components/usuarios-dependencia-form/usuarios-dependencia-form.component';
+
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     CategoriasComponent,
     PerfilesListadoComponent,
     CategoriasListadoComponent,
-    UsuariosComponent
+    UsuariosDependenciaComponent,
+    UsuariosDependenciaFormComponent,
+  
    
   ],
   exports:[
