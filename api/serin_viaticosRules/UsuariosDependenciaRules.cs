@@ -100,9 +100,7 @@ namespace serin_viaticosRules
                 throw new Exception("El usuario ya tiene asignado un responsable");
             }
 
-
-
-            //ARIEL 2 - PRADO 2473
+                       
 
         }
         
