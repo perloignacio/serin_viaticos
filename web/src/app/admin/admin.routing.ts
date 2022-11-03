@@ -5,7 +5,9 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { MainComponent } from './components/main/main.component';
 import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles-listado.component';
 import { PerfilesComponent } from './components/perfiles/perfiles.component';
-import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { UsuariosDependenciaFormComponent } from './components/usuarios-dependencia-form/usuarios-dependencia-form.component';
+import { UsuariosDependenciaComponent } from './components/usuarios-dependencia/usuarios-dependencia.component';
+
 
 
 const routes: Routes = [
@@ -30,9 +32,13 @@ const routes: Routes = [
         component: CategoriasListadoComponent,
       },
       {
-        path: 'usuarios',
-        component: UsuariosComponent,
-      },      
+        path: 'usuariosDependencia',
+        component: UsuariosDependenciaComponent,
+      },
+      {
+        path: 'usuariosDependenciaForm',
+        component: UsuariosDependenciaFormComponent,
+      },
     ]
   }
 
