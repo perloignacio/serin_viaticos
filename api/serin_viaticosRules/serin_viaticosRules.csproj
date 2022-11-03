@@ -82,6 +82,11 @@
     <Compile Include="HotelesRules.cs" />
     <Compile Include="ItinerarioDetalleRules.cs" />
     <Compile Include="ItinerarioRules.cs" />
+    <Compile Include="SolicitudesUsuariosRules.cs" />
+    <Compile Include="SolicitudesDetalleRules.cs" />
+    <Compile Include="SolicitudesRules.cs" />
+    <Compile Include="ReservasHotelRules.cs" />
+    <Compile Include="ReservasAlquilerAutoRules.cs" />
     <Compile Include="UbicacionesRules.cs" />
     <Compile Include="ReservasAereosRules.cs" />
     <Compile Include="SolicitudesEstadoRules.cs" />
