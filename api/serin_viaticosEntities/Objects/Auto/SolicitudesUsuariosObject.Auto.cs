@@ -25,6 +25,7 @@ namespace serin_viaticosRules.Objects
         public SolicitudesUsuariosObject(): base()
         {
 
+			_IdSolicitudUsuario =  ValuesGenerator.GetInt32;
 
         }
 
@@ -98,13 +99,6 @@ protected System.Nullable<System.Decimal> _MontoAnticipo;
             get
             {
                 return _IdSolicitudUsuario;
-            }
-            
-            set
-            {
-                base.PropertyModified();
-                _IdSolicitudUsuario = value;
-                
             }
             
         }
@@ -234,12 +228,11 @@ if (_MontoAnticipo.HasValue) _myArray[3] = _MontoAnticipo.Value;
         object[] IMappeableSolicitudesUsuariosObject.GetFieldsForUpdate()
         {
             
-            object[] _myArray = new object[5];
+            object[] _myArray = new object[4];
             _myArray[0] = _IdSolicitudUsuario;
 _myArray[1] = _IdSolicitud;
 _myArray[2] = _IdUsuario;
 if (_MontoAnticipo.HasValue) _myArray[3] = _MontoAnticipo.Value;
-_myArray[4] = this.OriginalValue()._IdSolicitudUsuario;
 
             return _myArray;
         }
@@ -262,7 +255,7 @@ _myArray[4] = this.OriginalValue()._IdSolicitudUsuario;
         /// </summary>
         void IMappeableSolicitudesUsuariosObject.UpdateObjectFromOutputParams(object[] parameters){
             // Update properties from Output parameters
-            _IdSolicitud = (System.Int32) parameters[1];
+            _IdSolicitudUsuario = (System.Int32) parameters[0];
 
         }
 

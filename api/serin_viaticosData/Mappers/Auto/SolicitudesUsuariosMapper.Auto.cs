@@ -500,10 +500,9 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Insert SolicitudesUsuarios
         /// </summary>
-        public void Insert(System.Int32 IdSolicitudUsuario, System.Int32 IdUsuario, System.Decimal MontoAnticipo){
+        public void Insert(System.Int32 IdUsuario, System.Decimal MontoAnticipo){
             Entities.SolicitudesUsuarios entity = new Entities.SolicitudesUsuarios();
 
-            entity.IdSolicitudUsuario = IdSolicitudUsuario;
             entity.IdUsuario = IdUsuario;
             entity.MontoAnticipo = MontoAnticipo;
             Instance().Insert(entity);

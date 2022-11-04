@@ -15,7 +15,7 @@ namespace serin_viaticosRules
         public void Agregar(int IdUsuarioPadre, int IdUsuarioHijo)
         {
             
-            Validar(IdUsuarioPadre, IdUsuarioHijo);
+            Validar(IdUsuarioPadre, IdUsuarioHijo,"Agregar");
 
 
             UsuariosDependencia ud = new UsuariosDependencia();
@@ -47,7 +47,7 @@ namespace serin_viaticosRules
         public void Modificar(int IdDependenciaUsuario, int IdUsuarioPadre, int IdUsuarioHijo)        
         {
             //me fijo si el id existe y si es tiene algo escrito
-            Validar(IdUsuarioPadre, IdUsuarioHijo);
+            Validar(IdUsuarioPadre, IdUsuarioHijo,"Modificar");
 
             //podria buscar por idpadre y dentro de este el hijo
             UsuariosDependencia ud = UsuariosDependenciaMapper.Instance().GetOne(IdDependenciaUsuario);
@@ -66,7 +66,7 @@ namespace serin_viaticosRules
 
     
         
-        private void Validar(int IdUsuarioPadre, int IdUsuarioHijo)
+        private void Validar(int IdUsuarioPadre, int IdUsuarioHijo,string accion)
         { 
             //Aca hay que validar por que existan los usuarios como se hace en perfiles.
             if (IdUsuarioPadre == 0) { throw new Exception("Debe ingresar un codigo Padre"); }
@@ -94,11 +94,16 @@ namespace serin_viaticosRules
                 throw new Exception("Ya existe esa relacion en la base de datos");
             }
 
-            ud = UsuariosDependenciaMapper.Instance().GetPadreByHijo(IdUsuarioHijo);
-            if (ud != null)
+            if (accion != "Modificar")
             {
-                throw new Exception("El usuario ya tiene asignado un responsable");
+                ud = UsuariosDependenciaMapper.Instance().GetPadreByHijo(IdUsuarioHijo);
+                if (ud != null)
+                {
+                    throw new Exception("El usuario ya tiene asignado un responsable");
+                }
+
             }
+            
 
                        
 

@@ -7,6 +7,7 @@ using System.Web.Http;
 using serin_viaticosRules.Entities;
 using serin_viaticosRules.Mappers;
 using serin_viaticosRules;
+using WebApi.Models;
 
 namespace WebApi.Controllers
 {
@@ -20,7 +21,40 @@ namespace WebApi.Controllers
         {
             try
             {
-                return Ok(UsuariosDependenciaMapper.Instance().GetAll());
+                dsIntranet intra = new dsIntranet();
+                serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter usu = new serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter();
+                List<UsuariosDependencia> UDPList = new List<UsuariosDependencia>();
+                foreach (var item in UsuariosDependenciaMapper.Instance().GetAll())
+                {
+                    usu.Fill(intra.Usuarios,item.IdUsuarioHijo);
+                    if (intra.Usuarios.Rows.Count > 0)
+                    {
+                        dsIntranet.UsuariosRow r = (dsIntranet.UsuariosRow)intra.Usuarios.Rows[0];
+                        Usuarios u = new Usuarios();
+                        u.Nombre = r.Nombre;
+                        u.Apellido = r.Apellido;
+                        u.Email = r.Email;
+                        u.IdUsuario = r.IdUsuario;
+                        item.UsuarioHijo = u;
+                        item.ApellidoHijo = r.Apellido;
+                    }
+
+                    usu.Fill(intra.Usuarios, item.IdUsuarioPadre);
+                    if (intra.Usuarios.Rows.Count > 0)
+                    {
+                        dsIntranet.UsuariosRow r = (dsIntranet.UsuariosRow)intra.Usuarios.Rows[0];
+                        Usuarios u = new Usuarios();
+                        u.Nombre = r.Nombre;
+                        u.Apellido = r.Apellido;
+                        u.Email = r.Email;
+                        u.IdUsuario = r.IdUsuario;
+                        item.UsuarioPadre = u;
+                    }
+
+                    UDPList.Add(item);
+
+                }
+                return Ok(UDPList.OrderBy(u=>u.ApellidoHijo));
             }
             catch (Exception ex)
             {

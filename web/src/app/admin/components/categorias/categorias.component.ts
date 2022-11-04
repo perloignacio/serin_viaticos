@@ -54,7 +54,7 @@ Borrar(obj:Categorias){
     denyButtonText: `Cancelar`,
   }).then((result) => {
     if (result.isConfirmed) {
-      this.srvObj.borrar(obj.IdCategoriaGasto).subscribe((band)=>{
+      this.srvObj.borrar(obj.IdSolicitudCategoria).subscribe((band)=>{
         if(band){
           this.cargar();
           Swal.fire("Ok","Se borró el registro",'success');
@@ -78,7 +78,7 @@ Activar(obj:Categorias){
     denyButtonText: `Cancelar`,
   }).then((result) => {
     if (result.isConfirmed) {
-      this.srvObj.activar(obj.IdCategoriaGasto).subscribe((band)=>{
+      this.srvObj.activar(obj.IdSolicitudCategoria).subscribe((band)=>{
         if(band){
           this.cargar();
           Swal.fire("Ok","Se activó el registro",'success');

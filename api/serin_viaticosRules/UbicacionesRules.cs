@@ -11,7 +11,7 @@ namespace serin_viaticosRules
 {
     public class UbicacionesRules
     {
-        public void Agregar(string Nombre,long? Lat, long? Lng)
+        public void Agregar(string Nombre,decimal? Lat, decimal? Lng)
         {
             Validar(Nombre);
             Ubicaciones pf = new Ubicaciones();
@@ -28,7 +28,7 @@ namespace serin_viaticosRules
         }
 
 
-        public void Modificar(int IdUbicacion, string Nombre, long? Lat, long? Lng)
+        public void Modificar(int IdUbicacion, string Nombre, decimal? Lat, decimal? Lng)
         {
             Validar(Nombre);
 

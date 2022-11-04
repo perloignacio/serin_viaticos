@@ -1,5 +1,5 @@
 export class Categorias {
-    IdCategoriaGasto:number;
+    IdSolicitudCategoria:number;
     Nombre:string;
     Activo:boolean;
     EmailNotificacion:string;

@@ -18,7 +18,9 @@ import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles
 import { CategoriasListadoComponent } from './components/categorias-listado/categorias-listado.component';
 import { UsuariosDependenciaComponent } from './components/usuarios-dependencia/usuarios-dependencia.component';
 import { UsuariosDependenciaFormComponent } from './components/usuarios-dependencia-form/usuarios-dependencia-form.component';
-
+import { UbicacionesComponent } from './components/ubicaciones/ubicaciones.component';
+import { UbicacionesFormComponent } from './components/ubicaciones-form/ubicaciones-form.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { UsuariosDependenciaFormComponent } from './components/usuarios-dependen
     CategoriasListadoComponent,
     UsuariosDependenciaComponent,
     UsuariosDependenciaFormComponent,
+    UbicacionesComponent,
+    UbicacionesFormComponent,
   
    
   ],
@@ -48,7 +52,11 @@ import { UsuariosDependenciaFormComponent } from './components/usuarios-dependen
     ReactiveFormsModule,
     NgxSpinnerModule,
     LightboxModule,
-    FileSaverModule 
+    FileSaverModule ,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCg8BmxqFCCKSEdoT7JQXXM5zDHqrIkx0g',
+      libraries: ['places']
+    })
   ],providers:[
     DatePipe
   ]

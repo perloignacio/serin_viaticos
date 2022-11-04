@@ -22,24 +22,26 @@
   <div class="card-body">
     <form>
       
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Usuario Hijo
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item">{{obj.IdUsuarioHijo}}</a>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="position-relative form-group">
+            <label for="exampleInputUsername1">Usuario Hijo</label>
+            <select [(ngModel)]="obj.IdUsuarioHijo" name="IdUsuarioHijo" class="form-select form-control">
+                <option *ngFor="let objU of usuarios"  [ngValue]="objU.IdUsuario">{{objU.Apellido}} {{objU.Nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="position-relative form-group">
+            <label for="exampleInputUsername1">Usuario Padre</label>
+            <select [(ngModel)]="obj.IdUsuarioPadre" name="IdUsuarioPadre" class="form-select form-control">
+                <option *ngFor="let objU of usuarios"  [ngValue]="objU.IdUsuario">{{objU.Apellido}} {{objU.Nombre}}</option>
+            </select>
+          </div>
         </div>
       </div>
         
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Usuario Padre
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item">{{obj.IdUsuarioPadre}}</a>
-        </div>
-      </div>
-   
+      
       
       <button class="mt-2 btn btn-success" (click)="Guardar()">Guardar cambios</button>
     </form>

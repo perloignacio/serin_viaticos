@@ -1,0 +1,46 @@
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+      <div class="page-title-heading">
+  
+        <div>
+          Ubicaciones
+          <div
+            class="page-title-subheading">
+            Agregar / Editar
+          </div>
+        </div>
+      </div>
+      <div class="page-title-actions">
+        <button type="button" (click)="Volver()" class="btn-shadow d-inline-flex align-items-center btn btn-dark">
+          Volver
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="card-body">
+    <form>
+      
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group mb-2">
+                <label>Ubicacion</label>
+                <input type="text" name="Nombre" class="form-control" [(ngModel)]="obj.Nombre" (keydown.enter)="$event.preventDefault()" placeholder="Ingrese su dirección" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <agm-map #agmMap [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" class="mt-5">
+                <agm-map-type-control></agm-map-type-control>
+                <agm-marker [latitude]="latitude" (dragEnd)="markerDragEnd($event)" [longitude]="longitude" [markerDraggable]="true"
+                ></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+      
+      <button class="mt-2 btn btn-success" (click)="Guardar()">Guardar cambios</button>
+    </form>
+  </div>

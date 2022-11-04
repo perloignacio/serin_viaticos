@@ -82,8 +82,8 @@ namespace serin_viaticosRules.Gateways
             Ubicaciones.HydrateFields(
             reader.GetInt32(0),
 reader.GetString(1),
-(reader.IsDBNull(2)) ? new System.Nullable<System.Int64>() : reader.GetInt64(2),
-(reader.IsDBNull(3)) ? new System.Nullable<System.Int64>() : reader.GetInt64(3));
+(reader.IsDBNull(2)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(2),
+(reader.IsDBNull(3)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(3));
             ((IObject)entity).State = ObjectState.Restored;
         }
 

@@ -104,8 +104,8 @@ namespace serin_viaticosRules.Mappers
             Ubicaciones.HydrateFields(
             reader.GetInt32(0),
 reader.GetString(1),
-(reader.IsDBNull(2)) ? new System.Nullable<System.Int64>() : reader.GetInt64(2),
-(reader.IsDBNull(3)) ? new System.Nullable<System.Int64>() : reader.GetInt64(3));
+(reader.IsDBNull(2)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(2),
+(reader.IsDBNull(3)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(3));
         }
 
         /// <summary>
@@ -379,7 +379,7 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Save Ubicaciones 
         /// </summary>
-        public void Save(System.Int32 IdUbicacion, System.String Nombre, System.Int64 Lat, System.Int64 Lng){
+        public void Save(System.Int32 IdUbicacion, System.String Nombre, System.Decimal Lat, System.Decimal Lng){
             Entities.Ubicaciones entity = Instance().GetOne(IdUbicacion);
             if (entity == null)
                 throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdUbicacion", IdUbicacion));
@@ -393,7 +393,7 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Insert Ubicaciones
         /// </summary>
-        public void Insert(System.String Nombre, System.Int64 Lat, System.Int64 Lng){
+        public void Insert(System.String Nombre, System.Decimal Lat, System.Decimal Lng){
             Entities.Ubicaciones entity = new Entities.Ubicaciones();
 
             entity.Nombre = Nombre;
@@ -491,8 +491,8 @@ namespace serin_viaticosRules.Loaders
             Ubicaciones.HydrateFields(
             reader.GetInt32(0),
 reader.GetString(1),
-(reader.IsDBNull(2)) ? new System.Nullable<System.Int64>() : reader.GetInt64(2),
-(reader.IsDBNull(3)) ? new System.Nullable<System.Int64>() : reader.GetInt64(3));
+(reader.IsDBNull(2)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(2),
+(reader.IsDBNull(3)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(3));
         }
 
         /// <summary>

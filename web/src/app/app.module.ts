@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
 import { JwtInterceptor } from './helpers/jwt.interseptor';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserAnimationsModule,
     HttpClientModule,
     SweetAlert2Module,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCg8BmxqFCCKSEdoT7JQXXM5zDHqrIkx0g',
+      libraries: ['places']
+    })
     
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

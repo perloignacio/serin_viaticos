@@ -56,5 +56,43 @@ namespace WebApi.Controllers
 
 
         }
+
+
+        [Route("todos")]
+        [AllowAnonymous]
+        [HttpGet]
+        public IHttpActionResult todos()
+        {
+            string idusuario = "";
+            try
+            {
+                dsIntranet intra = new dsIntranet();
+                serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter usu = new serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter();
+                usu.Fillall(intra.Usuarios);
+                List<Usuarios> usuarios = new List<Usuarios>();
+                foreach (var r in intra.Usuarios)
+                {
+                    idusuario = r.IdUsuario.ToString();
+                    Usuarios u = new Usuarios();
+                    u.Nombre = r.Nombre;
+                    u.Apellido = r.Apellido;
+                    u.Email = r.Email;
+                    u.IdUsuario = r.IdUsuario;
+                    u.IdArea = 0;
+                    u.Token = "";
+                    usuarios.Add(u);
+
+                }
+                return Ok(usuarios.OrderBy(u=>u.Apellido));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message+"-"+idusuario);
+            }
+
+
+
+        }
     }
 }

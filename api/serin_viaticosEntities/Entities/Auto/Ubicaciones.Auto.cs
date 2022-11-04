@@ -56,8 +56,8 @@ namespace serin_viaticosRules.Entities
         public Ubicaciones(
 			System.Int32 IdUbicacion,
 			System.String Nombre,
-			System.Nullable<System.Int64> Lat,
-			System.Nullable<System.Int64> Lng)
+			System.Nullable<System.Decimal> Lat,
+			System.Nullable<System.Decimal> Lng)
             : base()
         {
 

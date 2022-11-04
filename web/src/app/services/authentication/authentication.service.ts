@@ -40,4 +40,7 @@ export class AuthenticationService {
       localStorage.removeItem('currentUser');
       this.currentUserSubject.next(null);
   }
+  todos() {
+    return this.http.get<Usuario[]>(`${environment.apiUrl}/usuarios/todos`)
+  }
 }

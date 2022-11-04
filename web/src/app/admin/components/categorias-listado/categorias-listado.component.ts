@@ -25,7 +25,7 @@ export class CategoriasListadoComponent implements OnInit {
 
    Guardar(){
     
-    this.srvObj.AgregarEditar(this.obj,this.obj.IdCategoriaGasto).subscribe((band)=>{
+    this.srvObj.AgregarEditar(this.obj,this.obj.IdSolicitudCategoria).subscribe((band)=>{
       if(band){
 
         Swal.fire("Ok","La operación se realizó con éxito",'success');

@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuariosDependencia } from 'src/app/models/UsuariosDependencia.model';
+import { Ubicaciones } from 'src/app/models/Ubicaciones.model';
 import { SharedService } from 'src/app/services/shared/shared.service';
-import { UsuariosDependenciaService } from 'src/app/services/usuariosDependencia/usuarios-dependencia.service';
+import { UbicacionesService } from 'src/app/services/ubicaciones/ubicaciones.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-usuarios-dependencia',
-  templateUrl: './usuarios-dependencia.component.html',
-  styleUrls: ['./usuarios-dependencia.component.scss']
+  selector: 'app-ubicaciones',
+  templateUrl: './ubicaciones.component.html',
+  styleUrls: ['./ubicaciones.component.scss']
 })
-export class UsuariosDependenciaComponent implements OnInit {
+export class UbicacionesComponent implements OnInit {
 
-  ArrObj:UsuariosDependencia[]=[];
+  ArrObj:Ubicaciones[]=[];
   page = 1;
   pageSize = 10;
   collectionSize = 0
-  OriginalArr:UsuariosDependencia[]=[];
+  OriginalArr:Ubicaciones[]=[];
   strFiltro="";
-  constructor(private srvObj:UsuariosDependenciaService,private srvShared:SharedService,private router:Router,private route:ActivatedRoute) {
+  constructor(private srvObj:UbicacionesService,private srvShared:SharedService,private router:Router,private route:ActivatedRoute) {
     this.cargar()
   }
 
   cargar(){
     this.route.params.subscribe(val => {     
-      this.srvObj.todos().subscribe((lista)=>{
+      this.srvObj.todas().subscribe((lista)=>{
         this.OriginalArr=lista;
         this.collectionSize=this.OriginalArr.length;
         this.refreshData();
@@ -38,14 +38,14 @@ export class UsuariosDependenciaComponent implements OnInit {
     
     this.ArrObj=this.OriginalArr.filter(obj => {
       const term = this.strFiltro.toLowerCase();
-      return obj.IdUsuarioDependencia.toString().includes(term)      
+      return obj.Nombre.toLowerCase().includes(term)      
     });
   }
 
   ngOnInit(): void {
   }
 
-  Borrar(obj:UsuariosDependencia){
+  Borrar(obj:Ubicaciones){
     Swal.fire({
       title: "Atención",
       text:"¿Está seguro que desea borrar?",
@@ -55,7 +55,7 @@ export class UsuariosDependenciaComponent implements OnInit {
       denyButtonText: `Cancelar`,
     }).then((result) => {
       if (result.isConfirmed) {
-        this.srvObj.borrar(obj.IdUsuarioDependencia).subscribe((band)=>{
+        this.srvObj.borrar(obj.IdUbicacion).subscribe((band)=>{
           if(band){
             this.cargar();
             Swal.fire("Ok","Se borró el registro",'success');
@@ -69,12 +69,14 @@ export class UsuariosDependenciaComponent implements OnInit {
     });
   }
 
-  Editar(obj:UsuariosDependencia){
+  
+  Editar(obj:Ubicaciones){
     this.srvShared.ObjEdit=obj;
-    this.router.navigate(['admin/usuariosDependenciaForm']);
+    this.router.navigate(['admin/ubicacionesForm']);
   }
   Nuevo(){
     this.srvShared.ObjEdit=null;
-    this.router.navigate(['admin/usuariosDependenciaForm']);
+    this.router.navigate(['admin/ubicacionesForm']);
   }
+
 }

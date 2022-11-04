@@ -48,8 +48,8 @@ namespace serin_viaticosRules.Objects
         public UbicacionesObject(
 			System.Int32 IdUbicacion,
 			System.String Nombre,
-			System.Nullable<System.Int64> Lat,
-			System.Nullable<System.Int64> Lng): base()
+			System.Nullable<System.Decimal> Lat,
+			System.Nullable<System.Decimal> Lng): base()
         {
 
 			_IdUbicacion = IdUbicacion;
@@ -81,11 +81,11 @@ protected System.String _Nombre;
 /// <summary>
 ///
 /// </summary>
-protected System.Nullable<System.Int64> _Lat;
+protected System.Nullable<System.Decimal> _Lat;
 /// <summary>
 ///
 /// </summary>
-protected System.Nullable<System.Int64> _Lng;
+protected System.Nullable<System.Decimal> _Lng;
 
         #endregion
 
@@ -125,7 +125,7 @@ protected System.Nullable<System.Int64> _Lng;
         /// <summary>
         /// Nullable property
         /// </summary>
-        public virtual System.Nullable<System.Int64> Lat
+        public virtual System.Nullable<System.Decimal> Lat
         {
             get
             {
@@ -144,7 +144,7 @@ protected System.Nullable<System.Int64> _Lng;
         /// <summary>
         /// Nullable property
         /// </summary>
-        public virtual System.Nullable<System.Int64> Lng
+        public virtual System.Nullable<System.Decimal> Lng
         {
             get
             {
@@ -206,8 +206,8 @@ protected System.Nullable<System.Int64> _Lng;
         void IMappeableUbicacionesObject.HydrateFields(
 			System.Int32 IdUbicacion,
 			System.String Nombre,
-			System.Nullable<System.Int64> Lat,
-			System.Nullable<System.Int64> Lng)
+			System.Nullable<System.Decimal> Lat,
+			System.Nullable<System.Decimal> Lng)
         {
         _IdUbicacion = IdUbicacion;
 _Nombre = Nombre;
@@ -303,8 +303,8 @@ if (_Lng.HasValue) _myArray[3] = _Lng.Value;
         /// </summary>
         void HydrateFields(System.Int32 IdUbicacion, 
 			System.String Nombre, 
-			System.Nullable<System.Int64> Lat, 
-			System.Nullable<System.Int64> Lng);
+			System.Nullable<System.Decimal> Lat, 
+			System.Nullable<System.Decimal> Lng);
 
         /// <summary>
         /// 
