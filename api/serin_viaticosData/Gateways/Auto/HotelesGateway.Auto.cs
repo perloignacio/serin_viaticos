@@ -169,7 +169,43 @@ reader.GetString(5));
 
         
 
+        /// <summary>
+        /// Get a HotelesObjectList by calling a Stored Procedure
+        /// </summary>
+        public HotelesObjectList GetByUbicaciones(DbTransaction transaction,System.Int32 IdUbicacion)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// Get a HotelesObjectList by calling a Stored Procedure
+        /// </summary>
+        public HotelesObjectList GetByUbicaciones(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", Ubicaciones.Identifier());
+        }
+
+    
+
         
+
+        /// <summary>
+        /// Get a HotelesObjectList by calling a Stored Procedure
+        /// </summary>
+        public HotelesObjectList GetByUbicaciones(System.Int32 IdUbicacion)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// Get a HotelesObjectList by calling a Stored Procedure
+        /// </summary>
+        public HotelesObjectList GetByUbicaciones(IUniqueIdentifiable Ubicaciones)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", Ubicaciones.Identifier());
+        }
+
+    
 
         /// <summary>
         /// Delete Hoteles
@@ -190,6 +226,41 @@ reader.GetString(5));
             
 
         
+
+        /// <summary>
+        /// Delete Hoteles by Ubicaciones
+        /// </summary>
+        public void DeleteByUbicaciones(System.Int32 IdUbicacion)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// Delete Hoteles by Ubicaciones
+        /// </summary>
+        public void DeleteByUbicaciones(DbTransaction transaction, System.Int32 IdUbicacion)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// Delete Hoteles by Ubicaciones
+        /// </summary>
+        public void DeleteByUbicaciones(IUniqueIdentifiable Ubicaciones)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", Ubicaciones.Identifier());
+        }
+
+        /// <summary>
+        /// Delete Hoteles by Ubicaciones
+        /// </summary>
+        public void DeleteByUbicaciones(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", Ubicaciones.Identifier());
+        }
+
+
+    
 
 
         //Database Queries 

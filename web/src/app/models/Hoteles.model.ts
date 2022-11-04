@@ -1,3 +1,5 @@
+import { Ubicaciones } from "./Ubicaciones.model";
+
 export class Hoteles {
     IdHotel: number;
     Nombre: string;
@@ -5,4 +7,5 @@ export class Hoteles {
     Telefono: number;
     Email: string;
     Direccion: string;
+    UbicacionesEntity:Ubicaciones
 }

@@ -31,7 +31,8 @@ namespace serin_viaticosRules.Entities
         public Hoteles()
             :base()
         {
-            
+            if (_UbicacionesEntity == null) _UbicacionesEntity = new Entities.Ubicaciones();
+
         }
 
         /// <summary>
@@ -44,7 +45,8 @@ namespace serin_viaticosRules.Entities
 
 			_IdHotel = IdHotel;
 
-            
+            if (_UbicacionesEntity == null) _UbicacionesEntity = new Entities.Ubicaciones();
+
             Initialized();
         }
 
@@ -70,7 +72,8 @@ namespace serin_viaticosRules.Entities
 			_Email = Email;
 			_Direccion = Direccion;
 
-            
+            if (_UbicacionesEntity == null) _UbicacionesEntity = new Entities.Ubicaciones();
+
             Initialized();
         }
         
@@ -78,10 +81,47 @@ namespace serin_viaticosRules.Entities
 
         #region "Fields"
 
-        
+        /// <summary>
+/// 
+/// </summary>
+protected Entities.Ubicaciones _UbicacionesEntity;
+
         #endregion
 
         #region "Properties"
+        
+bool _UbicacionesEntityFetched;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Entities.Ubicaciones UbicacionesEntity
+        {
+            get
+            {
+                if (_UbicacionesEntity== null  && ! _UbicacionesEntityFetched ) {
+_UbicacionesEntityFetched = true;
+Entities.Ubicaciones _UbicacionesEntityTemp = new Entities.Ubicaciones(this.IdUbicacion); 
+ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Ubicaciones));
+ _UbicacionesEntity = lazyProvider.GetEntity(typeof(Entities.Ubicaciones), _UbicacionesEntityTemp) as Entities.Ubicaciones;
+}
+
+                return _UbicacionesEntity;
+            }
+            set
+            {
+                base.PropertyModified();
+                _UbicacionesEntity = value;
+                if (value != null) {
+   _IdUbicacion = value.IdUbicacion;
+
+} else {
+   _IdUbicacion = System.Int32.MinValue;
+
+}
+
+            }
+        }
         
         #endregion
 
@@ -103,6 +143,11 @@ namespace serin_viaticosRules.Entities
 
             newObject = (Hoteles)this.MemberwiseClone();
             // Entities
+                         
+            if (this._UbicacionesEntity != null)
+            {
+                newObject._UbicacionesEntity = (Entities.Ubicaciones)((ICloneable)this._UbicacionesEntity).Clone();
+            }
             
             // Colections
             
@@ -112,6 +157,11 @@ namespace serin_viaticosRules.Entities
             {
                 newOriginalValue = (Hoteles)this.OriginalValue().MemberwiseClone();
                 // Entities
+                             
+                if (this.OriginalValue()._UbicacionesEntity != null)
+                {
+                    newOriginalValue._UbicacionesEntity = (Entities.Ubicaciones)((ICloneable)this.OriginalValue()._UbicacionesEntity).Clone();
+                }
                 
                 // Colections
                             
@@ -126,9 +176,14 @@ namespace serin_viaticosRules.Entities
         /// <summary>
         /// 
         /// </summary>
-        void IMappeableHoteles.CompleteEntity()
+        void IMappeableHoteles.CompleteEntity(Entities.Ubicaciones UbicacionesEntity)
         {
+        _UbicacionesEntity = UbicacionesEntity;
+        }
         
+        bool IMappeableHoteles.IsUbicacionesEntityNull()
+        {
+            return (_UbicacionesEntity == null);
         }
         
 
@@ -158,7 +213,12 @@ namespace serin_viaticosRules.Entities
         /// <summary>
         /// 
         /// </summary>
-        void CompleteEntity();
+        void CompleteEntity(Entities.Ubicaciones UbicacionesEntity);
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        bool IsUbicacionesEntityNull();
         
         /// <summary>
         /// 

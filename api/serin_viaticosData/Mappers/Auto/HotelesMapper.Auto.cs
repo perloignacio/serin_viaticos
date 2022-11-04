@@ -169,8 +169,8 @@ reader.GetString(5));
         /// </summary>
         protected override void CompleteEntity(Hoteles entity)
         {
-            
-            ((IMappeableHoteles)entity).CompleteEntity();
+            Entities.Ubicaciones UbicacionesEntity = null; // Lazy load
+            ((IMappeableHoteles)entity).CompleteEntity(UbicacionesEntity);
         }
 
 
@@ -226,8 +226,44 @@ reader.GetString(5));
 
         
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public HotelesList GetByUbicaciones(DbTransaction transaction, System.Int32 IdUbicacion)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public HotelesList GetByUbicaciones(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", Ubicaciones.Identifier());
+        }
+
+    
+
 
         
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public HotelesList GetByUbicaciones(System.Int32 IdUbicacion)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public HotelesList GetByUbicaciones(IUniqueIdentifiable Ubicaciones)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", Ubicaciones.Identifier());
+        }
+
+    
 
         /// <summary>
         /// 
@@ -252,6 +288,42 @@ reader.GetString(5));
 
 
         
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteByUbicaciones(System.Int32 IdUbicacion)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteByUbicaciones(DbTransaction transaction, System.Int32 IdUbicacion)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", IdUbicacion);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteByUbicaciones(IUniqueIdentifiable Ubicaciones)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", Ubicaciones.Identifier());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteByUbicaciones(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_DeleteByUbicaciones", Ubicaciones.Identifier());
+        }
+
+
+    
 
 
         //Database Queries 
@@ -328,6 +400,24 @@ namespace serin_viaticosRules.Wrappers
 
         
 
+        /// <summary>
+        /// Get a HotelesList by calling a Stored Procedure
+        /// </summary>
+        public Entities.HotelesList GetByUbicaciones(System.Int32 IdUbicacion)
+        {
+            return Instance().GetByUbicaciones(IdUbicacion);
+        }
+
+        /// <summary>
+        /// Get a HotelesList by calling a Stored Procedure
+        /// </summary>
+        public Entities.HotelesList GetByUbicaciones(IUniqueIdentifiable Ubicaciones)
+        {
+            return Instance().GetByUbicaciones(Ubicaciones);
+        }
+
+    
+
        
 
         /// <summary>
@@ -343,6 +433,24 @@ namespace serin_viaticosRules.Wrappers
             
 
         
+
+        /// <summary>
+        /// Delete Hoteles by Ubicaciones
+        /// </summary>
+        public void DeleteByUbicaciones(System.Int32 IdUbicacion)
+        {
+            Instance().DeleteByUbicaciones(IdUbicacion);
+        }
+
+        /// <summary>
+        /// Delete Hoteles by Ubicaciones
+        /// </summary>
+        public void DeleteByUbicaciones(IUniqueIdentifiable Ubicaciones)
+        {
+            Instance().DeleteByUbicaciones(Ubicaciones);
+        }
+
+    
         /// <summary>
         /// Delete Hoteles 
         /// </summary>
@@ -522,8 +630,8 @@ reader.GetString(5));
         /// </summary>
         protected override void CompleteEntity(T entity)
         {
-            
-            ((IMappeableHoteles)entity).CompleteEntity();
+            Entities.Ubicaciones UbicacionesEntity = null; // Lazy load
+            ((IMappeableHoteles)entity).CompleteEntity(UbicacionesEntity);
         }
 
 
@@ -562,8 +670,44 @@ reader.GetString(5));
 
         
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUbicaciones(DbTransaction transaction, System.Int32 IdUbicacion)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUbicaciones(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", Ubicaciones.Identifier());
+        }
+
+    
+
 
         
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUbicaciones(System.Int32 IdUbicacion)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", IdUbicacion);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetByUbicaciones(IUniqueIdentifiable Ubicaciones)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Hoteles_GetByUbicaciones", Ubicaciones.Identifier());
+        }
+
+    
 
         //Database Queries 
         

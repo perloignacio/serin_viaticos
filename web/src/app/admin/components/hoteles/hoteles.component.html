@@ -37,10 +37,11 @@
         <tr>
           <th class="text-center">#ID</th>
           <th>Nombre</th>
-          <th class="text-center" >Ubicación</th>
+          <th>Ubicación</th>
           <th>Teléfono</th>
-          <th>Email</th>
+         
           <th>Dirección</th>
+          <th class="text-center">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -48,9 +49,9 @@
         <tr *ngFor="let obj of ArrObj;">
           <td class="text-center text-muted">#{{obj.IdHotel}}</td>
           <td>{{obj.Nombre}}</td>
-          <td>{{obj.IdUbicacion}}</td>
+          <td>{{obj.UbicacionesEntity.Nombre}}</td>
           <td>{{obj.Telefono}}</td>
-          <td>{{obj.Email}}</td>
+          
           <td>{{obj.Direccion}}</td>
           <td class="text-center">
   

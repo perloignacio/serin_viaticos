@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                return Ok(UbicacionesMapper.Instance().GetAll());
+                return Ok(UbicacionesMapper.Instance().GetAll().OrderBy(u=>u.Nombre));
             }
             catch (Exception ex)
             {
