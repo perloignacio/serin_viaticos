@@ -18,6 +18,8 @@ import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles
 import { CategoriasListadoComponent } from './components/categorias-listado/categorias-listado.component';
 import { UsuariosDependenciaComponent } from './components/usuarios-dependencia/usuarios-dependencia.component';
 import { UsuariosDependenciaFormComponent } from './components/usuarios-dependencia-form/usuarios-dependencia-form.component';
+import { HotelesComponent } from './components/hoteles/hoteles.component';
+import { HotelesFormComponent } from './components/hoteles-form/hoteles-form.component';
 
 
 
@@ -32,6 +34,8 @@ import { UsuariosDependenciaFormComponent } from './components/usuarios-dependen
     CategoriasListadoComponent,
     UsuariosDependenciaComponent,
     UsuariosDependenciaFormComponent,
+    HotelesComponent,
+    HotelesFormComponent,
   
    
   ],
