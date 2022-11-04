@@ -124,6 +124,11 @@
     <Compile Include="Controllers\HotelesController.cs" />
     <Compile Include="Controllers\ItinerarioDetalleController.cs" />
     <Compile Include="Controllers\ItinerarioController.cs" />
+    <Compile Include="Controllers\SolicitudesUsuariosController.cs" />
+    <Compile Include="Controllers\SolicitudesDetalleController.cs" />
+    <Compile Include="Controllers\SolicitudesController.cs" />
+    <Compile Include="Controllers\ReservasHotelController.cs" />
+    <Compile Include="Controllers\ReservasAlquilerAutoController.cs" />
     <Compile Include="Controllers\UbicacionesController.cs" />
     <Compile Include="Controllers\ReservasAereosController.cs" />
     <Compile Include="Controllers\SolicitudesEstadosController.cs" />

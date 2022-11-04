@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriasListadoComponent } from './components/categorias-listado/categorias-listado.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
+import { HotelesFormComponent } from './components/hoteles-form/hoteles-form.component';
+import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { MainComponent } from './components/main/main.component';
 import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles-listado.component';
 import { PerfilesComponent } from './components/perfiles/perfiles.component';
@@ -48,6 +50,14 @@ const routes: Routes = [
       {
         path: 'ubicacionesForm',
         component: UbicacionesFormComponent,
+      },
+      {
+        path: 'hoteles',
+        component: HotelesComponent,
+      },
+      {
+        path: 'hotelesForm',
+        component: HotelesFormComponent,
       },
     ]
   }
