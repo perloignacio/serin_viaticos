@@ -24,7 +24,11 @@
             </div>
             <div class="vsm-dropdown collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" >
               <div class="vsm-list">
-                
+                <div class="vsm-item">
+                  <a [routerLink]="'solicitudes'" routerLinkActive="active-item"[routerLinkActiveOptions]="{exact: true}" class="vsm-link">
+                    <span class="vsm-title">Nueva Solicitud</span>
+                  </a>
+                </div>
               </div>
             </div>
               

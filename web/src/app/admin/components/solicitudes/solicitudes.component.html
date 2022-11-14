@@ -1,0 +1,49 @@
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+      <div class="page-title-heading">
+         <div>
+         Nueva Solicitud
+          <div
+            class="page-title-subheading">
+            Complete los datos
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="card-body">
+    <form>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <div class="position-relative form-group mt-2">
+            <label for="Date">Fecha</label>
+            <input type="date" [(ngModel)]="obj.Fecha" name="Fecha" class="form-control" >
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="position-relative form-group mt-2">
+            <label for="exampleEmail11">Usuario</label>
+            <input type="text" name="Usuario" [(ngModel)]="User" class="form-control" readonly>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="position-relative form-group mt-2">
+            <label for="e-mails">Indique los e-mails que desea poner en copia</label>
+            <input type="email" multiple name="emails" [(ngModel)]="obj.EmailCopia" id="emails" class="form-control" required>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="position-relative form-group mt-2">
+            <label for="exampleEmail11">Descripción</label>
+            <textarea type="text" name="Descripción" [(ngModel)]="obj.Descripcion" rows="3" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <button class="btn btn-success" (click)="Guardar()">Guardar y Enviar</button>
+       
+    </form>
+  </div>

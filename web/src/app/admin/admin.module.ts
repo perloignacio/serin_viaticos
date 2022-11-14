@@ -24,6 +24,7 @@ import { HotelesFormComponent } from './components/hoteles-form/hoteles-form.com
 import { UbicacionesComponent } from './components/ubicaciones/ubicaciones.component';
 import { UbicacionesFormComponent } from './components/ubicaciones-form/ubicaciones-form.component';
 import { AgmCoreModule } from '@agm/core';
+import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { AgmCoreModule } from '@agm/core';
     HotelesFormComponent,
     UbicacionesComponent,
     UbicacionesFormComponent,
+    SolicitudesComponent,
   
    
   ],
