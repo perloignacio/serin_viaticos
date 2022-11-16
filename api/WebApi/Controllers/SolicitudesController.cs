@@ -58,11 +58,11 @@ namespace WebApi.Controllers
                 SolicitudesRules pfRules = new SolicitudesRules();
                 if (IdSolicitud.HasValue)
                 {
-                    pfRules.Modificar(IdSolicitud.Value, pf.Fecha, pf.IdUsuario, pf.IdSolicituEstado, pf.EmailCopia, pf.Descripcion);
+                    pfRules.Modificar(IdSolicitud.Value, pf.Fecha, pf.IdUsuario, pf.IdSolicitudEstado, pf.EmailCopia, pf.Descripcion);
                 }
                 else
                 {
-                    pfRules.Agregar(pf.Fecha, pf.IdUsuario, pf.IdSolicituEstado, pf.EmailCopia, pf.Descripcion);
+                    pfRules.Agregar(pf.Fecha, pf.IdUsuario, pf.IdSolicitudEstado, pf.EmailCopia, pf.Descripcion);
                 }
                 return Ok(true);
             }

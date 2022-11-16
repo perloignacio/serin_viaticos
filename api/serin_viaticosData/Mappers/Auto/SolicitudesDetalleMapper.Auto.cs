@@ -289,9 +289,9 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
-        public SolicitudesDetalleList GetByReservasHotel(DbTransaction transaction, System.Int32 IdResevaHotel)
+        public SolicitudesDetalleList GetByReservasHotel(DbTransaction transaction, System.Int32 IdReservaHotel)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdResevaHotel);
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>
@@ -382,9 +382,9 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
-        public SolicitudesDetalleList GetByReservasHotel(System.Int32 IdResevaHotel)
+        public SolicitudesDetalleList GetByReservasHotel(System.Int32 IdReservaHotel)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdResevaHotel);
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>
@@ -550,17 +550,17 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
-        public void DeleteByReservasHotel(System.Int32 IdResevaHotel)
+        public void DeleteByReservasHotel(System.Int32 IdReservaHotel)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdResevaHotel);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void DeleteByReservasHotel(DbTransaction transaction, System.Int32 IdResevaHotel)
+        public void DeleteByReservasHotel(DbTransaction transaction, System.Int32 IdReservaHotel)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdResevaHotel);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdReservaHotel);
         }
 
 
@@ -751,9 +751,9 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Get a SolicitudesDetalleList by calling a Stored Procedure
         /// </summary>
-        public Entities.SolicitudesDetalleList GetByReservasHotel(System.Int32 IdResevaHotel)
+        public Entities.SolicitudesDetalleList GetByReservasHotel(System.Int32 IdReservaHotel)
         {
-            return Instance().GetByReservasHotel(IdResevaHotel);
+            return Instance().GetByReservasHotel(IdReservaHotel);
         }
 
         /// <summary>
@@ -857,9 +857,9 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Delete SolicitudesDetalle by ReservasHotel
         /// </summary>
-        public void DeleteByReservasHotel(System.Int32 IdResevaHotel)
+        public void DeleteByReservasHotel(System.Int32 IdReservaHotel)
         {
-            Instance().DeleteByReservasHotel(IdResevaHotel);
+            Instance().DeleteByReservasHotel(IdReservaHotel);
         }
 
         /// <summary>
@@ -927,7 +927,7 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Save SolicitudesDetalle 
         /// </summary>
-        public void Save(System.Int32 IdSolicitudDetalle, System.Int32 IdSolicitud, System.Int32 IdSolicitudCategoria, System.Int32 IdReservaAereo, System.Int32 IdResevaHotel, System.Int32 IdItinerario, System.Int32 IdReservaAlquilerAuto, System.String Observaciones){
+        public void Save(System.Int32 IdSolicitudDetalle, System.Int32 IdSolicitud, System.Int32 IdSolicitudCategoria, System.Int32 IdReservaAereo, System.Int32 IdReservaHotel, System.Int32 IdItinerario, System.Int32 IdReservaAlquilerAuto, System.String Observaciones){
             Entities.SolicitudesDetalle entity = Instance().GetOne(IdSolicitudDetalle);
             if (entity == null)
                 throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdSolicitudDetalle", IdSolicitudDetalle));
@@ -935,7 +935,7 @@ namespace serin_viaticosRules.Wrappers
             entity.IdSolicitud = IdSolicitud;
             entity.IdSolicitudCategoria = IdSolicitudCategoria;
             entity.IdReservaAereo = IdReservaAereo;
-            entity.IdResevaHotel = IdResevaHotel;
+            entity.IdReservaHotel = IdReservaHotel;
             entity.IdItinerario = IdItinerario;
             entity.IdReservaAlquilerAuto = IdReservaAlquilerAuto;
             entity.Observaciones = Observaciones;
@@ -945,13 +945,13 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Insert SolicitudesDetalle
         /// </summary>
-        public void Insert(System.Int32 IdSolicitud, System.Int32 IdSolicitudCategoria, System.Int32 IdReservaAereo, System.Int32 IdResevaHotel, System.Int32 IdItinerario, System.Int32 IdReservaAlquilerAuto, System.String Observaciones){
+        public void Insert(System.Int32 IdSolicitud, System.Int32 IdSolicitudCategoria, System.Int32 IdReservaAereo, System.Int32 IdReservaHotel, System.Int32 IdItinerario, System.Int32 IdReservaAlquilerAuto, System.String Observaciones){
             Entities.SolicitudesDetalle entity = new Entities.SolicitudesDetalle();
 
             entity.IdSolicitud = IdSolicitud;
             entity.IdSolicitudCategoria = IdSolicitudCategoria;
             entity.IdReservaAereo = IdReservaAereo;
-            entity.IdResevaHotel = IdResevaHotel;
+            entity.IdReservaHotel = IdReservaHotel;
             entity.IdItinerario = IdItinerario;
             entity.IdReservaAlquilerAuto = IdReservaAlquilerAuto;
             entity.Observaciones = Observaciones;
@@ -1175,9 +1175,9 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
-        public ObjectList<T> GetByReservasHotel(DbTransaction transaction, System.Int32 IdResevaHotel)
+        public ObjectList<T> GetByReservasHotel(DbTransaction transaction, System.Int32 IdReservaHotel)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdResevaHotel);
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>
@@ -1268,9 +1268,9 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
-        public ObjectList<T> GetByReservasHotel(System.Int32 IdResevaHotel)
+        public ObjectList<T> GetByReservasHotel(System.Int32 IdReservaHotel)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdResevaHotel);
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace serin_viaticosRules
             pf.IdSolicitud = IdSolicitud;
             pf.IdSolicitudCategoria = IdSolicitudCategoria;
             if (IdReservaAereo != null){pf.IdReservaAereo = IdReservaAereo.Value;}
-            if (IdResevaHotel != null) { pf.IdResevaHotel = IdResevaHotel.Value; }
+            if (IdResevaHotel != null) { pf.IdReservaHotel = IdResevaHotel.Value; }
             if (IdItinerario != null) { pf.IdItinerario = IdItinerario.Value; }
             if (IdReservaAlquilerAuto != null) { pf.IdReservaAlquilerAuto = IdReservaAlquilerAuto; }
             if (Observaciones != null) { pf.Observaciones = Observaciones; }
@@ -44,7 +44,7 @@ namespace serin_viaticosRules
             pf.IdSolicitudCategoria = IdSolicitudCategoria;
 
             if (IdReservaAereo != null) { pf.IdReservaAereo = IdReservaAereo.Value; }
-            if (IdResevaHotel != null) { pf.IdResevaHotel = IdResevaHotel.Value; }
+            if (IdResevaHotel != null) { pf.IdReservaHotel = IdResevaHotel.Value; }
             if (IdItinerario != null) { pf.IdItinerario = IdItinerario.Value; }
             if (Observaciones != null) { pf.Observaciones = Observaciones; }
             if (IdReservaAlquilerAuto != null) { pf.IdReservaAlquilerAuto = IdReservaAlquilerAuto; }

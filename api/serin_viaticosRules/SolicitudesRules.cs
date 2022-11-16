@@ -18,7 +18,7 @@ namespace serin_viaticosRules
                  
             pf.Fecha = Fecha;
             pf.IdUsuario = IdUsuario;
-            pf.IdSolicituEstado = IdSolicituEstado;
+            pf.IdSolicitudEstado = IdSolicituEstado;
             pf.EmailCopia = EmailCopia;
             pf.Descripcion = Descripcion;
 
@@ -37,7 +37,7 @@ namespace serin_viaticosRules
             }
             pf.Fecha = Fecha;
             pf.IdUsuario = IdUsuario;
-            pf.IdSolicituEstado = IdSolicituEstado;
+            pf.IdSolicitudEstado = IdSolicituEstado;
             pf.EmailCopia = EmailCopia;
             pf.Descripcion = Descripcion;
 

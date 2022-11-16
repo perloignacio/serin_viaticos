@@ -229,9 +229,9 @@ reader.GetInt32(3),
         /// <summary>
         /// 
         /// </summary>
-        public SolicitudesList GetBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicituEstado)
+        public SolicitudesList GetBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicitudEstado)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicituEstado);
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
@@ -250,9 +250,9 @@ reader.GetInt32(3),
         /// <summary>
         /// 
         /// </summary>
-        public SolicitudesList GetBySolicitudesEstados(System.Int32 IdSolicituEstado)
+        public SolicitudesList GetBySolicitudesEstados(System.Int32 IdSolicitudEstado)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicituEstado);
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
@@ -292,17 +292,17 @@ reader.GetInt32(3),
         /// <summary>
         /// 
         /// </summary>
-        public void DeleteBySolicitudesEstados(System.Int32 IdSolicituEstado)
+        public void DeleteBySolicitudesEstados(System.Int32 IdSolicitudEstado)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicituEstado);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void DeleteBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicituEstado)
+        public void DeleteBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicitudEstado)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicituEstado);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicitudEstado);
         }
 
 
@@ -403,9 +403,9 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Get a SolicitudesList by calling a Stored Procedure
         /// </summary>
-        public Entities.SolicitudesList GetBySolicitudesEstados(System.Int32 IdSolicituEstado)
+        public Entities.SolicitudesList GetBySolicitudesEstados(System.Int32 IdSolicitudEstado)
         {
-            return Instance().GetBySolicitudesEstados(IdSolicituEstado);
+            return Instance().GetBySolicitudesEstados(IdSolicitudEstado);
         }
 
         /// <summary>
@@ -437,9 +437,9 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Delete Solicitudes by SolicitudesEstados
         /// </summary>
-        public void DeleteBySolicitudesEstados(System.Int32 IdSolicituEstado)
+        public void DeleteBySolicitudesEstados(System.Int32 IdSolicitudEstado)
         {
-            Instance().DeleteBySolicitudesEstados(IdSolicituEstado);
+            Instance().DeleteBySolicitudesEstados(IdSolicitudEstado);
         }
 
         /// <summary>
@@ -489,14 +489,14 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Save Solicitudes 
         /// </summary>
-        public void Save(System.Int32 IdSolicitud, System.DateTime Fecha, System.Int32 IdUsuario, System.Int32 IdSolicituEstado, System.String EmailCopia, System.String Descripcion){
+        public void Save(System.Int32 IdSolicitud, System.DateTime Fecha, System.Int32 IdUsuario, System.Int32 IdSolicitudEstado, System.String EmailCopia, System.String Descripcion){
             Entities.Solicitudes entity = Instance().GetOne(IdSolicitud);
             if (entity == null)
                 throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdSolicitud", IdSolicitud));
 
             entity.Fecha = Fecha;
             entity.IdUsuario = IdUsuario;
-            entity.IdSolicituEstado = IdSolicituEstado;
+            entity.IdSolicitudEstado = IdSolicitudEstado;
             entity.EmailCopia = EmailCopia;
             entity.Descripcion = Descripcion;
             Instance().Save(entity);
@@ -505,12 +505,12 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Insert Solicitudes
         /// </summary>
-        public void Insert(System.DateTime Fecha, System.Int32 IdUsuario, System.Int32 IdSolicituEstado, System.String EmailCopia, System.String Descripcion){
+        public void Insert(System.DateTime Fecha, System.Int32 IdUsuario, System.Int32 IdSolicitudEstado, System.String EmailCopia, System.String Descripcion){
             Entities.Solicitudes entity = new Entities.Solicitudes();
 
             entity.Fecha = Fecha;
             entity.IdUsuario = IdUsuario;
-            entity.IdSolicituEstado = IdSolicituEstado;
+            entity.IdSolicitudEstado = IdSolicitudEstado;
             entity.EmailCopia = EmailCopia;
             entity.Descripcion = Descripcion;
             Instance().Insert(entity);
@@ -673,9 +673,9 @@ reader.GetInt32(3),
         /// <summary>
         /// 
         /// </summary>
-        public ObjectList<T> GetBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicituEstado)
+        public ObjectList<T> GetBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicitudEstado)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicituEstado);
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
@@ -694,9 +694,9 @@ reader.GetInt32(3),
         /// <summary>
         /// 
         /// </summary>
-        public ObjectList<T> GetBySolicitudesEstados(System.Int32 IdSolicituEstado)
+        public ObjectList<T> GetBySolicitudesEstados(System.Int32 IdSolicitudEstado)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicituEstado);
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
