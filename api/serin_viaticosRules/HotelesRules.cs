@@ -17,7 +17,7 @@ namespace serin_viaticosRules
             Validar(Nombre, IdUbicacion, Direccion);
             Hoteles pf = new Hoteles();
             
-            pf.Nombre = Nombre;
+            
             pf.Nombre= Nombre;
             pf.IdUbicacion= IdUbicacion;
             pf.Telefono= Telefono;
@@ -30,17 +30,14 @@ namespace serin_viaticosRules
         
         public void Modificar(int IdHotel,string Nombre, int IdUbicacion, string Telefono, string Email, string Direccion)        
         {
-            //me fijo si el id existe y si es tiene algo escrito
-
-            //Validar(Nombre);
             Hoteles pf = HotelesMapper.Instance().GetOne(IdHotel);
             if (pf == null)
             {
-                throw new Exception("No se encuentra el codigo");
+                throw new Exception("No se encuentra el IdHotel");
             }
+            Validar(Nombre, IdUbicacion, Direccion);
 
 
-            pf.Nombre = Nombre;
             pf.Nombre = Nombre;
             pf.IdUbicacion = IdUbicacion;
             pf.Telefono = Telefono;
@@ -67,8 +64,8 @@ namespace serin_viaticosRules
         private void Validar(string Nombre, int IdUbicacion, string Direccion)
         {
             if (string.IsNullOrEmpty(Nombre)){ throw new Exception("Debe ingresar el nombre"); }
-            if (IdUbicacion == 0) { throw new Exception("Debe ingresar un codigo de IdUbicacion"); }
-            if (string.IsNullOrEmpty(Direccion)) { throw new Exception("Debe ingresar el Direccion"); }
+            if (IdUbicacion == 0) { throw new Exception("Debe ingresar el IdUbicacion"); }
+            if (string.IsNullOrEmpty(Direccion)) { throw new Exception("Debe ingresar la Dirección"); }
         }
         
     }

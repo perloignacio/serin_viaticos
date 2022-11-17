@@ -13,24 +13,11 @@ namespace serin_viaticosRules
     {
         public void Agregar(int IdUsuario, int IdPerfil)
         {
-            //NO FUNCIONA PORQUE NO BUSCA SOBRE EL IDUSUARIO BUSCA POR 
-            /*
-            PerfilesUsuarios pu1 = PerfilesUsuariosMapper.Instance().GetOne(IdUsuario);
-            if (pu1 == null)
-            {
-                throw new Exception("No se encuentra el codigo de usuario");
-            }
-            */
             
             
             
             //BUSCA EN LA TABLA LE PASAS EL IDUSUARIO Y SI NO EXISTE PASA
             
-            //if (PerfilesUsuariosMapper.Instance().GetOne(IdUsuario) != null)
-            //{               throw new Exception("El codigo de Usuario ya existe");            }
-
-
-
             //ME FIJO QUE EL IDUSUARIO EXISTA EN LA TABLA USUARIOS Y DEBO FIJARME QUE EL IDPERFIL EXITA EN LA TABLA PERFILES
             Validar (IdUsuario, IdPerfil);
             
@@ -45,14 +32,17 @@ namespace serin_viaticosRules
         }
 
 
-        public void Eliminar(int IdUsuario)
+        public void Eliminar(int IdUsuarioPerfil)
         {
             // ELIMINA POR IdUsuarioPerfil pero me parece deberia eliminar por idusuario
-            PerfilesUsuarios pu = PerfilesUsuariosMapper.Instance().GetByUsuario(IdUsuario);
+            PerfilesUsuarios pu = PerfilesUsuariosMapper.Instance().GetOne(IdUsuarioPerfil);
+
+            if (pu == null)
+            {
+                throw new Exception("No se encuentra el IdUsuarioPerfil que ingresaste.");
+            }
             PerfilesUsuariosMapper.Instance().Delete(pu);
             
-            
-
         }
 
 
@@ -82,7 +72,7 @@ namespace serin_viaticosRules
             dsIntranet intra = new dsIntranet();
             dsIntranetTableAdapters.UsuariosTableAdapter usu = new dsIntranetTableAdapters.UsuariosTableAdapter();
             usu.Fill(intra.Usuarios, IdUsuario);
-            if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario"); }
+            if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario ingresado."); }
 
             //aca me fijo que el PERFIL exista
             Perfiles pf = PerfilesMapper.Instance().GetOne(IdPerfil);

@@ -59,6 +59,7 @@ namespace serin_viaticosRules
         {
             //ME FIJO EN LA TABLA DE ITINERARIOS QUE EXISTA EL ID QUE SE CARGA
             Itinerario pf = ItinerarioMapper.Instance().GetOne(IdItinerario);
+            
             if (pf == null)
             {
                 throw new Exception("No se encuentra el IdItinerario");

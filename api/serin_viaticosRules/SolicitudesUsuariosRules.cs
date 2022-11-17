@@ -11,14 +11,14 @@ namespace serin_viaticosRules
 {
     public class SolicitudesUsuariosRules
     {
-        /*
-        public void Agregar(int IdSolicitudUsuario, int IdUsuario, decimal? MontoAnticipo)
+        
+        public void Agregar(int IdSolicitud, int IdUsuario, decimal? MontoAnticipo)
 
         {
-            //    Validar(Nombre);
+            Validar(IdSolicitud, IdUsuario, MontoAnticipo);
             SolicitudesUsuarios pf = new SolicitudesUsuarios();
-                 
-            pf.IdSolicitudUsuario = IdSolicitudUsuario;
+            
+          
             pf.IdUsuario = IdUsuario;
             if (MontoAnticipo != null){pf.MontoAnticipo = MontoAnticipo.Value;}
             
@@ -26,7 +26,7 @@ namespace serin_viaticosRules
         }
 
 
-        public void Modificar( int IdSolicitud, int IdSolicitudUsuario, int IdUsuario, decimal? MontoAnticipo)
+        public void Modificar(  int IdSolicitudUsuario, int IdSolicitud, int IdUsuario, decimal? MontoAnticipo)
         {
 
             //Validar(Nombre);
@@ -35,18 +35,17 @@ namespace serin_viaticosRules
             {
                 throw new Exception("No se encuentra el IdSolicitud");
             }
-            pf.IdSolicitudUsuario = IdSolicitudUsuario;
-
+            //me pone que es solo lectura y lo modifico nacho
+            //pf.IdSolicitud= IdSolicitud;
             pf.IdUsuario = IdUsuario;
             if (MontoAnticipo != null) { pf.MontoAnticipo = MontoAnticipo.Value; }
 
             SolicitudesUsuariosMapper.Instance().Save(pf);
         }
-
         
-        public void Eliminar(int IdSolicitud)
+        public void Eliminar(int IdSolicitudUsuario)
         {
-            SolicitudesUsuarios pf = SolicitudesUsuariosMapper.Instance().GetOne(IdSolicitud);
+            SolicitudesUsuarios pf = SolicitudesUsuariosMapper.Instance().GetOne(IdSolicitudUsuario);
             
             if (pf == null)
             {
@@ -57,11 +56,23 @@ namespace serin_viaticosRules
 
         }
 
-        private void Validar(string nombre)
+        private void Validar(int IdSolicitud, int IdUsuario, decimal? MontoAnticipo)
         {
-            if (string.IsNullOrEmpty(nombre)){ throw new Exception("Debe ingresar el nombre"); }
-            
+            Solicitudes pf = SolicitudesMapper.Instance().GetOne(IdSolicitud);
+            if (pf == null)
+            {
+                throw new Exception("No se encuentra el IdSolicitud");
+            }
+
+            //aca me fijo que el usuario exista
+            dsIntranet intra = new dsIntranet();
+            dsIntranetTableAdapters.UsuariosTableAdapter usu = new dsIntranetTableAdapters.UsuariosTableAdapter();
+            usu.Fill(intra.Usuarios, IdUsuario);
+            if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario ingresado."); }
+
+
+
         }
-*/
+
     }
 }

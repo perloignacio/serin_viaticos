@@ -36,6 +36,7 @@ namespace WebApi.Controllers
         {
             try
             {
+                
                 return Ok(SolicitudesEstadosMapper.Instance().GetAll().Where(p=>p.Activo));
             }
             catch (Exception ex)
@@ -52,6 +53,11 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (SolicitudesEstadosMapper.Instance().GetOne(IdSolicitudEstado) == null)
+                {
+                    throw new Exception("No se encuentra el IdSolicitudEstado para la busqueda");
+                }
                 return Ok(SolicitudesEstadosMapper.Instance().GetOne(IdSolicitudEstado));
             }
             catch (Exception ex)

@@ -13,7 +13,7 @@ namespace serin_viaticosRules
     {
         public void Agregar(DateTime Fecha, int IdUsuario, int IdSolicituEstado,string EmailCopia, string Descripcion)
         {
-        //    Validar(Nombre);
+            Validar(Fecha, IdUsuario, IdSolicituEstado);
             Solicitudes pf = new Solicitudes();
                  
             pf.Fecha = Fecha;
@@ -29,7 +29,7 @@ namespace serin_viaticosRules
         public void Modificar(int IdSolicitud, DateTime Fecha, int IdUsuario, int IdSolicituEstado, string EmailCopia, string Descripcion)
         {
 
-            //Validar(Nombre);
+            Validar(Fecha, IdUsuario, IdSolicituEstado);
             Solicitudes pf = SolicitudesMapper.Instance().GetOne(IdSolicitud);
             if (pf == null)
             {
@@ -59,10 +59,28 @@ namespace serin_viaticosRules
 
         }
 
-        private void Validar(string nombre)
+        private void Validar(DateTime Fecha, int IdUsuario, int IdSolicituEstado)
         {
-            if (string.IsNullOrEmpty(nombre)){ throw new Exception("Debe ingresar el nombre"); }
-            
+            if (Fecha.GetHashCode() == 0) { throw new Exception("Debe ingresar la Fecha de la Solicitud"); }
+
+            if (Fecha < DateTime.Today) { throw new Exception("La Fecha de la solicitud debe ser actual o posterior"); }
+
+            //aca me fijo que el usuario exista
+            dsIntranet intra = new dsIntranet();
+            dsIntranetTableAdapters.UsuariosTableAdapter usu = new dsIntranetTableAdapters.UsuariosTableAdapter();
+            usu.Fill(intra.Usuarios, IdUsuario);
+            if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario ingresado."); }
+
+            // Como tenemos un metodo para borrar por las dudas agregamos un metodo para activar.
+            SolicitudesEstados pf = SolicitudesEstadosMapper.Instance().GetOne(IdSolicituEstado);
+
+            if (pf == null)
+            {
+                throw new Exception("No se encuentra el IDSolicitudesEstado que ingresaste.");
+            }
+
+          
+
         }
 
     }

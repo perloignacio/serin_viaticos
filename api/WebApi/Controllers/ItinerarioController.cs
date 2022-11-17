@@ -28,7 +28,7 @@ namespace WebApi.Controllers
             }
 
         }
-
+        // MUESTRA LOS ITINERARIOS CON IDA Y VUELTA
         [Route("Activos")]
         [HttpGet]
         [AllowAnonymous]
@@ -44,6 +44,8 @@ namespace WebApi.Controllers
             }
 
         }
+
+        
 
         [Route("Uno/{IdItinerario}")]
         [HttpGet]
@@ -85,7 +87,6 @@ namespace WebApi.Controllers
             }
         }
 
-
         [Route("Borrar/{IdItinerario}")]
         [HttpDelete]
         [AllowAnonymous]
@@ -103,30 +104,6 @@ namespace WebApi.Controllers
             }
 
         }
-
-        /*
-                [Route("Activar/{IdItinerario}")]
-                [HttpPost]
-                [AllowAnonymous]
-                public IHttpActionResult Activar(int IdItinerario)
-                {
-                    try
-                    {
-                        ItinerarioRules pfRules = new ItinerarioRules();
-                        pfRules.Activar(IdItinerario);
-                        return Ok(true);
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
-                    }
-
-
-                }
-
-
-
-
-            */
+        
     }
 }

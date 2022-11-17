@@ -64,8 +64,7 @@ namespace serin_viaticosRules
 
         }
 
-    
-        
+            
         private void Validar(int IdUsuarioPadre, int IdUsuarioHijo,string accion)
         { 
             //Aca hay que validar por que existan los usuarios como se hace en perfiles.
@@ -82,10 +81,6 @@ namespace serin_viaticosRules
             //aca me fijo que el usuario exista
             usu.Fill(intra.Usuarios, IdUsuarioHijo);
             if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario HIJO"); }
-
-
-
-
 
             
             UsuariosDependencia ud = UsuariosDependenciaMapper.Instance().GetByUsuarioPadreHijo(IdUsuarioPadre, IdUsuarioHijo);

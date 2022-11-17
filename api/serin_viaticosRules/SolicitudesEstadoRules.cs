@@ -11,11 +11,7 @@ namespace serin_viaticosRules
     {
         public void Agregar(int IdSolicitudEstado,string Nombre,bool Activo)
         {
-            //deberia fijarme si la solicitud existe
-
-            /// ver como ccomprobar el ACTIVO exista
-
-
+          
             Validar(IdSolicitudEstado,Nombre,Activo);
             SolicitudesEstados sc=new SolicitudesEstados();
             
@@ -79,7 +75,15 @@ namespace serin_viaticosRules
 
         private void Validar(int IdSolicitudEstado, string Nombre, bool Activo)
         {
-            if (IdSolicitudEstado == 0) { throw new Exception("Debe ingresar un codigo de IdSolicitudEstado"); }
+            if (IdSolicitudEstado <= 0) { throw new Exception("Debe ingresar un codigo de IdSolicitudEstado valido"); }
+
+            SolicitudesEstados pf = SolicitudesEstadosMapper.Instance().GetOne(IdSolicitudEstado);
+            if (pf != null)
+            {
+                throw new Exception("El IdSolicitudEstado que ingresaste ya existe.");
+            }
+
+
             if (string.IsNullOrEmpty(Nombre)) { throw new Exception("Debe ingresar el Nombre"); }
             //if (Activo=='True') { throw new Exception("Debe ingresar si esta ACTIVO o no"); }
         }

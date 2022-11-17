@@ -54,7 +54,7 @@ namespace serin_viaticosRules
         {
             // Aca habiamos acordado que hacemos borrado fisico, hacemos borrado logico, el campo que maneja es es el activo.
             Ubicaciones pf = UbicacionesMapper.Instance().GetOne(IdUbicacion);
-            
+
             if (pf == null)
             {
                 throw new Exception("No se encuentra el perfil que ingresaste.");
@@ -64,10 +64,10 @@ namespace serin_viaticosRules
 
         }
         
-        private void Validar(string nombre)
+        private void Validar(string Nombre)
         {
-            if (string.IsNullOrEmpty(nombre)){ throw new Exception("Debe ingresar el nombre"); }
-            
+            if (string.IsNullOrEmpty(Nombre)) { throw new Exception("Debe ingresar el nombre"); }
+
         }
         
     }

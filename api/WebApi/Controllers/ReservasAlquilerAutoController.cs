@@ -37,6 +37,11 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (ReservasAlquilerAutoMapper.Instance().GetOne(IdReservaAlquilerAuto) == null)
+                {
+                    throw new Exception("No se encuentra el IdReservaAlquilerAuto para la busqueda");
+                }
                 return Ok(ReservasAlquilerAutoMapper.Instance().GetOne(IdReservaAlquilerAuto));
             }
             catch (Exception ex)
@@ -70,7 +75,7 @@ namespace WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        
 
         [Route("Borrar/{IdReservaAlquilerAuto}")]
         [HttpDelete]

@@ -37,6 +37,11 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (SolicitudesUsuariosMapper.Instance().GetOne(IdSolicitudUsuario) == null)
+                {
+                    throw new Exception("No se encuentra el IdSolicitudUsuario para la busqueda");
+                }
                 return Ok(SolicitudesUsuariosMapper.Instance().GetOne(IdSolicitudUsuario));
             }
             catch (Exception ex)
@@ -47,22 +52,22 @@ namespace WebApi.Controllers
 
         }
 
-        /*
+        
         [Route("AgregarEditar/{IdSolicitudUsuario?}")]
         [HttpPost]
         [AllowAnonymous]
-        public IHttpActionResult AgregarEditar([FromBody] SolicitudesUsuarios pf, int? IdSolicitud = null)
+        public IHttpActionResult AgregarEditar([FromBody] SolicitudesUsuarios pf, int? IdSolicitudUsuario = null)
         {
             try
             {
-                SolicitudesUsuariosRules pfRules = new SolicitudesUsuariosRules();
-                if (IdSolicitud.HasValue)
+                 SolicitudesUsuariosRules pfRules = new SolicitudesUsuariosRules();
+                if (IdSolicitudUsuario.HasValue)
                 {
-                    pfRules.Modificar(IdSolicitud.Value, pf.IdSolicitudUsuario, pf.IdUsuario, pf.MontoAnticipo);
+                    pfRules.Modificar(IdSolicitudUsuario.Value, pf.IdSolicitud, pf.IdUsuario, pf.MontoAnticipo);
                 }
                 else
                 {
-                    pfRules.Agregar(pf.IdSolicitudUsuario, pf.IdUsuario, pf.MontoAnticipo);
+                    pfRules.Agregar(pf.IdSolicitud, pf.IdUsuario, pf.MontoAnticipo);
                 }
                 return Ok(true);
             }
@@ -94,6 +99,6 @@ namespace WebApi.Controllers
 
         }
        
-        */
+        
     }
 }

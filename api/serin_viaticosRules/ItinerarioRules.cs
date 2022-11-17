@@ -13,14 +13,10 @@ namespace serin_viaticosRules
     {
         public void Agregar(DateTime Fecha, bool IdaVuelta)
         {
-
-            
-
             //IDAVUELTA SI NO SE PASA EL DATO LO CARGA COMO FALSE
             Validar(Fecha);
             Itinerario pf = new Itinerario();
-
-            
+           
             pf.Fecha = Fecha;
             //porque en este caso se debe definir si hay ida y vuelta o no no ponerlo como true siempre
             //pf.IdaVuelta = true;
@@ -33,7 +29,6 @@ namespace serin_viaticosRules
         {
             // Aca habiamos acordado que hacemos borrado fisico, hacemos borrado logico, el campo que maneja es es el activo.
             Itinerario pf = ItinerarioMapper.Instance().GetOne(IdItinerario);
-
             if (pf == null)
             {
                 throw new Exception("No se encuentra el IdItinerario que ingresaste.");
@@ -47,7 +42,6 @@ namespace serin_viaticosRules
         public void Modificar(int IdItinerario, DateTime Fecha, bool IdaVuelta)
         {
             // el id es autonumerico y si es tiene algo escrito
-
             Validar(Fecha);
             Itinerario pf = ItinerarioMapper.Instance().GetOne(IdItinerario);
             if (pf == null)
@@ -66,10 +60,6 @@ namespace serin_viaticosRules
         {
             if (Fecha.GetHashCode() == 0) { throw new Exception("Debe ingresar la Fecha"); }
             if (Fecha < DateTime.Today) { throw new Exception("Debe ingresar la fecha actual o posterior"); }
-            //if (Fecha.HasValue){ throw new Exception("Debe ingresar la Fecha"); }
-            //if (string.IsNullOrEmpty(IdaVuelta)){ throw new Exception("Debe ingresar el nombre"); }
-            //if (DateTime.TryParse("texto a validar", out Fecha))
-            //if (DateTime.TryParse(Fecha, out Fecha))
 
         }
         

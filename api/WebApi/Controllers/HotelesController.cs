@@ -37,7 +37,13 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (HotelesMapper.Instance().GetOne(IdHotel) == null)
+                {
+                    throw new Exception("No se encuentra el IdHotel para la busqueda");
+                }
                 return Ok(HotelesMapper.Instance().GetOne(IdHotel));
+
             }
             catch (Exception ex)
             {

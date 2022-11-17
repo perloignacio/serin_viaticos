@@ -52,6 +52,12 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (PerfilesMapper.Instance().GetOne(IdPerfil) == null)
+                {
+                    throw new Exception("No se encuentra el IdPerfil para la busqueda");
+                }
+
                 return Ok(PerfilesMapper.Instance().GetOne(IdPerfil));
             }
             catch (Exception ex)

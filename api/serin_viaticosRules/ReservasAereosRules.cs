@@ -13,7 +13,7 @@ namespace serin_viaticosRules
     {
         public void Agregar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio)
         {
-            //Validar(Nombre);
+            Validar(IdReservaAereo, IdOrigen, IdDestino, CantPasajeros, FechaViaje, IdaVuelta, Precio,"Agregar");
             ReservasAereos pf = new ReservasAereos();
             
             pf.IdReservaAereo = IdReservaAereo;
@@ -32,13 +32,14 @@ namespace serin_viaticosRules
 
         public void Modificar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio)
         {
-
-            //Validar(Nombre);
+          
+            
             ReservasAereos pf = ReservasAereosMapper.Instance().GetOne(IdReservaAereo);
             if (pf == null)
             {
                 throw new Exception("No se encuentra el codigo");
             }
+            Validar(IdReservaAereo, IdOrigen, IdDestino, CantPasajeros, FechaViaje, IdaVuelta, Precio,"Modificar");
 
             pf.IdReservaAereo = IdReservaAereo;
             pf.IdOrigen = IdOrigen;
@@ -62,27 +63,50 @@ namespace serin_viaticosRules
             
             if (pf == null)
             {
-                throw new Exception("No se encuentra el IdReservaAereo que ingresaste.");
+                throw new Exception("No se encuentra el IdReservaAereo que ingresaste para eliminar.");
             }
             ReservasAereosMapper.Instance().Delete(pf);
             
 
         }
-
-        private void Validar(int IdReservaAereo, int IdOrigen, int IdDestino)
+        
+        private void Validar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio,string Text)
         {
-            //QUEDS PENDIENTE HASTA QUE HAGA LA CLASE UBIUCACIONES
-            //La FECHA DE VIAJE SEA PORSTERIOR A LA FECHA ACTUAL
-            //IDORIGEN Y DESTINO EXISTAN 
-            Ubicaciones pf = UbicacionesMapper.Instance().GetOne(IdReservaAereo);
-
-            if (pf == null)
+            if (Text == "Agregar")
             {
-                throw new Exception("No se encuentra el IdReservaAereo que ingresaste.");
-            }
-
-            //if (string.IsNullOrEmpty(nombre)){ throw new Exception("Debe ingresar el nombre"); }
+                ReservasAereos pf = ReservasAereosMapper.Instance().GetOne(IdReservaAereo);
+                if (pf != null)
+                {
+                    throw new Exception("El IdReservaAereo que ingresaste ya existe.");
+                }
             
+            }
+                
+                if (IdOrigen == 0) { throw new Exception("Debe ingresar un IdOrigen"); }
+            if (IdDestino == 0) { throw new Exception("Debe ingresar un IdDestino"); }
+
+            Ubicaciones pf1 = UbicacionesMapper.Instance().GetOne(IdOrigen);
+            if (pf1 == null)
+            {
+                throw new Exception("El IdOrigen que ingresaste no existe.");
+            }
+            Ubicaciones pf2 = UbicacionesMapper.Instance().GetOne(IdDestino);
+            if (pf2 == null)
+            {
+                throw new Exception("El IdDestino que ingresaste no existe.");
+
+            }
+            if (IdOrigen == IdDestino) { throw new Exception("El IdOrigen no puede ser igual al IdDestino"); }
+
+
+
+            if (FechaViaje.GetHashCode() == 0) { throw new Exception("Debe ingresar la fecha del viaje"); }
+            
+            if (FechaViaje < DateTime.Today) { throw new Exception("La fecha del viaje debe ser la actual o posterior"); }
+
+            if (CantPasajeros<1 ) { throw new Exception("Debe ingresar cantidad de pasajeros y debe ser mayor a 0"); }
+
+            if (Precio < 1) { throw new Exception("Debe ingresar el precio y este debe ser mayor a 0"); }
         }
 
     }

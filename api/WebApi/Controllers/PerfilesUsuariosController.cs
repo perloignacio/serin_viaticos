@@ -36,6 +36,11 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (PerfilesUsuariosMapper.Instance().GetOne(IdUsuario) == null)
+                {
+                    throw new Exception("No se encuentra el IdUsuarioPerfil para la busqueda");
+                }
                 return Ok(PerfilesUsuariosMapper.Instance().GetOne(IdUsuario));
             }
             catch (Exception ex)
@@ -72,18 +77,16 @@ namespace WebApi.Controllers
         }
 
 
-        [Route("Borrar/{IdUsuario}")]
+        [Route("Borrar/{IdUsuarioPerfil}")]
         [HttpDelete]
         [AllowAnonymous]
-        public IHttpActionResult Borrar(int IdUsuario)
+        public IHttpActionResult Borrar(int IdUsuarioPerfil)
         {
             try
             {
                 // elimina por IdUsuarioPerfil me parece podria eliminar por IdUsuario
                 PerfilesUsuariosRules pu = new PerfilesUsuariosRules();
-                pu.Eliminar(IdUsuario);
-                              
-                
+                pu.Eliminar(IdUsuarioPerfil);
                 return Ok(true);
             }
             catch (Exception ex)

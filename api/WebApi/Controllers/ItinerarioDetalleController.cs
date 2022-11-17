@@ -37,7 +37,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                return Ok(ItinerarioMapper.Instance().GetOne(IdItinerarioDetalle));
+                return Ok(ItinerarioDetalleMapper.Instance().GetOne(IdItinerarioDetalle));
             }
             catch (Exception ex)
             {

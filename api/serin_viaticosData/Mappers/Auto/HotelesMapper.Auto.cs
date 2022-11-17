@@ -48,6 +48,8 @@ namespace serin_viaticosRules.Mappers
                     if (inst == null) {
                         inst = new HotelesMapper();
                         HttpContext.Current.Items.Add("serin_viaticosRules.HotelesMapperSingleton", inst);
+                   
+
                     }
                     return inst;
                 }

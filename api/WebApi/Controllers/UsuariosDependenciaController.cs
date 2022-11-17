@@ -70,6 +70,11 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (UsuariosDependenciaMapper.Instance().GetOne(IdUsuarioPadre) == null)
+                {
+                    throw new Exception("No se encuentra el IdUbicacion para la busqueda");
+                }
                 return Ok(UsuariosDependenciaMapper.Instance().GetOne(IdUsuarioPadre));
             }
             catch (Exception ex)

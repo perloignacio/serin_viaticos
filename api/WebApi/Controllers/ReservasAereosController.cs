@@ -37,6 +37,11 @@ namespace WebApi.Controllers
         {
             try
             {
+                //agregue esta validacion para que no tirara NUll cuando no encuentra el id
+                if (ReservasAereosMapper.Instance().GetOne(IdReservaAereo) == null)
+                {
+                    throw new Exception("No se encuentra el IdReservaAereo para la busqueda");
+                }
                 return Ok(ReservasAereosMapper.Instance().GetOne(IdReservaAereo));
             }
             catch (Exception ex)
