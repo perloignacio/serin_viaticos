@@ -1,0 +1,124 @@
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+      <div class="page-title-heading">
+         <div>
+         Nueva Solicitud
+          <div
+            class="page-title-subheading">
+            Complete los datos
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="card-body">
+    <form>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <div class="position-relative form-group mt-2">
+            <label for="Date">Fecha</label>
+            <input type="date" [(ngModel)]="obj.Fecha" name="Fecha" class="form-control" >
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="position-relative form-group mt-2">
+            <label for="exampleEmail11">Usuario</label>
+            <input type="text" name="Usuario" [(ngModel)]="User" class="form-control" readonly>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="position-relative form-group mt-2">
+            <label for="e-mails">Indique los e-mails que desea poner en copia</label>
+            <input type="email" multiple name="emails" [(ngModel)]="obj.EmailCopia" id="emails" class="form-control" required>
+          </div>
+        </div>
+        
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="position-relative form-group">
+            <label for="exampleEmail11">Descripción</label>
+            <textarea type="text" name="Descripción" [(ngModel)]="obj.Descripcion" rows="3" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-3 p-3">
+        <div class="row">
+          <div class="col-md-8">
+            <h3>Usuarios</h3>
+          </div>
+          <div class="col-md-4 text-end">
+            <button class="btn btn-primary" (click)="NuevaSolUsu()">Agregar usuario</button>
+          </div>
+        </div>
+        <div class="table-responsive mt-3">
+          <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+            <thead>
+            <tr>
+              <th class="text-center">#ID</th>
+              <th>Nombre</th>
+              <th>Monto anticipo</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+      
+            <tr *ngFor="let SolUsu of obj.SolcitudesUsuarios;">
+              <td class="text-center text-muted">#{{SolUsu.IdSolicitudUsuario}}</td>
+              <td>{{SolUsu.UsuariosEntity.Nombre}} {{SolUsu.UsuariosEntity.Apellido}}</td>
+              <td>${{SolUsu.MontoAnticipo}}</td>
+              <td class="text-center">
+                <i class="fas fa-trash me-2" role="button" (click)="BorrarSolUsu(SolUsu)" ></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+
+
+      <div class="card mt-3 p-3">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Detalle</h3>
+          </div>
+          
+          <div class="col-md-6 text-end">
+            <select [(ngModel)]="idCategoria" name="idCategoria" class="form-select form-control d-inline-block me-2" style="width: 200px !important;position: relative;top:2px">
+              <option *ngFor="let objC of Categorias"  [ngValue]="objC.IdSolicitudCategoria">{{objC.Nombre}}</option>
+            </select>
+            <button class="btn btn-primary d-inline-block" (click)="NuevoDetalle()">Agregar</button>
+          </div>
+        </div>
+        <div class="table-responsive mt-3">
+          <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+            <thead>
+            <tr>
+              <th class="text-center">#ID</th>
+              <th>Detalle</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+      
+            <tr *ngFor="let det of obj.Detalle;">
+              <td class="text-center text-muted">#{{det.IdSolicitudDetalle}}</td>
+              <td>{{getDetalle(det)}}</td>
+              <td class="text-center">
+                <i class="fas fa-trash me-2" role="button" (click)="BorrarDetalle(det)" ></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+      <button class="btn btn-success mt-3" (click)="Guardar()">Guardar y Enviar</button>
+       
+    </form>
+  </div>

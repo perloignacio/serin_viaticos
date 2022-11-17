@@ -60,7 +60,7 @@ namespace serin_viaticosRules.Entities
 			System.Int32 IdSolicitud,
 			System.Int32 IdSolicitudCategoria,
 			System.Nullable<System.Int32> IdReservaAereo,
-			System.Nullable<System.Int32> IdResevaHotel,
+			System.Nullable<System.Int32> IdReservaHotel,
 			System.Nullable<System.Int32> IdItinerario,
 			System.Nullable<System.Int32> IdReservaAlquilerAuto,
 			System.String Observaciones)
@@ -71,7 +71,7 @@ namespace serin_viaticosRules.Entities
 			_IdSolicitud = IdSolicitud;
 			_IdSolicitudCategoria = IdSolicitudCategoria;
 			_IdReservaAereo = IdReservaAereo;
-			_IdResevaHotel = IdResevaHotel;
+			_IdReservaHotel = IdReservaHotel;
 			_IdItinerario = IdItinerario;
 			_IdReservaAlquilerAuto = IdReservaAlquilerAuto;
 			_Observaciones = Observaciones;
@@ -218,9 +218,9 @@ bool _ReservasHotelEntityFetched;
         {
             get
             {
-                if (_ReservasHotelEntity== null  && this.IdResevaHotel.HasValue && ! _ReservasHotelEntityFetched ) {
+                if (_ReservasHotelEntity== null  && this.IdReservaHotel.HasValue && ! _ReservasHotelEntityFetched ) {
 _ReservasHotelEntityFetched = true;
-Entities.ReservasHotel _ReservasHotelEntityTemp = new Entities.ReservasHotel(this.IdResevaHotel.Value); 
+Entities.ReservasHotel _ReservasHotelEntityTemp = new Entities.ReservasHotel(this.IdReservaHotel.Value); 
 ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.ReservasHotel));
  _ReservasHotelEntity = lazyProvider.GetEntity(typeof(Entities.ReservasHotel), _ReservasHotelEntityTemp) as Entities.ReservasHotel;
 }
@@ -232,10 +232,10 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.ReservasHot
                 base.PropertyModified();
                 _ReservasHotelEntity = value;
                 if (value != null) {
-   _IdResevaHotel = value.IdReservaHotel;
+   _IdReservaHotel = value.IdReservaHotel;
 
 } else {
-   _IdResevaHotel = null;
+   _IdReservaHotel = null;
 
 }
 

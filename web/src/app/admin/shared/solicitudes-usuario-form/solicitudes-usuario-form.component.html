@@ -1,0 +1,28 @@
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-10">
+            <h3>Usuarios</h3>
+        </div>
+        <div class="col-md-2 text-end">
+            <i class="fas fa-times" role="button" (click)="cerrar()"></i>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <label>Usuario</label>
+            <select [(ngModel)]="obj.IdUsuario" name="IdUsuario" class="form-select form-control">
+                <option *ngFor="let objU of usuarios"  [ngValue]="objU.IdUsuario">{{objU.Apellido}} {{objU.Nombre}}</option>
+            </select>
+        </div>
+        <div class="col-md-12 mt-2">
+            <label>Anticipo</label>
+            <input type="number" class="form-control" placeholder="Monto anticipo" [(ngModel)]="obj.MontoAnticipo">
+        </div>
+        
+        <div class="col-md-12">
+            <button class="btn btn-success mt-3" (click)="Guardar()">Agregar</button>
+            
+        </div>
+    </div>
+</div>

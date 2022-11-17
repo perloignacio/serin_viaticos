@@ -24,6 +24,13 @@ import { HotelesFormComponent } from './components/hoteles-form/hoteles-form.com
 import { UbicacionesComponent } from './components/ubicaciones/ubicaciones.component';
 import { UbicacionesFormComponent } from './components/ubicaciones-form/ubicaciones-form.component';
 import { AgmCoreModule } from '@agm/core';
+import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
+import { SolicitudesUsuarioFormComponent } from './shared/solicitudes-usuario-form/solicitudes-usuario-form.component';
+import { ReservasAereoFormComponent } from './shared/reservas-aereo-form/reservas-aereo-form.component';
+import { ReservaAlquilerAutoFormComponent } from './shared/reserva-alquiler-auto-form/reserva-alquiler-auto-form.component';
+import { ReservaHotelFormComponent } from './shared/reserva-hotel-form/reserva-hotel-form.component';
+import { ItinerarioFormComponent } from './shared/itinerario-form/itinerario-form.component';
+import { DetalleGeneralFormComponent } from './shared/detalle-general-form/detalle-general-form.component';
 
 
 @NgModule({
@@ -41,6 +48,13 @@ import { AgmCoreModule } from '@agm/core';
     HotelesFormComponent,
     UbicacionesComponent,
     UbicacionesFormComponent,
+    SolicitudesComponent,
+    SolicitudesUsuarioFormComponent,
+    ReservasAereoFormComponent,
+    ReservaAlquilerAutoFormComponent,
+    ReservaHotelFormComponent,
+    ItinerarioFormComponent,
+    DetalleGeneralFormComponent,
   
    
   ],

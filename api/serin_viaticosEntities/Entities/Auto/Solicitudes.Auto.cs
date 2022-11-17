@@ -59,7 +59,7 @@ namespace serin_viaticosRules.Entities
 			System.Int32 IdSolicitud,
 			System.DateTime Fecha,
 			System.Int32 IdUsuario,
-			System.Int32 IdSolicituEstado,
+			System.Int32 IdSolicitudEstado,
 			System.String EmailCopia,
 			System.String Descripcion)
             : base()
@@ -68,7 +68,7 @@ namespace serin_viaticosRules.Entities
 			_IdSolicitud = IdSolicitud;
 			_Fecha = Fecha;
 			_IdUsuario = IdUsuario;
-			_IdSolicituEstado = IdSolicituEstado;
+			_IdSolicitudEstado = IdSolicitudEstado;
 			_EmailCopia = EmailCopia;
 			_Descripcion = Descripcion;
 
@@ -101,7 +101,7 @@ bool _SolicitudesEstadosEntityFetched;
             {
                 if (_SolicitudesEstadosEntity== null  && ! _SolicitudesEstadosEntityFetched ) {
 _SolicitudesEstadosEntityFetched = true;
-Entities.SolicitudesEstados _SolicitudesEstadosEntityTemp = new Entities.SolicitudesEstados(this.IdSolicituEstado); 
+Entities.SolicitudesEstados _SolicitudesEstadosEntityTemp = new Entities.SolicitudesEstados(this.IdSolicitudEstado); 
 ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.SolicitudesEstados));
  _SolicitudesEstadosEntity = lazyProvider.GetEntity(typeof(Entities.SolicitudesEstados), _SolicitudesEstadosEntityTemp) as Entities.SolicitudesEstados;
 }
@@ -113,10 +113,10 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Solicitudes
                 base.PropertyModified();
                 _SolicitudesEstadosEntity = value;
                 if (value != null) {
-   _IdSolicituEstado = value.IdSolicitudEstado;
+   _IdSolicitudEstado = value.IdSolicitudEstado;
 
 } else {
-   _IdSolicituEstado = System.Int32.MinValue;
+   _IdSolicitudEstado = System.Int32.MinValue;
 
 }
 

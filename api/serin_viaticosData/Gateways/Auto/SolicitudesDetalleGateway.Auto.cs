@@ -228,9 +228,9 @@ reader.GetInt32(2),
         /// <summary>
         /// Get a SolicitudesDetalleObjectList by calling a Stored Procedure
         /// </summary>
-        public SolicitudesDetalleObjectList GetByReservasHotel(DbTransaction transaction,System.Int32 IdResevaHotel)
+        public SolicitudesDetalleObjectList GetByReservasHotel(DbTransaction transaction,System.Int32 IdReservaHotel)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdResevaHotel);
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>
@@ -320,9 +320,9 @@ reader.GetInt32(2),
         /// <summary>
         /// Get a SolicitudesDetalleObjectList by calling a Stored Procedure
         /// </summary>
-        public SolicitudesDetalleObjectList GetByReservasHotel(System.Int32 IdResevaHotel)
+        public SolicitudesDetalleObjectList GetByReservasHotel(System.Int32 IdReservaHotel)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdResevaHotel);
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>
@@ -481,17 +481,17 @@ reader.GetInt32(2),
         /// <summary>
         /// Delete SolicitudesDetalle by ReservasHotel
         /// </summary>
-        public void DeleteByReservasHotel(System.Int32 IdResevaHotel)
+        public void DeleteByReservasHotel(System.Int32 IdReservaHotel)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdResevaHotel);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>
         /// Delete SolicitudesDetalle by ReservasHotel
         /// </summary>
-        public void DeleteByReservasHotel(DbTransaction transaction, System.Int32 IdResevaHotel)
+        public void DeleteByReservasHotel(DbTransaction transaction, System.Int32 IdReservaHotel)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdResevaHotel);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", IdReservaHotel);
         }
 
         /// <summary>

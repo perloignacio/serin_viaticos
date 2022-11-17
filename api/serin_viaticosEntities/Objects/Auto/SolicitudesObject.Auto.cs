@@ -49,7 +49,7 @@ namespace serin_viaticosRules.Objects
 			System.Int32 IdSolicitud,
 			System.DateTime Fecha,
 			System.Int32 IdUsuario,
-			System.Int32 IdSolicituEstado,
+			System.Int32 IdSolicitudEstado,
 			System.String EmailCopia,
 			System.String Descripcion): base()
         {
@@ -57,7 +57,7 @@ namespace serin_viaticosRules.Objects
 			_IdSolicitud = IdSolicitud;
 			_Fecha = Fecha;
 			_IdUsuario = IdUsuario;
-			_IdSolicituEstado = IdSolicituEstado;
+			_IdSolicitudEstado = IdSolicitudEstado;
 			_EmailCopia = EmailCopia;
 			_Descripcion = Descripcion;
 
@@ -89,7 +89,7 @@ protected System.Int32 _IdUsuario;
 /// <summary>
 /// 
 /// </summary>
-protected System.Int32 _IdSolicituEstado;
+protected System.Int32 _IdSolicitudEstado;
 /// <summary>
 /// 
 /// </summary>
@@ -156,17 +156,17 @@ protected System.String _Descripcion;
         /// <summary>
         /// 
         /// </summary>
-        public virtual System.Int32 IdSolicituEstado
+        public virtual System.Int32 IdSolicitudEstado
         {
             get
             {
-                return _IdSolicituEstado;
+                return _IdSolicitudEstado;
             }
             
             set
             {
                 base.PropertyModified();
-                _IdSolicituEstado = value;
+                _IdSolicitudEstado = value;
                 
             }
             
@@ -257,14 +257,14 @@ protected System.String _Descripcion;
 			System.Int32 IdSolicitud,
 			System.DateTime Fecha,
 			System.Int32 IdUsuario,
-			System.Int32 IdSolicituEstado,
+			System.Int32 IdSolicitudEstado,
 			System.String EmailCopia,
 			System.String Descripcion)
         {
         _IdSolicitud = IdSolicitud;
 _Fecha = Fecha;
 _IdUsuario = IdUsuario;
-_IdSolicituEstado = IdSolicituEstado;
+_IdSolicitudEstado = IdSolicitudEstado;
 _EmailCopia = EmailCopia;
 _Descripcion = Descripcion;
         }
@@ -278,7 +278,7 @@ _Descripcion = Descripcion;
             _myArray[0] = _IdSolicitud;
 _myArray[1] = _Fecha;
 _myArray[2] = _IdUsuario;
-_myArray[3] = _IdSolicituEstado;
+_myArray[3] = _IdSolicitudEstado;
 if (!System.String.IsNullOrEmpty(_EmailCopia)) _myArray[4] = _EmailCopia;
 if (!System.String.IsNullOrEmpty(_Descripcion)) _myArray[5] = _Descripcion;
 
@@ -295,7 +295,7 @@ if (!System.String.IsNullOrEmpty(_Descripcion)) _myArray[5] = _Descripcion;
             _myArray[0] = _IdSolicitud;
 _myArray[1] = _Fecha;
 _myArray[2] = _IdUsuario;
-_myArray[3] = _IdSolicituEstado;
+_myArray[3] = _IdSolicitudEstado;
 if (!System.String.IsNullOrEmpty(_EmailCopia)) _myArray[4] = _EmailCopia;
 if (!System.String.IsNullOrEmpty(_Descripcion)) _myArray[5] = _Descripcion;
 
@@ -362,7 +362,7 @@ if (!System.String.IsNullOrEmpty(_Descripcion)) _myArray[5] = _Descripcion;
         void HydrateFields(System.Int32 IdSolicitud, 
 			System.DateTime Fecha, 
 			System.Int32 IdUsuario, 
-			System.Int32 IdSolicituEstado, 
+			System.Int32 IdSolicitudEstado, 
 			System.String EmailCopia, 
 			System.String Descripcion);
 

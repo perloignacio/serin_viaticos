@@ -50,7 +50,7 @@ namespace serin_viaticosRules.Objects
 			System.Int32 IdSolicitud,
 			System.Int32 IdSolicitudCategoria,
 			System.Nullable<System.Int32> IdReservaAereo,
-			System.Nullable<System.Int32> IdResevaHotel,
+			System.Nullable<System.Int32> IdReservaHotel,
 			System.Nullable<System.Int32> IdItinerario,
 			System.Nullable<System.Int32> IdReservaAlquilerAuto,
 			System.String Observaciones): base()
@@ -60,7 +60,7 @@ namespace serin_viaticosRules.Objects
 			_IdSolicitud = IdSolicitud;
 			_IdSolicitudCategoria = IdSolicitudCategoria;
 			_IdReservaAereo = IdReservaAereo;
-			_IdResevaHotel = IdResevaHotel;
+			_IdReservaHotel = IdReservaHotel;
 			_IdItinerario = IdItinerario;
 			_IdReservaAlquilerAuto = IdReservaAlquilerAuto;
 			_Observaciones = Observaciones;
@@ -97,7 +97,7 @@ protected System.Nullable<System.Int32> _IdReservaAereo;
 /// <summary>
 ///
 /// </summary>
-protected System.Nullable<System.Int32> _IdResevaHotel;
+protected System.Nullable<System.Int32> _IdReservaHotel;
 /// <summary>
 ///
 /// </summary>
@@ -187,17 +187,17 @@ protected System.String _Observaciones;
         /// <summary>
         /// Nullable property
         /// </summary>
-        public virtual System.Nullable<System.Int32> IdResevaHotel
+        public virtual System.Nullable<System.Int32> IdReservaHotel
         {
             get
             {
-                return _IdResevaHotel;
+                return _IdReservaHotel;
             }
             
             set
             {
                 base.PropertyModified();
-                _IdResevaHotel = value;                
+                _IdReservaHotel = value;                
                 
             }
             
@@ -308,7 +308,7 @@ protected System.String _Observaciones;
 			System.Int32 IdSolicitud,
 			System.Int32 IdSolicitudCategoria,
 			System.Nullable<System.Int32> IdReservaAereo,
-			System.Nullable<System.Int32> IdResevaHotel,
+			System.Nullable<System.Int32> IdReservaHotel,
 			System.Nullable<System.Int32> IdItinerario,
 			System.Nullable<System.Int32> IdReservaAlquilerAuto,
 			System.String Observaciones)
@@ -317,7 +317,7 @@ protected System.String _Observaciones;
 _IdSolicitud = IdSolicitud;
 _IdSolicitudCategoria = IdSolicitudCategoria;
 _IdReservaAereo = IdReservaAereo;
-_IdResevaHotel = IdResevaHotel;
+_IdReservaHotel = IdReservaHotel;
 _IdItinerario = IdItinerario;
 _IdReservaAlquilerAuto = IdReservaAlquilerAuto;
 _Observaciones = Observaciones;
@@ -333,7 +333,7 @@ _Observaciones = Observaciones;
 _myArray[1] = _IdSolicitud;
 _myArray[2] = _IdSolicitudCategoria;
 if (_IdReservaAereo.HasValue) _myArray[3] = _IdReservaAereo.Value;
-if (_IdResevaHotel.HasValue) _myArray[4] = _IdResevaHotel.Value;
+if (_IdReservaHotel.HasValue) _myArray[4] = _IdReservaHotel.Value;
 if (_IdItinerario.HasValue) _myArray[5] = _IdItinerario.Value;
 if (_IdReservaAlquilerAuto.HasValue) _myArray[6] = _IdReservaAlquilerAuto.Value;
 if (!System.String.IsNullOrEmpty(_Observaciones)) _myArray[7] = _Observaciones;
@@ -352,7 +352,7 @@ if (!System.String.IsNullOrEmpty(_Observaciones)) _myArray[7] = _Observaciones;
 _myArray[1] = _IdSolicitud;
 _myArray[2] = _IdSolicitudCategoria;
 if (_IdReservaAereo.HasValue) _myArray[3] = _IdReservaAereo.Value;
-if (_IdResevaHotel.HasValue) _myArray[4] = _IdResevaHotel.Value;
+if (_IdReservaHotel.HasValue) _myArray[4] = _IdReservaHotel.Value;
 if (_IdItinerario.HasValue) _myArray[5] = _IdItinerario.Value;
 if (_IdReservaAlquilerAuto.HasValue) _myArray[6] = _IdReservaAlquilerAuto.Value;
 if (!System.String.IsNullOrEmpty(_Observaciones)) _myArray[7] = _Observaciones;
@@ -421,7 +421,7 @@ if (!System.String.IsNullOrEmpty(_Observaciones)) _myArray[7] = _Observaciones;
 			System.Int32 IdSolicitud, 
 			System.Int32 IdSolicitudCategoria, 
 			System.Nullable<System.Int32> IdReservaAereo, 
-			System.Nullable<System.Int32> IdResevaHotel, 
+			System.Nullable<System.Int32> IdReservaHotel, 
 			System.Nullable<System.Int32> IdItinerario, 
 			System.Nullable<System.Int32> IdReservaAlquilerAuto, 
 			System.String Observaciones);

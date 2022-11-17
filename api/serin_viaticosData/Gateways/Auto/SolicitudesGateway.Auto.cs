@@ -172,9 +172,9 @@ reader.GetInt32(3),
         /// <summary>
         /// Get a SolicitudesObjectList by calling a Stored Procedure
         /// </summary>
-        public SolicitudesObjectList GetBySolicitudesEstados(DbTransaction transaction,System.Int32 IdSolicituEstado)
+        public SolicitudesObjectList GetBySolicitudesEstados(DbTransaction transaction,System.Int32 IdSolicitudEstado)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicituEstado);
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
@@ -192,9 +192,9 @@ reader.GetInt32(3),
         /// <summary>
         /// Get a SolicitudesObjectList by calling a Stored Procedure
         /// </summary>
-        public SolicitudesObjectList GetBySolicitudesEstados(System.Int32 IdSolicituEstado)
+        public SolicitudesObjectList GetBySolicitudesEstados(System.Int32 IdSolicitudEstado)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicituEstado);
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "Solicitudes_GetBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
@@ -230,17 +230,17 @@ reader.GetInt32(3),
         /// <summary>
         /// Delete Solicitudes by SolicitudesEstados
         /// </summary>
-        public void DeleteBySolicitudesEstados(System.Int32 IdSolicituEstado)
+        public void DeleteBySolicitudesEstados(System.Int32 IdSolicitudEstado)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicituEstado);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
         /// Delete Solicitudes by SolicitudesEstados
         /// </summary>
-        public void DeleteBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicituEstado)
+        public void DeleteBySolicitudesEstados(DbTransaction transaction, System.Int32 IdSolicitudEstado)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicituEstado);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "Solicitudes_DeleteBySolicitudesEstados", IdSolicitudEstado);
         }
 
         /// <summary>
