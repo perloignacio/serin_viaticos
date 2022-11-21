@@ -5,6 +5,7 @@ export class ReservasAereos{
     IdDestino:number;
     CantPasajeros:number;
     FechaViaje:Date;
+    FechaRegreso:Date;
     IdaVuelta:boolean;
     Precio?:number;
     UbicacionesDestinoEntity:Ubicaciones;
