@@ -49,7 +49,7 @@ export class SolicitudesComponent implements OnInit {
   }
   NuevoDetalle(){
     this.srvShared.objModal=null;
-    let compo:any;
+    let compo:any=DetalleGeneralFormComponent;
     
     switch(this.idCategoria){
       case 1:
@@ -65,11 +65,11 @@ export class SolicitudesComponent implements OnInit {
         compo=ItinerarioFormComponent;
         break;
       default:
-        compo:DetalleGeneralFormComponent;
+        
         break;
     }
     
-
+    console.log(compo);
 
     this.modal.open(compo, { size: 'lg' }).result.then((result) => {
         if(result!=null){
@@ -94,10 +94,20 @@ export class SolicitudesComponent implements OnInit {
   getDetalle(det:SolicitudesDetalle){
     let ret:string="";
     if(det.ReservasAlquilerAutoEntity!=null){
-      ret=`Reserva de alquiler de auto en ${det.ReservasAlquilerAutoEntity.UbicacionesEntity.Nombre} para el ${det.ReservasAlquilerAutoEntity.FechaDesde} al ${det.ReservasAlquilerAutoEntity.FechaHasta} para ${det.ReservasAlquilerAutoEntity.CantPasajeros} pasajeros`
+      ret=`Reserva de alquiler de auto en ${det.ReservasAlquilerAutoEntity.UbicacionesEntity.Nombre} para el ${det.ReservasAlquilerAutoEntity.FechaDesde} al ${det.ReservasAlquilerAutoEntity.FechaHasta} para ${det.ReservasAlquilerAutoEntity.CantPasajeros} pasajero/s.`
+    }
+    if(det.ReservasAereosEntity!=null){
+      ret=`Reserva de aéreo para el ${det.ReservasAereosEntity.FechaViaje} con salida desde ${det.ReservasAereosEntity.UbicacionesOrigenEntity.Nombre} hacia ${det.ReservasAereosEntity.UbicacionesDestinoEntity.Nombre} para ${det.ReservasAereosEntity.CantPasajeros} pasajero/s.`
+    }
+    if(det.ReservasHotelEntity!=null){
+      ret=`Reserva de ${det.ReservasHotelEntity.CantHabitaciones} habitacion/es para ${det.ReservasHotelEntity.CantPasajeros} pasajero/s, en ${det.ReservasHotelEntity.HotelesEntity.Nombre} en ${det.ReservasHotelEntity.UbicacionesEntity.Nombre}, desde el ${det.ReservasHotelEntity.Checkin} al ${det.ReservasHotelEntity.Checkout}.`
+    }
+    if(det.Observaciones!=null){
+      ret=`${det.Observaciones}`
     }
     return ret;
   }
+  
   Guardar(){
     this.obj.IdUsuario=this.srvAuth.currentUserValue.IdUsuario;
     this.srvObj.AgregarEditar(this.obj,this.obj.IdSolicitud).subscribe((band)=>{
