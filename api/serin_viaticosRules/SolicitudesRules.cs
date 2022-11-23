@@ -11,14 +11,14 @@ namespace serin_viaticosRules
 {
     public class SolicitudesRules
     {
-        public void Agregar(DateTime Fecha, int IdUsuario, int IdSolicituEstado,string EmailCopia, string Descripcion)
+        public void Agregar(DateTime Fecha, int IdUsuario, int IdSolicitudEstado,string EmailCopia, string Descripcion)
         {
-            Validar(Fecha, IdUsuario, IdSolicituEstado);
+            Validar(Fecha, IdUsuario, IdSolicitudEstado);
             Solicitudes pf = new Solicitudes();
                  
             pf.Fecha = Fecha;
             pf.IdUsuario = IdUsuario;
-            pf.IdSolicitudEstado = IdSolicituEstado;
+            pf.IdSolicitudEstado = IdSolicitudEstado;
             pf.EmailCopia = EmailCopia;
             pf.Descripcion = Descripcion;
 
@@ -26,10 +26,10 @@ namespace serin_viaticosRules
         }
 
 
-        public void Modificar(int IdSolicitud, DateTime Fecha, int IdUsuario, int IdSolicituEstado, string EmailCopia, string Descripcion)
+        public void Modificar(int IdSolicitud, DateTime Fecha, int IdUsuario, int IdSolicitudEstado, string EmailCopia, string Descripcion)
         {
 
-            Validar(Fecha, IdUsuario, IdSolicituEstado);
+            Validar(Fecha, IdUsuario, IdSolicitudEstado);
             Solicitudes pf = SolicitudesMapper.Instance().GetOne(IdSolicitud);
             if (pf == null)
             {
@@ -37,7 +37,7 @@ namespace serin_viaticosRules
             }
             pf.Fecha = Fecha;
             pf.IdUsuario = IdUsuario;
-            pf.IdSolicitudEstado = IdSolicituEstado;
+            pf.IdSolicitudEstado = IdSolicitudEstado;
             pf.EmailCopia = EmailCopia;
             pf.Descripcion = Descripcion;
 
@@ -59,7 +59,7 @@ namespace serin_viaticosRules
 
         }
 
-        private void Validar(DateTime Fecha, int IdUsuario, int IdSolicituEstado)
+        private void Validar(DateTime Fecha, int IdUsuario, int IdSolicitudEstado)
         {
             if (Fecha.GetHashCode() == 0) { throw new Exception("Debe ingresar la Fecha de la Solicitud"); }
 
@@ -72,7 +72,7 @@ namespace serin_viaticosRules
             if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario ingresado."); }
 
             // Como tenemos un metodo para borrar por las dudas agregamos un metodo para activar.
-            SolicitudesEstados pf = SolicitudesEstadosMapper.Instance().GetOne(IdSolicituEstado);
+            SolicitudesEstados pf = SolicitudesEstadosMapper.Instance().GetOne(IdSolicitudEstado);
 
             if (pf == null)
             {
