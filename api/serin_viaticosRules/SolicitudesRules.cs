@@ -18,7 +18,7 @@ namespace serin_viaticosRules
                  
             pf.Fecha = Fecha;
             pf.IdUsuario = IdUsuario;
-            pf.IdSolicitudEstado = IdSolicituEstado;
+            pf.IdSolicitudEstado = IdSolicitudEstado;
             pf.EmailCopia = EmailCopia;
             pf.Descripcion = Descripcion;
             pf.IdSolicitudEstado = 1;
@@ -66,7 +66,7 @@ namespace serin_viaticosRules
         }
 
 
-        public void Modificar(int IdSolicitud, DateTime Fecha, int IdUsuario, int IdSolicituEstado, string EmailCopia, string Descripcion)
+        public void Modificar(int IdSolicitud, DateTime Fecha, int IdUsuario, int IdSolicitudEstado, string EmailCopia, string Descripcion)
         {
 
             Validar(Fecha, IdUsuario);
@@ -77,7 +77,7 @@ namespace serin_viaticosRules
             }
             pf.Fecha = Fecha;
             pf.IdUsuario = IdUsuario;
-            pf.IdSolicitudEstado = IdSolicituEstado;
+            pf.IdSolicitudEstado = IdSolicitudEstado;
             pf.EmailCopia = EmailCopia;
             pf.Descripcion = Descripcion;
 

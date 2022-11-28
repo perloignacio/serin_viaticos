@@ -17,8 +17,10 @@ namespace serin_viaticosRules
         {
             Validar(IdSolicitud, IdUsuario, MontoAnticipo);
             SolicitudesUsuarios pf = new SolicitudesUsuarios();
-            
-          
+
+          //LO VA VER 
+          //  pf.IdSolicitud = IdSolicitud;
+
             pf.IdUsuario = IdUsuario;
             if (MontoAnticipo != null){pf.MontoAnticipo = MontoAnticipo.Value;}
             
