@@ -51,7 +51,8 @@ namespace serin_viaticosRules.Objects
 			System.Int32 CantPasajeros,
 			System.DateTime FechaViaje,
 			System.Boolean IdaVuelta,
-			System.Nullable<System.Decimal> Precio): base()
+			System.Nullable<System.Decimal> Precio,
+			System.Nullable<System.DateTime> FechaRegreso): base()
         {
 
 			_IdReservaAereo = IdReservaAereo;
@@ -61,6 +62,7 @@ namespace serin_viaticosRules.Objects
 			_FechaViaje = FechaViaje;
 			_IdaVuelta = IdaVuelta;
 			_Precio = Precio;
+			_FechaRegreso = FechaRegreso;
 
             Initialized();
         }
@@ -103,6 +105,10 @@ protected System.Boolean _IdaVuelta;
 ///
 /// </summary>
 protected System.Nullable<System.Decimal> _Precio;
+/// <summary>
+///
+/// </summary>
+protected System.Nullable<System.DateTime> _FechaRegreso;
 
         #endregion
 
@@ -241,6 +247,25 @@ protected System.Nullable<System.Decimal> _Precio;
             
         }
                 
+        /// <summary>
+        /// Nullable property
+        /// </summary>
+        public virtual System.Nullable<System.DateTime> FechaRegreso
+        {
+            get
+            {
+                return _FechaRegreso;
+            }
+            
+            set
+            {
+                base.PropertyModified();
+                _FechaRegreso = value;                
+                
+            }
+            
+        }
+                
         #endregion
 
         
@@ -291,7 +316,8 @@ protected System.Nullable<System.Decimal> _Precio;
 			System.Int32 CantPasajeros,
 			System.DateTime FechaViaje,
 			System.Boolean IdaVuelta,
-			System.Nullable<System.Decimal> Precio)
+			System.Nullable<System.Decimal> Precio,
+			System.Nullable<System.DateTime> FechaRegreso)
         {
         _IdReservaAereo = IdReservaAereo;
 _IdOrigen = IdOrigen;
@@ -300,6 +326,7 @@ _CantPasajeros = CantPasajeros;
 _FechaViaje = FechaViaje;
 _IdaVuelta = IdaVuelta;
 _Precio = Precio;
+_FechaRegreso = FechaRegreso;
         }
 
         /// <summary>
@@ -307,7 +334,7 @@ _Precio = Precio;
         /// </summary>
         object[] IMappeableReservasAereosObject.GetFieldsForInsert()
         {
-            object[] _myArray = new object[7];
+            object[] _myArray = new object[8];
             _myArray[0] = _IdReservaAereo;
 _myArray[1] = _IdOrigen;
 _myArray[2] = _IdDestino;
@@ -315,6 +342,7 @@ _myArray[3] = _CantPasajeros;
 _myArray[4] = _FechaViaje;
 _myArray[5] = _IdaVuelta;
 if (_Precio.HasValue) _myArray[6] = _Precio.Value;
+if (_FechaRegreso.HasValue) _myArray[7] = _FechaRegreso.Value;
 
             return _myArray;
         }
@@ -325,7 +353,7 @@ if (_Precio.HasValue) _myArray[6] = _Precio.Value;
         object[] IMappeableReservasAereosObject.GetFieldsForUpdate()
         {
             
-            object[] _myArray = new object[8];
+            object[] _myArray = new object[9];
             _myArray[0] = _IdReservaAereo;
 _myArray[1] = _IdOrigen;
 _myArray[2] = _IdDestino;
@@ -333,7 +361,8 @@ _myArray[3] = _CantPasajeros;
 _myArray[4] = _FechaViaje;
 _myArray[5] = _IdaVuelta;
 if (_Precio.HasValue) _myArray[6] = _Precio.Value;
-_myArray[7] = this.OriginalValue()._IdReservaAereo;
+if (_FechaRegreso.HasValue) _myArray[7] = _FechaRegreso.Value;
+_myArray[8] = this.OriginalValue()._IdReservaAereo;
 
             return _myArray;
         }
@@ -400,7 +429,8 @@ _myArray[7] = this.OriginalValue()._IdReservaAereo;
 			System.Int32 CantPasajeros, 
 			System.DateTime FechaViaje, 
 			System.Boolean IdaVuelta, 
-			System.Nullable<System.Decimal> Precio);
+			System.Nullable<System.Decimal> Precio, 
+			System.Nullable<System.DateTime> FechaRegreso);
 
         /// <summary>
         /// 

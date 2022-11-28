@@ -56,13 +56,17 @@ namespace serin_viaticosRules.Entities
         public Itinerario(
 			System.Int32 IdItinerario,
 			System.DateTime Fecha,
-			System.Boolean IdaVuelta)
+			System.Boolean IdaVuelta,
+			System.Nullable<System.DateTime> FechaVuelta,
+			System.Nullable<System.Decimal> Km)
             : base()
         {
 
 			_IdItinerario = IdItinerario;
 			_Fecha = Fecha;
 			_IdaVuelta = IdaVuelta;
+			_FechaVuelta = FechaVuelta;
+			_Km = Km;
 
             
             Initialized();

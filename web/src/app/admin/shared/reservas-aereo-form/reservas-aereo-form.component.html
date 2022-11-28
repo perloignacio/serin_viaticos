@@ -48,7 +48,7 @@
             <label>¿Ida y Vuelta?</label>
             <input type="checkbox" class="form-check" placeholder="" [(ngModel)]="obj.IdaVuelta">
         </div>
-        <div class="col-md-5 mt-2">
+        <div class="col-md-5 mt-2" *ngIf="obj.IdaVuelta">
             <label>Fecha Regreso</label>
             <input type="date" class="form-control" placeholder="" [(ngModel)]="obj.FechaRegreso">
         </div>         
@@ -65,7 +65,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-success mt-3" (click)="Guardar()">Agregar</button>   
+            <button class="btn btn-success mt-3" *ngIf="this.agregar" (click)="Guardar()">Agregar</button>   
         </div>
     </div>
 </div>

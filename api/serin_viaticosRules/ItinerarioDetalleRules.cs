@@ -11,15 +11,14 @@ namespace serin_viaticosRules
 {
     public class ItinerarioDetalleRules
     {
-        public void Agregar(int IdItinerario, int IdOrigen, int IdDestino)
+        public void Agregar(int IdItinerario, int IdUbicacion)
         {
-            Validar(IdItinerario, IdOrigen, IdDestino);
+            Validar(IdItinerario, IdUbicacion);
             ItinerarioDetalle pf = new ItinerarioDetalle();
 
             
             pf.IdItinerario = IdItinerario;
-            pf.IdOrigen = IdOrigen;
-            pf.IdDestino = IdDestino;
+            pf.IdParada = IdUbicacion;
 
             ItinerarioDetalleMapper.Instance().Insert(pf);
         }
@@ -37,17 +36,16 @@ namespace serin_viaticosRules
 
         }
                 
-        public void Modificar(int IdItinerarioDetalle,int IdItinerario, int IdOrigen, int IdDestino)
+        public void Modificar(int IdItinerarioDetalle,int IdItinerario, int IdUbicacion)
         {
-            Validar(IdItinerario, IdOrigen, IdDestino);
+            Validar(IdItinerario, IdUbicacion);
             ItinerarioDetalle pf = ItinerarioDetalleMapper.Instance().GetOne(IdItinerarioDetalle);
             if (pf == null)
             {
                 throw new Exception("No se encuentra el codigo");
             }
             pf.IdItinerario = IdItinerario;
-            pf.IdOrigen = IdOrigen;
-            pf.IdDestino = IdDestino;
+            pf.IdParada = IdUbicacion;
 
 
             ItinerarioDetalleMapper.Instance().Save(pf);
@@ -55,7 +53,7 @@ namespace serin_viaticosRules
         }
              
         
-        private void Validar(int IdItinerario,int IdOrigen,int IdDestino)
+        private void Validar(int IdItinerario,int IdUbicacion)
         {
             //ME FIJO EN LA TABLA DE ITINERARIOS QUE EXISTA EL ID QUE SE CARGA
             Itinerario pf = ItinerarioMapper.Instance().GetOne(IdItinerario);
@@ -66,8 +64,8 @@ namespace serin_viaticosRules
             }
                         
             if (IdItinerario == 0) { throw new Exception("Debe ingresar un IdItinerario"); }
-            if (IdOrigen == 0) { throw new Exception("Debe ingresar un IdOrigen"); }
-            if (IdDestino == 0) { throw new Exception("Debe ingresar un IdDestino "); }
+            if (IdUbicacion == 0) { throw new Exception("Debe ingresar un parada"); }
+            
 
             
 

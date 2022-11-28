@@ -28,10 +28,16 @@ export class SolicitudesComponent implements OnInit {
   User=this.srvAuth.currentUserValue.Nombre;
   idCategoria:number;
   Categorias:Categorias[]=[];
+  agregar:boolean=true;
   constructor(private srvObj:SolicitudesService,private srvAuth:AuthenticationService, private srvShared:SharedService,private route:Router,private modal:NgbModal,private srvCategorias:CategoriasService) {
     this.srvCategorias.todas().subscribe((lc)=>{
       this.Categorias=lc;
-      this.obj=new Solicitudes();
+      this.obj=this.srvShared.ObjEdit as Solicitudes;
+      if(this.obj==null){
+        this.obj=new Solicitudes();
+      }else{
+        this.agregar=false;
+      }
     })
     
   }
@@ -47,32 +53,41 @@ export class SolicitudesComponent implements OnInit {
       }
     );
   }
-  NuevoDetalle(){
+  NuevoDetalle(tmp:SolicitudesDetalle){
     this.srvShared.objModal=null;
     let compo:any=DetalleGeneralFormComponent;
-    
+    let tmpObj:any;
+    if(tmp!=null){
+      this.idCategoria=tmp.IdSolicitudCategoria;
+    }
     switch(this.idCategoria){
       case 1:
         compo=ReservasAereoFormComponent;
+        tmpObj=tmp.ReservasAereosEntity;
         break;
       case 2:
         compo=ReservaAlquilerAutoFormComponent;
+        tmpObj=tmp.ReservasAlquilerAutoEntity;
+
         break;
       case 3:
         compo=ReservaHotelFormComponent;
+        tmpObj=tmp.ReservasHotelEntity;
         break;
       case 4:
         compo=ItinerarioFormComponent;
+        tmpObj=tmp.ItinerarioEntity;
         break;
       default:
         
         break;
     }
     
-    console.log(compo);
-
+   
+    this.srvShared.objModal=tmpObj;
     this.modal.open(compo, { size: 'lg' }).result.then((result) => {
         if(result!=null){
+          result.IdSolicitudCategoria=this.idCategoria;
           this.obj.Detalle.push(result);
         }
       }, (reason)=>{ 
@@ -82,7 +97,10 @@ export class SolicitudesComponent implements OnInit {
   }
 
   BorrarDetalle(det:SolicitudesDetalle){
-
+    let index=this.obj.Detalle.findIndex(d=>d.IdSolicitudDetalle==det.IdSolicitudDetalle);
+    if(index!=-1){
+      this.obj.Detalle.splice(index,1);
+    }
   }
   BorrarSolUsu(solusu:SolicitudesUsuario){
     let index=this.obj.SolcitudesUsuarios.findIndex(su=>su.IdSolicitudUsuario==solusu.IdSolicitudUsuario)
@@ -95,16 +113,27 @@ export class SolicitudesComponent implements OnInit {
     let ret:string="";
     if(det.ReservasAlquilerAutoEntity!=null){
       ret=`Reserva de alquiler de auto en ${det.ReservasAlquilerAutoEntity.UbicacionesEntity.Nombre} para el ${det.ReservasAlquilerAutoEntity.FechaDesde} al ${det.ReservasAlquilerAutoEntity.FechaHasta} para ${det.ReservasAlquilerAutoEntity.CantPasajeros} pasajero/s.`
+    }else{
+      if(det.ReservasAereosEntity!=null){
+        ret=`Reserva de aéreo para el ${det.ReservasAereosEntity.FechaViaje} con salida desde ${det.ReservasAereosEntity.UbicacionesOrigenEntity.Nombre} hacia ${det.ReservasAereosEntity.UbicacionesDestinoEntity.Nombre} para ${det.ReservasAereosEntity.CantPasajeros} pasajero/s.`
+      }else{
+        if(det.ReservasHotelEntity!=null){
+          ret=`Reserva de ${det.ReservasHotelEntity.CantHabitaciones} habitacion/es para ${det.ReservasHotelEntity.CantPasajeros} pasajero/s, en ${det.ReservasHotelEntity.HotelesEntity.Nombre} en ${det.ReservasHotelEntity.UbicacionesEntity.Nombre}, desde el ${det.ReservasHotelEntity.Checkin} al ${det.ReservasHotelEntity.Checkout}.`
+        }else{
+          if(det.ItinerarioEntity!=null){
+            ret=`Viaje para el dia ${det.ItinerarioEntity.Fecha} Salida desde ${det.ItinerarioEntity.Detalle[0].UbicacionesEntity.Nombre} con destino final ${det.ItinerarioEntity.Detalle[det.ItinerarioEntity.Detalle.length-1].UbicacionesEntity.Nombre}`
+          }else{
+            ret=det.Observaciones;
+          }
+        }
+    
+      }
     }
-    if(det.ReservasAereosEntity!=null){
-      ret=`Reserva de aéreo para el ${det.ReservasAereosEntity.FechaViaje} con salida desde ${det.ReservasAereosEntity.UbicacionesOrigenEntity.Nombre} hacia ${det.ReservasAereosEntity.UbicacionesDestinoEntity.Nombre} para ${det.ReservasAereosEntity.CantPasajeros} pasajero/s.`
-    }
-    if(det.ReservasHotelEntity!=null){
-      ret=`Reserva de ${det.ReservasHotelEntity.CantHabitaciones} habitacion/es para ${det.ReservasHotelEntity.CantPasajeros} pasajero/s, en ${det.ReservasHotelEntity.HotelesEntity.Nombre} en ${det.ReservasHotelEntity.UbicacionesEntity.Nombre}, desde el ${det.ReservasHotelEntity.Checkin} al ${det.ReservasHotelEntity.Checkout}.`
-    }
-    if(det.Observaciones!=null){
-      ret=`${det.Observaciones}`
-    }
+    
+    
+    
+
+    
     return ret;
   }
   

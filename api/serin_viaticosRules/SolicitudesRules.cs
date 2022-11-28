@@ -11,9 +11,9 @@ namespace serin_viaticosRules
 {
     public class SolicitudesRules
     {
-        public void Agregar(DateTime Fecha, int IdUsuario, int IdSolicituEstado,string EmailCopia, string Descripcion)
+        public void Agregar(DateTime Fecha, int IdUsuario, int IdSolicituEstado,string EmailCopia, string Descripcion,List<SolicitudesUsuarios> usuarios,List<SolicitudesDetalle> detalle)
         {
-            Validar(Fecha, IdUsuario, IdSolicituEstado);
+            Validar(Fecha, IdUsuario);
             Solicitudes pf = new Solicitudes();
                  
             pf.Fecha = Fecha;
@@ -21,15 +21,55 @@ namespace serin_viaticosRules
             pf.IdSolicitudEstado = IdSolicituEstado;
             pf.EmailCopia = EmailCopia;
             pf.Descripcion = Descripcion;
-
+            pf.IdSolicitudEstado = 1;
             SolicitudesMapper.Instance().Insert(pf);
+
+            foreach (var su in usuarios)
+            {
+                su.IdSolicitud = pf.IdSolicitud;
+                SolicitudesUsuariosMapper.Instance().Insert(su);
+            }
+
+            foreach (var det in detalle)
+            {
+                if (det.ItinerarioEntity != null)
+                {
+                    ItinerarioRules ir = new ItinerarioRules();
+                    det.IdItinerario = ir.Agregar(det.ItinerarioEntity.Fecha, det.ItinerarioEntity.IdaVuelta, det.ItinerarioEntity.FechaVuelta, det.ItinerarioEntity.Km, det.ItinerarioEntity.Detalle);
+                    
+                }
+
+                if (det.ReservasAereosEntity != null)
+                {
+                    ReservasAereosRules rr = new ReservasAereosRules();
+                    det.IdReservaAereo=rr.Agregar(det.ReservasAereosEntity.IdOrigen,det.ReservasAereosEntity.IdDestino,det.ReservasAereosEntity.CantPasajeros,det.ReservasAereosEntity.FechaViaje,det.ReservasAereosEntity.IdaVuelta,det.ReservasAereosEntity.Precio,det.ReservasAereosEntity.FechaRegreso);
+
+                }
+
+                if (det.ReservasAlquilerAutoEntity != null)
+                {
+                    ReservasAlquilerAutoRules ra = new ReservasAlquilerAutoRules();
+                    det.IdReservaAlquilerAuto = ra.Agregar(det.ReservasAlquilerAutoEntity.IdDestino,det.ReservasAlquilerAutoEntity.CantPasajeros,det.ReservasAlquilerAutoEntity.Marca,det.ReservasAlquilerAutoEntity.Modelo,det.ReservasAlquilerAutoEntity.FechaDesde,det.ReservasAlquilerAutoEntity.FechaHasta,det.ReservasAlquilerAutoEntity.Precio);
+
+                }
+
+                if (det.ReservasHotelEntity != null)
+                {
+                    ReservasHotelRules rh = new ReservasHotelRules();
+                    det.IdReservaHotel = rh.Agregar(det.ReservasHotelEntity.IdDestino,det.ReservasHotelEntity.CantHabitaciones,det.ReservasHotelEntity.CantPasajeros,det.ReservasHotelEntity.IdHotel,det.ReservasHotelEntity.CodigoReserva,det.ReservasHotelEntity.Precio,det.ReservasHotelEntity.Checkin,det.ReservasHotelEntity.Checkout);
+
+                }
+
+                det.IdSolicitud = pf.IdSolicitud;
+                SolicitudesDetalleMapper.Instance().Insert(det);
+            }
         }
 
 
         public void Modificar(int IdSolicitud, DateTime Fecha, int IdUsuario, int IdSolicituEstado, string EmailCopia, string Descripcion)
         {
 
-            Validar(Fecha, IdUsuario, IdSolicituEstado);
+            Validar(Fecha, IdUsuario);
             Solicitudes pf = SolicitudesMapper.Instance().GetOne(IdSolicitud);
             if (pf == null)
             {
@@ -59,7 +99,7 @@ namespace serin_viaticosRules
 
         }
 
-        private void Validar(DateTime Fecha, int IdUsuario, int IdSolicituEstado)
+        private void Validar(DateTime Fecha, int IdUsuario)
         {
             if (Fecha.GetHashCode() == 0) { throw new Exception("Debe ingresar la Fecha de la Solicitud"); }
 
@@ -72,13 +112,7 @@ namespace serin_viaticosRules
             if (intra.Usuarios.Rows.Count == 0) { throw new Exception("No existe el usuario ingresado."); }
 
             // Como tenemos un metodo para borrar por las dudas agregamos un metodo para activar.
-            SolicitudesEstados pf = SolicitudesEstadosMapper.Instance().GetOne(IdSolicituEstado);
-
-            if (pf == null)
-            {
-                throw new Exception("No se encuentra el IDSolicitudesEstado que ingresaste.");
-            }
-
+           
           
 
         }

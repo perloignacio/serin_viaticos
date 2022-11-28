@@ -3,10 +3,12 @@ using serin_viaticosRules.Entities;
 using serin_viaticosRules.Mappers;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApi.Models;
 
 namespace WebApi.Controllers
 {
@@ -20,7 +22,61 @@ namespace WebApi.Controllers
         {
             try
             {
-                return Ok(SolicitudesMapper.Instance().GetAll());
+                dsIntranet intra = new dsIntranet();
+                serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter usu = new serin_viaticosRules.dsIntranetTableAdapters.UsuariosTableAdapter();
+                SolicitudesList lista = SolicitudesMapper.Instance().GetAll();
+                foreach (var item in lista)
+                {
+                    
+                    
+                    usu.Fill(intra.Usuarios, item.IdUsuario);
+                    if (intra.Usuarios.Rows.Count > 0)
+                    {
+                        dsIntranet.UsuariosRow r = (dsIntranet.UsuariosRow)intra.Usuarios.Rows[0];
+                        Usuarios u = new Usuarios();
+                        u.Nombre = r.Nombre;
+                        u.Apellido = r.Apellido;
+                        u.Email = r.Email;
+                        u.IdUsuario = r.IdUsuario;
+                        u.IdArea = Convert.ToInt32(r.IdArea);
+
+                        item.Usuario = u;
+
+
+                    }
+
+                    item.Detalle = SolicitudesDetalleMapper.Instance().GetBySolicitudes(item.IdSolicitud);
+                    item.SolcitudesUsuarios = SolicitudesUsuariosMapper.Instance().GetBySolicitudes(item.IdSolicitud);
+                    foreach (var su in item.SolcitudesUsuarios)
+                    {
+                        usu.Fill(intra.Usuarios, su.IdUsuario);
+                        if (intra.Usuarios.Rows.Count > 0)
+                        {
+                            dsIntranet.UsuariosRow r = (dsIntranet.UsuariosRow)intra.Usuarios.Rows[0];
+                            Usuarios u = new Usuarios();
+                            u.Nombre = r.Nombre;
+                            u.Apellido = r.Apellido;
+                            u.Email = r.Email;
+                            u.IdUsuario = r.IdUsuario;
+                            u.IdArea = Convert.ToInt32(r.IdArea);
+
+                            su.UsuariosEntity = u;
+
+
+                        }
+
+                    }
+
+                    foreach (var det in item.Detalle)
+                    {
+                        if (det.IdItinerario.HasValue)
+                        {
+                            det.ItinerarioEntity.Detalle = ItinerarioDetalleMapper.Instance().GetByItinerario(det.IdItinerario.Value);
+                            
+                        }
+                    }
+                }
+                return Ok(lista);
             }
             catch (Exception ex)
             {
@@ -52,7 +108,7 @@ namespace WebApi.Controllers
 
         }
 
-        
+
         [Route("AgregarEditar/{IdSolicitud?}")]
         [HttpPost]
         [AllowAnonymous]
@@ -67,7 +123,7 @@ namespace WebApi.Controllers
                 }
                 else
                 {
-                    pfRules.Agregar(pf.Fecha, pf.IdUsuario, pf.IdSolicitudEstado, pf.EmailCopia, pf.Descripcion);
+                    pfRules.Agregar(pf.Fecha, pf.IdUsuario, pf.IdSolicitudEstado, pf.EmailCopia, pf.Descripcion,pf.SolcitudesUsuarios,pf.Detalle);
                 }
                 return Ok(true);
             }
@@ -78,7 +134,7 @@ namespace WebApi.Controllers
         }
 
 
-        
+
 
 
         [Route("Borrar/{IdSolicitud}")]

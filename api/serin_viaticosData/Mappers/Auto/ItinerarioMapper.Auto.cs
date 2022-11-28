@@ -104,7 +104,9 @@ namespace serin_viaticosRules.Mappers
             Itinerario.HydrateFields(
             reader.GetInt32(0),
 reader.GetDateTime(1),
-reader.GetBoolean(2));
+reader.GetBoolean(2),
+(reader.IsDBNull(3)) ? new System.Nullable<System.DateTime>() : reader.GetDateTime(3),
+(reader.IsDBNull(4)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(4));
         }
 
         /// <summary>
@@ -378,24 +380,28 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Save Itinerario 
         /// </summary>
-        public void Save(System.Int32 IdItinerario, System.DateTime Fecha, System.Boolean IdaVuelta){
+        public void Save(System.Int32 IdItinerario, System.DateTime Fecha, System.Boolean IdaVuelta, System.DateTime FechaVuelta, System.Decimal Km){
             Entities.Itinerario entity = Instance().GetOne(IdItinerario);
             if (entity == null)
                 throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdItinerario", IdItinerario));
 
             entity.Fecha = Fecha;
             entity.IdaVuelta = IdaVuelta;
+            entity.FechaVuelta = FechaVuelta;
+            entity.Km = Km;
             Instance().Save(entity);
         }
 
         /// <summary>
         /// Insert Itinerario
         /// </summary>
-        public void Insert(System.DateTime Fecha, System.Boolean IdaVuelta){
+        public void Insert(System.DateTime Fecha, System.Boolean IdaVuelta, System.DateTime FechaVuelta, System.Decimal Km){
             Entities.Itinerario entity = new Entities.Itinerario();
 
             entity.Fecha = Fecha;
             entity.IdaVuelta = IdaVuelta;
+            entity.FechaVuelta = FechaVuelta;
+            entity.Km = Km;
             Instance().Insert(entity);
         }
 
@@ -488,7 +494,9 @@ namespace serin_viaticosRules.Loaders
             Itinerario.HydrateFields(
             reader.GetInt32(0),
 reader.GetDateTime(1),
-reader.GetBoolean(2));
+reader.GetBoolean(2),
+(reader.IsDBNull(3)) ? new System.Nullable<System.DateTime>() : reader.GetDateTime(3),
+(reader.IsDBNull(4)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(4));
         }
 
         /// <summary>

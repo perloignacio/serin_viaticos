@@ -108,7 +108,8 @@ reader.GetInt32(2),
 reader.GetInt32(3),
 reader.GetDateTime(4),
 reader.GetBoolean(5),
-(reader.IsDBNull(6)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(6));
+(reader.IsDBNull(6)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(6),
+(reader.IsDBNull(7)) ? new System.Nullable<System.DateTime>() : reader.GetDateTime(7));
         }
 
         /// <summary>
@@ -601,7 +602,7 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Save ReservasAereos 
         /// </summary>
-        public void Save(System.Int32 IdReservaAereo, System.Int32 IdOrigen, System.Int32 IdDestino, System.Int32 CantPasajeros, System.DateTime FechaViaje, System.Boolean IdaVuelta, System.Decimal Precio){
+        public void Save(System.Int32 IdReservaAereo, System.Int32 IdOrigen, System.Int32 IdDestino, System.Int32 CantPasajeros, System.DateTime FechaViaje, System.Boolean IdaVuelta, System.Decimal Precio, System.DateTime FechaRegreso){
             Entities.ReservasAereos entity = Instance().GetOne(IdReservaAereo);
             if (entity == null)
                 throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdReservaAereo", IdReservaAereo));
@@ -612,13 +613,14 @@ namespace serin_viaticosRules.Wrappers
             entity.FechaViaje = FechaViaje;
             entity.IdaVuelta = IdaVuelta;
             entity.Precio = Precio;
+            entity.FechaRegreso = FechaRegreso;
             Instance().Save(entity);
         }
 
         /// <summary>
         /// Insert ReservasAereos
         /// </summary>
-        public void Insert(System.Int32 IdReservaAereo, System.Int32 IdOrigen, System.Int32 IdDestino, System.Int32 CantPasajeros, System.DateTime FechaViaje, System.Boolean IdaVuelta, System.Decimal Precio){
+        public void Insert(System.Int32 IdReservaAereo, System.Int32 IdOrigen, System.Int32 IdDestino, System.Int32 CantPasajeros, System.DateTime FechaViaje, System.Boolean IdaVuelta, System.Decimal Precio, System.DateTime FechaRegreso){
             Entities.ReservasAereos entity = new Entities.ReservasAereos();
 
             entity.IdReservaAereo = IdReservaAereo;
@@ -628,6 +630,7 @@ namespace serin_viaticosRules.Wrappers
             entity.FechaViaje = FechaViaje;
             entity.IdaVuelta = IdaVuelta;
             entity.Precio = Precio;
+            entity.FechaRegreso = FechaRegreso;
             Instance().Insert(entity);
         }
 
@@ -724,7 +727,8 @@ reader.GetInt32(2),
 reader.GetInt32(3),
 reader.GetDateTime(4),
 reader.GetBoolean(5),
-(reader.IsDBNull(6)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(6));
+(reader.IsDBNull(6)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(6),
+(reader.IsDBNull(7)) ? new System.Nullable<System.DateTime>() : reader.GetDateTime(7));
         }
 
         /// <summary>

@@ -119,6 +119,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Clases\AuthorizeFilter.cs" />
     <Compile Include="Clases\Helpers.cs" />
+    <Compile Include="Clases\MyDateTimeConverter.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
     <Compile Include="Clases\TokenValidationHandler.cs" />
     <Compile Include="Controllers\HotelesController.cs" />

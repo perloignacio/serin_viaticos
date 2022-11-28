@@ -32,8 +32,7 @@ namespace serin_viaticosRules.Entities
             :base()
         {
             if (_ItinerarioEntity == null) _ItinerarioEntity = new Entities.Itinerario();
-if (_UbicacionesDestinoEntity == null) _UbicacionesDestinoEntity = new Entities.Ubicaciones();
-if (_UbicacionesOrigenEntity == null) _UbicacionesOrigenEntity = new Entities.Ubicaciones();
+if (_UbicacionesEntity == null) _UbicacionesEntity = new Entities.Ubicaciones();
 
         }
 
@@ -48,8 +47,7 @@ if (_UbicacionesOrigenEntity == null) _UbicacionesOrigenEntity = new Entities.Ub
 			_IdItinerarioDetalle = IdItinerarioDetalle;
 
             if (_ItinerarioEntity == null) _ItinerarioEntity = new Entities.Itinerario();
-if (_UbicacionesDestinoEntity == null) _UbicacionesDestinoEntity = new Entities.Ubicaciones();
-if (_UbicacionesOrigenEntity == null) _UbicacionesOrigenEntity = new Entities.Ubicaciones();
+if (_UbicacionesEntity == null) _UbicacionesEntity = new Entities.Ubicaciones();
 
             Initialized();
         }
@@ -66,11 +64,7 @@ protected Entities.Itinerario _ItinerarioEntity;
 /// <summary>
 /// 
 /// </summary>
-protected Entities.Ubicaciones _UbicacionesDestinoEntity;
-/// <summary>
-/// 
-/// </summary>
-protected Entities.Ubicaciones _UbicacionesOrigenEntity;
+protected Entities.Ubicaciones _UbicacionesEntity;
 
         #endregion
 
@@ -109,59 +103,33 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Itinerario)
             }
         }
         
-bool _UbicacionesDestinoEntityFetched;
+bool _UbicacionesEntityFetched;
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual Entities.Ubicaciones UbicacionesDestinoEntity
+        public virtual Entities.Ubicaciones UbicacionesEntity
         {
             get
             {
-                if (_UbicacionesDestinoEntity== null  && ! _UbicacionesDestinoEntityFetched ) {
-_UbicacionesDestinoEntityFetched = true;
-Entities.Ubicaciones _UbicacionesDestinoEntityTemp = new Entities.Ubicaciones(this.IdDestino); 
+                if (_UbicacionesEntity== null  && ! _UbicacionesEntityFetched ) {
+_UbicacionesEntityFetched = true;
+Entities.Ubicaciones _UbicacionesEntityTemp = new Entities.Ubicaciones(this.IdParada); 
 ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Ubicaciones));
- _UbicacionesDestinoEntity = lazyProvider.GetEntity(typeof(Entities.Ubicaciones), _UbicacionesDestinoEntityTemp) as Entities.Ubicaciones;
+ _UbicacionesEntity = lazyProvider.GetEntity(typeof(Entities.Ubicaciones), _UbicacionesEntityTemp) as Entities.Ubicaciones;
 }
 
-                return _UbicacionesDestinoEntity;
+                return _UbicacionesEntity;
             }
             set
             {
                 base.PropertyModified();
-                _UbicacionesDestinoEntity = value;
+                _UbicacionesEntity = value;
                 if (value != null) {
-   _IdDestino = value.IdUbicacion;
+   _IdParada = value.IdUbicacion;
 
 } else {
-   _IdDestino = System.Int32.MinValue;
-
-}
-
-            }
-        }
-        
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual Entities.Ubicaciones UbicacionesOrigenEntity
-        {
-            get
-            {
-                
-                return _UbicacionesOrigenEntity;
-            }
-            set
-            {
-                base.PropertyModified();
-                _UbicacionesOrigenEntity = value;
-                if (value != null) {
-   _IdOrigen = value.IdUbicacion;
-
-} else {
-   _IdOrigen = System.Int32.MinValue;
+   _IdParada = System.Int32.MinValue;
 
 }
 
@@ -194,14 +162,9 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Ubicaciones
                 newObject._ItinerarioEntity = (Entities.Itinerario)((ICloneable)this._ItinerarioEntity).Clone();
             }
                          
-            if (this._UbicacionesDestinoEntity != null)
+            if (this._UbicacionesEntity != null)
             {
-                newObject._UbicacionesDestinoEntity = (Entities.Ubicaciones)((ICloneable)this._UbicacionesDestinoEntity).Clone();
-            }
-                         
-            if (this._UbicacionesOrigenEntity != null)
-            {
-                newObject._UbicacionesOrigenEntity = (Entities.Ubicaciones)((ICloneable)this._UbicacionesOrigenEntity).Clone();
+                newObject._UbicacionesEntity = (Entities.Ubicaciones)((ICloneable)this._UbicacionesEntity).Clone();
             }
             
             // Colections
@@ -218,14 +181,9 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Ubicaciones
                     newOriginalValue._ItinerarioEntity = (Entities.Itinerario)((ICloneable)this.OriginalValue()._ItinerarioEntity).Clone();
                 }
                              
-                if (this.OriginalValue()._UbicacionesDestinoEntity != null)
+                if (this.OriginalValue()._UbicacionesEntity != null)
                 {
-                    newOriginalValue._UbicacionesDestinoEntity = (Entities.Ubicaciones)((ICloneable)this.OriginalValue()._UbicacionesDestinoEntity).Clone();
-                }
-                             
-                if (this.OriginalValue()._UbicacionesOrigenEntity != null)
-                {
-                    newOriginalValue._UbicacionesOrigenEntity = (Entities.Ubicaciones)((ICloneable)this.OriginalValue()._UbicacionesOrigenEntity).Clone();
+                    newOriginalValue._UbicacionesEntity = (Entities.Ubicaciones)((ICloneable)this.OriginalValue()._UbicacionesEntity).Clone();
                 }
                 
                 // Colections
@@ -241,11 +199,10 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Ubicaciones
         /// <summary>
         /// 
         /// </summary>
-        void IMappeableItinerarioDetalle.CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.Ubicaciones UbicacionesDestinoEntity, Entities.Ubicaciones UbicacionesOrigenEntity)
+        void IMappeableItinerarioDetalle.CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.Ubicaciones UbicacionesEntity)
         {
         _ItinerarioEntity = ItinerarioEntity;
-_UbicacionesDestinoEntity = UbicacionesDestinoEntity;
-_UbicacionesOrigenEntity = UbicacionesOrigenEntity;
+_UbicacionesEntity = UbicacionesEntity;
         }
         
         bool IMappeableItinerarioDetalle.IsItinerarioEntityNull()
@@ -253,9 +210,9 @@ _UbicacionesOrigenEntity = UbicacionesOrigenEntity;
             return (_ItinerarioEntity == null);
         }
         
-        bool IMappeableItinerarioDetalle.IsUbicacionesDestinoEntityNull()
+        bool IMappeableItinerarioDetalle.IsUbicacionesEntityNull()
         {
-            return (_UbicacionesDestinoEntity == null);
+            return (_UbicacionesEntity == null);
         }
         
 
@@ -285,7 +242,7 @@ _UbicacionesOrigenEntity = UbicacionesOrigenEntity;
         /// <summary>
         /// 
         /// </summary>
-        void CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.Ubicaciones UbicacionesDestinoEntity, Entities.Ubicaciones UbicacionesOrigenEntity);
+        void CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.Ubicaciones UbicacionesEntity);
         
         /// <summary>
         /// 
@@ -295,7 +252,7 @@ _UbicacionesOrigenEntity = UbicacionesOrigenEntity;
         /// <summary>
         /// 
         /// </summary>
-        bool IsUbicacionesDestinoEntityNull();
+        bool IsUbicacionesEntityNull();
         
         /// <summary>
         /// 

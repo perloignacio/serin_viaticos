@@ -82,7 +82,9 @@ namespace serin_viaticosRules.Gateways
             Itinerario.HydrateFields(
             reader.GetInt32(0),
 reader.GetDateTime(1),
-reader.GetBoolean(2));
+reader.GetBoolean(2),
+(reader.IsDBNull(3)) ? new System.Nullable<System.DateTime>() : reader.GetDateTime(3),
+(reader.IsDBNull(4)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(4));
             ((IObject)entity).State = ObjectState.Restored;
         }
 

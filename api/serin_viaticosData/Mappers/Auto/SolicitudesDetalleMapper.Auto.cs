@@ -175,8 +175,9 @@ reader.GetInt32(2),
 Entities.ReservasAereos ReservasAereosEntity = null; // Lazy load
 Entities.ReservasAlquilerAuto ReservasAlquilerAutoEntity = null; // Lazy load
 Entities.ReservasHotel ReservasHotelEntity = null; // Lazy load
+Entities.Solicitudes SolicitudesEntity = null; // Lazy load
 Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
-            ((IMappeableSolicitudesDetalle)entity).CompleteEntity(ItinerarioEntity, ReservasAereosEntity, ReservasAlquilerAutoEntity, ReservasHotelEntity, SolicitudesCategoriasEntity);
+            ((IMappeableSolicitudesDetalle)entity).CompleteEntity(ItinerarioEntity, ReservasAereosEntity, ReservasAlquilerAutoEntity, ReservasHotelEntity, SolicitudesEntity, SolicitudesCategoriasEntity);
         }
 
 
@@ -307,6 +308,24 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
+        public SolicitudesDetalleList GetBySolicitudes(DbTransaction transaction, System.Int32 IdSolicitud)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SolicitudesDetalleList GetBySolicitudes(DbTransaction transaction, IUniqueIdentifiable Solicitudes)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", Solicitudes.Identifier());
+        }
+
+    
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SolicitudesDetalleList GetBySolicitudesCategorias(DbTransaction transaction, System.Int32 IdSolicitudCategoria)
         {
             return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudesCategorias", IdSolicitudCategoria);
@@ -393,6 +412,24 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         public SolicitudesDetalleList GetByReservasHotel(IUniqueIdentifiable ReservasHotel)
         {
             return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", ReservasHotel.Identifier());
+        }
+
+    
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SolicitudesDetalleList GetBySolicitudes(System.Int32 IdSolicitud)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SolicitudesDetalleList GetBySolicitudes(IUniqueIdentifiable Solicitudes)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", Solicitudes.Identifier());
         }
 
     
@@ -586,6 +623,42 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
+        public void DeleteBySolicitudes(System.Int32 IdSolicitud)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteBySolicitudes(DbTransaction transaction, System.Int32 IdSolicitud)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", IdSolicitud);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteBySolicitudes(IUniqueIdentifiable Solicitudes)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", Solicitudes.Identifier());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteBySolicitudes(DbTransaction transaction, IUniqueIdentifiable Solicitudes)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", Solicitudes.Identifier());
+        }
+
+
+    
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void DeleteBySolicitudesCategorias(System.Int32 IdSolicitudCategoria)
         {
             base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudesCategorias", IdSolicitudCategoria);
@@ -769,6 +842,24 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Get a SolicitudesDetalleList by calling a Stored Procedure
         /// </summary>
+        public Entities.SolicitudesDetalleList GetBySolicitudes(System.Int32 IdSolicitud)
+        {
+            return Instance().GetBySolicitudes(IdSolicitud);
+        }
+
+        /// <summary>
+        /// Get a SolicitudesDetalleList by calling a Stored Procedure
+        /// </summary>
+        public Entities.SolicitudesDetalleList GetBySolicitudes(IUniqueIdentifiable Solicitudes)
+        {
+            return Instance().GetBySolicitudes(Solicitudes);
+        }
+
+    
+
+        /// <summary>
+        /// Get a SolicitudesDetalleList by calling a Stored Procedure
+        /// </summary>
         public Entities.SolicitudesDetalleList GetBySolicitudesCategorias(System.Int32 IdSolicitudCategoria)
         {
             return Instance().GetBySolicitudesCategorias(IdSolicitudCategoria);
@@ -868,6 +959,24 @@ namespace serin_viaticosRules.Wrappers
         public void DeleteByReservasHotel(IUniqueIdentifiable ReservasHotel)
         {
             Instance().DeleteByReservasHotel(ReservasHotel);
+        }
+
+    
+
+        /// <summary>
+        /// Delete SolicitudesDetalle by Solicitudes
+        /// </summary>
+        public void DeleteBySolicitudes(System.Int32 IdSolicitud)
+        {
+            Instance().DeleteBySolicitudes(IdSolicitud);
+        }
+
+        /// <summary>
+        /// Delete SolicitudesDetalle by Solicitudes
+        /// </summary>
+        public void DeleteBySolicitudes(IUniqueIdentifiable Solicitudes)
+        {
+            Instance().DeleteBySolicitudes(Solicitudes);
         }
 
     
@@ -1078,8 +1187,9 @@ reader.GetInt32(2),
 Entities.ReservasAereos ReservasAereosEntity = null; // Lazy load
 Entities.ReservasAlquilerAuto ReservasAlquilerAutoEntity = null; // Lazy load
 Entities.ReservasHotel ReservasHotelEntity = null; // Lazy load
+Entities.Solicitudes SolicitudesEntity = null; // Lazy load
 Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
-            ((IMappeableSolicitudesDetalle)entity).CompleteEntity(ItinerarioEntity, ReservasAereosEntity, ReservasAlquilerAutoEntity, ReservasHotelEntity, SolicitudesCategoriasEntity);
+            ((IMappeableSolicitudesDetalle)entity).CompleteEntity(ItinerarioEntity, ReservasAereosEntity, ReservasAlquilerAutoEntity, ReservasHotelEntity, SolicitudesEntity, SolicitudesCategoriasEntity);
         }
 
 
@@ -1193,6 +1303,24 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         /// <summary>
         /// 
         /// </summary>
+        public ObjectList<T> GetBySolicitudes(DbTransaction transaction, System.Int32 IdSolicitud)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetBySolicitudes(DbTransaction transaction, IUniqueIdentifiable Solicitudes)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", Solicitudes.Identifier());
+        }
+
+    
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ObjectList<T> GetBySolicitudesCategorias(DbTransaction transaction, System.Int32 IdSolicitudCategoria)
         {
             return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudesCategorias", IdSolicitudCategoria);
@@ -1279,6 +1407,24 @@ Entities.SolicitudesCategorias SolicitudesCategoriasEntity = null; // Lazy load
         public ObjectList<T> GetByReservasHotel(IUniqueIdentifiable ReservasHotel)
         {
             return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", ReservasHotel.Identifier());
+        }
+
+    
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetBySolicitudes(System.Int32 IdSolicitud)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectList<T> GetBySolicitudes(IUniqueIdentifiable Solicitudes)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", Solicitudes.Identifier());
         }
 
     

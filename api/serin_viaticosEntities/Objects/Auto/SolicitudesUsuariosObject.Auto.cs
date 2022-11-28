@@ -113,6 +113,13 @@ protected System.Nullable<System.Decimal> _MontoAnticipo;
                 return _IdSolicitud;
             }
             
+            set
+            {
+                base.PropertyModified();
+                _IdSolicitud = value;
+                
+            }
+            
         }
         
         /// <summary>

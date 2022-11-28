@@ -11,18 +11,26 @@ namespace serin_viaticosRules
 {
     public class ItinerarioRules
     {
-        public void Agregar(DateTime Fecha, bool IdaVuelta)
+        public int Agregar(DateTime Fecha, bool IdaVuelta,DateTime? fechaVuelta,decimal? km, List<ItinerarioDetalle> detalle)
         {
             //IDAVUELTA SI NO SE PASA EL DATO LO CARGA COMO FALSE
             Validar(Fecha);
             Itinerario pf = new Itinerario();
            
             pf.Fecha = Fecha;
-            //porque en este caso se debe definir si hay ida y vuelta o no no ponerlo como true siempre
-            //pf.IdaVuelta = true;
+            pf.FechaVuelta = fechaVuelta;
+            pf.IdaVuelta = IdaVuelta;
+            pf.Km = km;
             pf.IdaVuelta = IdaVuelta ;
 
             ItinerarioMapper.Instance().Insert(pf);
+            foreach (var item in detalle)
+            {
+                item.IdItinerario = pf.IdItinerario;
+                ItinerarioDetalleMapper.Instance().Insert(item);
+            }
+
+            return pf.IdItinerario;
         }
 
         public void Eliminar(int IdItinerario)

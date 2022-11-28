@@ -31,7 +31,8 @@ import { ReservaAlquilerAutoFormComponent } from './shared/reserva-alquiler-auto
 import { ReservaHotelFormComponent } from './shared/reserva-hotel-form/reserva-hotel-form.component';
 import { ItinerarioFormComponent } from './shared/itinerario-form/itinerario-form.component';
 import { DetalleGeneralFormComponent } from './shared/detalle-general-form/detalle-general-form.component';
-
+import { AgmDirectionModule } from 'agm-direction';
+import { SolicitudesListadoComponent } from './components/solicitudes-listado/solicitudes-listado.component';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DetalleGeneralFormComponent } from './shared/detalle-general-form/detal
     ReservaHotelFormComponent,
     ItinerarioFormComponent,
     DetalleGeneralFormComponent,
+    SolicitudesListadoComponent,
   
    
   ],
@@ -74,8 +76,9 @@ import { DetalleGeneralFormComponent } from './shared/detalle-general-form/detal
     FileSaverModule ,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCg8BmxqFCCKSEdoT7JQXXM5zDHqrIkx0g',
-      libraries: ['places']
-    }) 
+      libraries: ['places','geometry']
+    }),
+    AgmDirectionModule
   ],providers:[
     DatePipe
   ]

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.svcAuthentication.login(this.usuario,this.contra).subscribe((u)=>{
       if(u!=null){
         
-          this.router.navigate(['/admin/perfiles']);
+          this.router.navigate(['/admin/solicitudes-listado']);
        
 
       }

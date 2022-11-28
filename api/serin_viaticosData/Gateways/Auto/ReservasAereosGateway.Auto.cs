@@ -86,7 +86,8 @@ reader.GetInt32(2),
 reader.GetInt32(3),
 reader.GetDateTime(4),
 reader.GetBoolean(5),
-(reader.IsDBNull(6)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(6));
+(reader.IsDBNull(6)) ? new System.Nullable<System.Decimal>() : reader.GetDecimal(6),
+(reader.IsDBNull(7)) ? new System.Nullable<System.DateTime>() : reader.GetDateTime(7));
             ((IObject)entity).State = ObjectState.Restored;
         }
 

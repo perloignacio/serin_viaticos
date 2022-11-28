@@ -31,7 +31,8 @@ namespace serin_viaticosRules.Entities
         public SolicitudesDetalle()
             :base()
         {
-            if (_SolicitudesCategoriasEntity == null) _SolicitudesCategoriasEntity = new Entities.SolicitudesCategorias();
+            if (_SolicitudesEntity == null) _SolicitudesEntity = new Entities.Solicitudes();
+if (_SolicitudesCategoriasEntity == null) _SolicitudesCategoriasEntity = new Entities.SolicitudesCategorias();
 
         }
 
@@ -45,7 +46,8 @@ namespace serin_viaticosRules.Entities
 
 			_IdSolicitudDetalle = IdSolicitudDetalle;
 
-            if (_SolicitudesCategoriasEntity == null) _SolicitudesCategoriasEntity = new Entities.SolicitudesCategorias();
+            if (_SolicitudesEntity == null) _SolicitudesEntity = new Entities.Solicitudes();
+if (_SolicitudesCategoriasEntity == null) _SolicitudesCategoriasEntity = new Entities.SolicitudesCategorias();
 
             Initialized();
         }
@@ -76,7 +78,8 @@ namespace serin_viaticosRules.Entities
 			_IdReservaAlquilerAuto = IdReservaAlquilerAuto;
 			_Observaciones = Observaciones;
 
-            if (_SolicitudesCategoriasEntity == null) _SolicitudesCategoriasEntity = new Entities.SolicitudesCategorias();
+            if (_SolicitudesEntity == null) _SolicitudesEntity = new Entities.Solicitudes();
+if (_SolicitudesCategoriasEntity == null) _SolicitudesCategoriasEntity = new Entities.SolicitudesCategorias();
 
             Initialized();
         }
@@ -101,6 +104,10 @@ protected Entities.ReservasAlquilerAuto _ReservasAlquilerAutoEntity;
 /// 
 /// </summary>
 protected Entities.ReservasHotel _ReservasHotelEntity;
+/// <summary>
+/// 
+/// </summary>
+protected Entities.Solicitudes _SolicitudesEntity;
 /// <summary>
 /// 
 /// </summary>
@@ -242,6 +249,39 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.ReservasHot
             }
         }
         
+bool _SolicitudesEntityFetched;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Entities.Solicitudes SolicitudesEntity
+        {
+            get
+            {
+                if (_SolicitudesEntity== null  && ! _SolicitudesEntityFetched ) {
+_SolicitudesEntityFetched = true;
+Entities.Solicitudes _SolicitudesEntityTemp = new Entities.Solicitudes(this.IdSolicitud); 
+ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Solicitudes));
+ _SolicitudesEntity = lazyProvider.GetEntity(typeof(Entities.Solicitudes), _SolicitudesEntityTemp) as Entities.Solicitudes;
+}
+
+                return _SolicitudesEntity;
+            }
+            set
+            {
+                base.PropertyModified();
+                _SolicitudesEntity = value;
+                if (value != null) {
+   _IdSolicitud = value.IdSolicitud;
+
+} else {
+   _IdSolicitud = System.Int32.MinValue;
+
+}
+
+            }
+        }
+        
 bool _SolicitudesCategoriasEntityFetched;
 
         /// <summary>
@@ -316,6 +356,11 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Solicitudes
                 newObject._ReservasHotelEntity = (Entities.ReservasHotel)((ICloneable)this._ReservasHotelEntity).Clone();
             }
                          
+            if (this._SolicitudesEntity != null)
+            {
+                newObject._SolicitudesEntity = (Entities.Solicitudes)((ICloneable)this._SolicitudesEntity).Clone();
+            }
+                         
             if (this._SolicitudesCategoriasEntity != null)
             {
                 newObject._SolicitudesCategoriasEntity = (Entities.SolicitudesCategorias)((ICloneable)this._SolicitudesCategoriasEntity).Clone();
@@ -350,6 +395,11 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Solicitudes
                     newOriginalValue._ReservasHotelEntity = (Entities.ReservasHotel)((ICloneable)this.OriginalValue()._ReservasHotelEntity).Clone();
                 }
                              
+                if (this.OriginalValue()._SolicitudesEntity != null)
+                {
+                    newOriginalValue._SolicitudesEntity = (Entities.Solicitudes)((ICloneable)this.OriginalValue()._SolicitudesEntity).Clone();
+                }
+                             
                 if (this.OriginalValue()._SolicitudesCategoriasEntity != null)
                 {
                     newOriginalValue._SolicitudesCategoriasEntity = (Entities.SolicitudesCategorias)((ICloneable)this.OriginalValue()._SolicitudesCategoriasEntity).Clone();
@@ -368,12 +418,13 @@ ILazyProvider lazyProvider = LazyProviderFactory.Get(typeof(Entities.Solicitudes
         /// <summary>
         /// 
         /// </summary>
-        void IMappeableSolicitudesDetalle.CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.ReservasAereos ReservasAereosEntity, Entities.ReservasAlquilerAuto ReservasAlquilerAutoEntity, Entities.ReservasHotel ReservasHotelEntity, Entities.SolicitudesCategorias SolicitudesCategoriasEntity)
+        void IMappeableSolicitudesDetalle.CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.ReservasAereos ReservasAereosEntity, Entities.ReservasAlquilerAuto ReservasAlquilerAutoEntity, Entities.ReservasHotel ReservasHotelEntity, Entities.Solicitudes SolicitudesEntity, Entities.SolicitudesCategorias SolicitudesCategoriasEntity)
         {
         _ItinerarioEntity = ItinerarioEntity;
 _ReservasAereosEntity = ReservasAereosEntity;
 _ReservasAlquilerAutoEntity = ReservasAlquilerAutoEntity;
 _ReservasHotelEntity = ReservasHotelEntity;
+_SolicitudesEntity = SolicitudesEntity;
 _SolicitudesCategoriasEntity = SolicitudesCategoriasEntity;
         }
         
@@ -395,6 +446,11 @@ _SolicitudesCategoriasEntity = SolicitudesCategoriasEntity;
         bool IMappeableSolicitudesDetalle.IsReservasHotelEntityNull()
         {
             return (_ReservasHotelEntity == null);
+        }
+        
+        bool IMappeableSolicitudesDetalle.IsSolicitudesEntityNull()
+        {
+            return (_SolicitudesEntity == null);
         }
         
         bool IMappeableSolicitudesDetalle.IsSolicitudesCategoriasEntityNull()
@@ -429,7 +485,7 @@ _SolicitudesCategoriasEntity = SolicitudesCategoriasEntity;
         /// <summary>
         /// 
         /// </summary>
-        void CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.ReservasAereos ReservasAereosEntity, Entities.ReservasAlquilerAuto ReservasAlquilerAutoEntity, Entities.ReservasHotel ReservasHotelEntity, Entities.SolicitudesCategorias SolicitudesCategoriasEntity);
+        void CompleteEntity(Entities.Itinerario ItinerarioEntity, Entities.ReservasAereos ReservasAereosEntity, Entities.ReservasAlquilerAuto ReservasAlquilerAutoEntity, Entities.ReservasHotel ReservasHotelEntity, Entities.Solicitudes SolicitudesEntity, Entities.SolicitudesCategorias SolicitudesCategoriasEntity);
         
         /// <summary>
         /// 
@@ -450,6 +506,11 @@ _SolicitudesCategoriasEntity = SolicitudesCategoriasEntity;
         /// 
         /// </summary>
         bool IsReservasHotelEntityNull();
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        bool IsSolicitudesEntityNull();
         
         /// <summary>
         /// 

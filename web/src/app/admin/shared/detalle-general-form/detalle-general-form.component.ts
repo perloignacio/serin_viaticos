@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SolicitudesDetalle } from 'src/app/models/SolcitudesDetalle.model';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-detalle-general-form',
@@ -12,7 +13,11 @@ export class DetalleGeneralFormComponent implements OnInit {
   detalle:SolicitudesDetalle=new SolicitudesDetalle();
   Observaciones:string;
   
-  constructor(private modal:NgbActiveModal) { }
+  constructor(private modal:NgbActiveModal,private srvShared:SharedService) {
+    if(this.srvShared.objModal as SolicitudesDetalle!=null){
+      this.detalle=this.srvShared.objModal as SolicitudesDetalle
+    }
+   }
 
   ngOnInit(): void {
   }

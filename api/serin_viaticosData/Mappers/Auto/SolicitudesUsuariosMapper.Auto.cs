@@ -492,6 +492,7 @@ namespace serin_viaticosRules.Wrappers
             if (entity == null)
                 throw new ApplicationException(String.Format("Entity not found. IUniqueIdentifiable Values: {0} = {1}", "IdSolicitudUsuario", IdSolicitudUsuario));
 
+            entity.IdSolicitud = IdSolicitud;
             entity.IdUsuario = IdUsuario;
             entity.MontoAnticipo = MontoAnticipo;
             Instance().Save(entity);
@@ -500,9 +501,10 @@ namespace serin_viaticosRules.Wrappers
         /// <summary>
         /// Insert SolicitudesUsuarios
         /// </summary>
-        public void Insert(System.Int32 IdUsuario, System.Decimal MontoAnticipo){
+        public void Insert(System.Int32 IdSolicitud, System.Int32 IdUsuario, System.Decimal MontoAnticipo){
             Entities.SolicitudesUsuarios entity = new Entities.SolicitudesUsuarios();
 
+            entity.IdSolicitud = IdSolicitud;
             entity.IdUsuario = IdUsuario;
             entity.MontoAnticipo = MontoAnticipo;
             Instance().Insert(entity);

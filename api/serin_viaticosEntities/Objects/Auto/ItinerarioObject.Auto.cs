@@ -48,12 +48,16 @@ namespace serin_viaticosRules.Objects
         public ItinerarioObject(
 			System.Int32 IdItinerario,
 			System.DateTime Fecha,
-			System.Boolean IdaVuelta): base()
+			System.Boolean IdaVuelta,
+			System.Nullable<System.DateTime> FechaVuelta,
+			System.Nullable<System.Decimal> Km): base()
         {
 
 			_IdItinerario = IdItinerario;
 			_Fecha = Fecha;
 			_IdaVuelta = IdaVuelta;
+			_FechaVuelta = FechaVuelta;
+			_Km = Km;
 
             Initialized();
         }
@@ -80,6 +84,14 @@ protected System.DateTime _Fecha;
 /// 
 /// </summary>
 protected System.Boolean _IdaVuelta;
+/// <summary>
+///
+/// </summary>
+protected System.Nullable<System.DateTime> _FechaVuelta;
+/// <summary>
+///
+/// </summary>
+protected System.Nullable<System.Decimal> _Km;
 
         #endregion
 
@@ -135,6 +147,44 @@ protected System.Boolean _IdaVuelta;
             
         }
         
+        /// <summary>
+        /// Nullable property
+        /// </summary>
+        public virtual System.Nullable<System.DateTime> FechaVuelta
+        {
+            get
+            {
+                return _FechaVuelta;
+            }
+            
+            set
+            {
+                base.PropertyModified();
+                _FechaVuelta = value;                
+                
+            }
+            
+        }
+                
+        /// <summary>
+        /// Nullable property
+        /// </summary>
+        public virtual System.Nullable<System.Decimal> Km
+        {
+            get
+            {
+                return _Km;
+            }
+            
+            set
+            {
+                base.PropertyModified();
+                _Km = value;                
+                
+            }
+            
+        }
+                
         #endregion
 
         
@@ -181,11 +231,15 @@ protected System.Boolean _IdaVuelta;
         void IMappeableItinerarioObject.HydrateFields(
 			System.Int32 IdItinerario,
 			System.DateTime Fecha,
-			System.Boolean IdaVuelta)
+			System.Boolean IdaVuelta,
+			System.Nullable<System.DateTime> FechaVuelta,
+			System.Nullable<System.Decimal> Km)
         {
         _IdItinerario = IdItinerario;
 _Fecha = Fecha;
 _IdaVuelta = IdaVuelta;
+_FechaVuelta = FechaVuelta;
+_Km = Km;
         }
 
         /// <summary>
@@ -193,10 +247,12 @@ _IdaVuelta = IdaVuelta;
         /// </summary>
         object[] IMappeableItinerarioObject.GetFieldsForInsert()
         {
-            object[] _myArray = new object[3];
+            object[] _myArray = new object[5];
             _myArray[0] = _IdItinerario;
 _myArray[1] = _Fecha;
 _myArray[2] = _IdaVuelta;
+if (_FechaVuelta.HasValue) _myArray[3] = _FechaVuelta.Value;
+if (_Km.HasValue) _myArray[4] = _Km.Value;
 
             return _myArray;
         }
@@ -207,10 +263,12 @@ _myArray[2] = _IdaVuelta;
         object[] IMappeableItinerarioObject.GetFieldsForUpdate()
         {
             
-            object[] _myArray = new object[3];
+            object[] _myArray = new object[5];
             _myArray[0] = _IdItinerario;
 _myArray[1] = _Fecha;
 _myArray[2] = _IdaVuelta;
+if (_FechaVuelta.HasValue) _myArray[3] = _FechaVuelta.Value;
+if (_Km.HasValue) _myArray[4] = _Km.Value;
 
             return _myArray;
         }
@@ -274,7 +332,9 @@ _myArray[2] = _IdaVuelta;
         /// </summary>
         void HydrateFields(System.Int32 IdItinerario, 
 			System.DateTime Fecha, 
-			System.Boolean IdaVuelta);
+			System.Boolean IdaVuelta, 
+			System.Nullable<System.DateTime> FechaVuelta, 
+			System.Nullable<System.Decimal> Km);
 
         /// <summary>
         /// 

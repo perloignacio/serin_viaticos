@@ -1,1 +1,66 @@
-<p>itinerario-form works!</p>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-10">
+            <h3>Viaje</h3>
+        </div>
+        <div class="col-md-2 text-end">
+            <i class="fas fa-times" role="button" (click)="cerrar()"></i>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-4 mt-2">
+            <label>Fecha </label>
+            <input type="date" class="form-control" placeholder="" [(ngModel)]="obj.Fecha">
+        </div>
+        <div class="col-md-4 mt-2">
+            <label>¿Ida y Vuelta?</label>
+            <input type="checkbox" class="form-check" placeholder="" [(ngModel)]="obj.IdaVuelta">
+        </div>
+        <div class="col-md-4 mt-2" *ngIf="obj.IdaVuelta">
+            <label>Fecha Regreso</label>
+            <input type="date" class="form-control" placeholder="" [(ngModel)]="obj.FechaVuelta">
+        </div>  
+    </div>
+    
+    <div class="row mt-2">
+        <div class="col-md-6" *ngIf="this.agregar">
+            <label>Ubicacion</label>
+            <select [(ngModel)]="IdParada" name="IdParada" class="form-select form-control">
+                <option *ngFor="let objU of ubicaciones"  [ngValue]="objU.IdUbicacion">{{objU.Nombre}}</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <h4>Paradas</h4>
+            <ol>
+                <li *ngFor="let parada of Detalle">{{parada.UbicacionesEntity.Nombre}} <i class="fas fa-trash" *ngIf="this.agregar" (click)="borrarParada(parada)"></i></li>
+            </ol>
+            <p>KM: {{this.obj.getKm() | number:'0.00'}}</p>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <button class="btn btn-primary " *ngIf="this.agregar" (click)="AgregarParada()">Agregar parada</button>
+        </div>      
+    </div>
+    <div class="row mt-2">
+        <agm-map #agmMap [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+            <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [waypoints]="waypoints"></agm-direction>
+        </agm-map>
+    </div>
+    
+    <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="position-relative form-group">
+            <label for="exampleEmail11">Observaciones</label>
+            <textarea type="text" name="Observaciones" [(ngModel)]="Observaciones" rows="3" class="form-control"></textarea>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success mt-3" *ngIf="this.agregar" (click)="Guardar()">Agregar</button>
+        </div>
+    </div>
+</div>

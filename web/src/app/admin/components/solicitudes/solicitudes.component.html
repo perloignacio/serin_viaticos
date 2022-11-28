@@ -52,7 +52,7 @@
             <h3>Usuarios</h3>
           </div>
           <div class="col-md-4 text-end">
-            <button class="btn btn-primary" (click)="NuevaSolUsu()">Agregar usuario</button>
+            <button class="btn btn-primary" (click)="NuevaSolUsu()" *ngIf="this.agregar">Agregar usuario</button>
           </div>
         </div>
         <div class="table-responsive mt-3">
@@ -72,7 +72,8 @@
               <td>{{SolUsu.UsuariosEntity.Nombre}} {{SolUsu.UsuariosEntity.Apellido}}</td>
               <td>${{SolUsu.MontoAnticipo}}</td>
               <td class="text-center">
-                <i class="fas fa-trash me-2" role="button" (click)="BorrarSolUsu(SolUsu)" ></i>
+                <i class="fas fa-trash me-2" role="button" (click)="BorrarSolUsu(SolUsu)" *ngIf="this.agregar"></i>
+                
               </td>
             </tr>
             </tbody>
@@ -93,7 +94,7 @@
               <option *ngFor="let objC of Categorias"  [ngValue]="objC.IdSolicitudCategoria">{{objC.Nombre}}</option>
               
             </select>
-            <button class="btn btn-primary d-inline-block" (click)="NuevoDetalle()">Agregar</button>
+            <button class="btn btn-primary d-inline-block" (click)="NuevoDetalle(null)" *ngIf="this.agregar">Agregar</button>
           </div>
         </div>
         <div class="table-responsive mt-3">
@@ -111,7 +112,8 @@
               <td class="text-center text-muted">#{{det.IdSolicitudDetalle}}</td>
               <td>{{getDetalle(det)}}</td>
               <td class="text-center">
-                <i class="fas fa-trash me-2" role="button" (click)="BorrarDetalle(det)" ></i>
+                <i class="fas fa-trash me-2" role="button" (click)="BorrarDetalle(det)" *ngIf="this.agregar"></i>
+                <i class="fas fa-search me-2" role="button" (click)="NuevoDetalle(det)" *ngIf="!this.agregar"></i>
               </td>
             </tr>
             </tbody>
@@ -119,7 +121,7 @@
           
         </div>
       </div>
-      <button class="btn btn-success mt-3" (click)="Guardar()">Guardar y Enviar</button>
+      <button class="btn btn-success mt-3" *ngIf="this.agregar" (click)="Guardar()">Guardar y Enviar</button>
        
     </form>
   </div>

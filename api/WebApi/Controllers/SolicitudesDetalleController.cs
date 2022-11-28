@@ -64,11 +64,11 @@ namespace WebApi.Controllers
                 SolicitudesDetalleRules pfRules = new SolicitudesDetalleRules();
                 if (IdSolicitudDetalle.HasValue)
                 {
-                    pfRules.Modificar(IdSolicitudDetalle.Value, pf.IdSolicitud, pf.IdSolicitudCategoria, pf.IdReservaAereo, pf.IdResevaHotel, pf.IdItinerario, pf.IdReservaAlquilerAuto, pf.Observaciones);
+                    pfRules.Modificar(IdSolicitudDetalle.Value, pf.IdSolicitud, pf.IdSolicitudCategoria, pf.IdReservaAereo, pf.IdReservaHotel, pf.IdItinerario, pf.IdReservaAlquilerAuto, pf.Observaciones);
                 }
                 else
                 {
-                    pfRules.Agregar(pf.IdSolicitud, pf.IdSolicitudCategoria, pf.IdReservaAereo, pf.IdResevaHotel, pf.IdItinerario, pf.IdReservaAlquilerAuto, pf.Observaciones);
+                    pfRules.Agregar(pf.IdSolicitud, pf.IdSolicitudCategoria, pf.IdReservaAereo, pf.IdReservaHotel, pf.IdItinerario, pf.IdReservaAlquilerAuto, pf.Observaciones);
                 }
                 return Ok(true);
             }

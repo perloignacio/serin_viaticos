@@ -64,7 +64,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-success mt-3" (click)="Guardar()">Agregar</button>
+            <button class="btn btn-success mt-3" *ngIf="this.agregar" (click)="Guardar()">Agregar</button>
             
         </div>
     </div>

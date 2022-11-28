@@ -7,6 +7,7 @@ import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { MainComponent } from './components/main/main.component';
 import { PerfilesListadoComponent } from './components/perfiles-listado/perfiles-listado.component';
 import { PerfilesComponent } from './components/perfiles/perfiles.component';
+import { SolicitudesListadoComponent } from './components/solicitudes-listado/solicitudes-listado.component';
 import { SolicitudesComponent } from './components/solicitudes/solicitudes.component';
 import { UbicacionesFormComponent } from './components/ubicaciones-form/ubicaciones-form.component';
 import { UbicacionesComponent } from './components/ubicaciones/ubicaciones.component';
@@ -63,6 +64,10 @@ const routes: Routes = [
       {
         path: 'solicitudes',
         component: SolicitudesComponent,
+      },
+      {
+        path: 'solicitudes-listado',
+        component: SolicitudesListadoComponent,
       },
     ]
   }

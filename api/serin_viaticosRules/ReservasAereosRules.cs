@@ -11,12 +11,12 @@ namespace serin_viaticosRules
 {
     public class ReservasAereosRules
     {
-        public void Agregar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio)
+        public int Agregar( int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio,DateTime? fechaVuelta)
         {
-            Validar(IdReservaAereo, IdOrigen, IdDestino, CantPasajeros, FechaViaje, IdaVuelta, Precio,"Agregar");
+            Validar( IdOrigen, IdDestino, CantPasajeros, FechaViaje, IdaVuelta, Precio,"Agregar");
             ReservasAereos pf = new ReservasAereos();
             
-            pf.IdReservaAereo = IdReservaAereo;
+           
             pf.IdOrigen = IdOrigen;
             pf.IdDestino = IdDestino;
             pf.CantPasajeros = CantPasajeros;
@@ -25,8 +25,13 @@ namespace serin_viaticosRules
             if (Precio != null){
                 pf.Precio = Precio.Value;
             }
+            if (fechaVuelta.HasValue)
+            {
+                pf.FechaRegreso = fechaVuelta;
+            }
 
             ReservasAereosMapper.Instance().Insert(pf);
+            return pf.IdReservaAereo;
         }
 
 
@@ -39,7 +44,7 @@ namespace serin_viaticosRules
             {
                 throw new Exception("No se encuentra el codigo");
             }
-            Validar(IdReservaAereo, IdOrigen, IdDestino, CantPasajeros, FechaViaje, IdaVuelta, Precio,"Modificar");
+            Validar( IdOrigen, IdDestino, CantPasajeros, FechaViaje, IdaVuelta, Precio,"Modificar");
 
             pf.IdReservaAereo = IdReservaAereo;
             pf.IdOrigen = IdOrigen;
@@ -70,19 +75,11 @@ namespace serin_viaticosRules
 
         }
         
-        private void Validar(int IdReservaAereo, int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio,string Text)
+        private void Validar( int IdOrigen, int IdDestino, int CantPasajeros, DateTime FechaViaje, bool IdaVuelta, decimal? Precio,string Text)
         {
-            if (Text == "Agregar")
-            {
-                ReservasAereos pf = ReservasAereosMapper.Instance().GetOne(IdReservaAereo);
-                if (pf != null)
-                {
-                    throw new Exception("El IdReservaAereo que ingresaste ya existe.");
-                }
             
-            }
                 
-                if (IdOrigen == 0) { throw new Exception("Debe ingresar un IdOrigen"); }
+            if (IdOrigen == 0) { throw new Exception("Debe ingresar un IdOrigen"); }
             if (IdDestino == 0) { throw new Exception("Debe ingresar un IdDestino"); }
 
             Ubicaciones pf1 = UbicacionesMapper.Instance().GetOne(IdOrigen);

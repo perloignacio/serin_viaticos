@@ -63,29 +63,29 @@ namespace WebApi.Controllers
 
         }
 
-        [Route("AgregarEditar/{IdItinerario?}")]
-        [HttpPost]
-        [AllowAnonymous]
-        public IHttpActionResult AgregarEditar([FromBody] Itinerario pf, int? IdItinerario = null)
-        {
-            try
-            {
-                ItinerarioRules pfRules = new ItinerarioRules();
-                if (IdItinerario.HasValue)
-                {
-                    pfRules.Modificar(IdItinerario.Value, pf.Fecha, pf.IdaVuelta);
-                }
-                else
-                {
-                    pfRules.Agregar(pf.Fecha, pf.IdaVuelta);
-                }
-                return Ok(true);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        //[Route("AgregarEditar/{IdItinerario?}")]
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public IHttpActionResult AgregarEditar([FromBody] Itinerario pf, int? IdItinerario = null)
+        //{
+        //    try
+        //    {
+        //        ItinerarioRules pfRules = new ItinerarioRules();
+        //        if (IdItinerario.HasValue)
+        //        {
+        //            pfRules.Modificar(IdItinerario.Value, pf.Fecha, pf.IdaVuelta);
+        //        }
+        //        else
+        //        {
+        //            pfRules.Agregar(pf.Fecha, pf.IdaVuelta);
+        //        }
+        //        return Ok(true);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
 
         [Route("Borrar/{IdItinerario}")]
         [HttpDelete]

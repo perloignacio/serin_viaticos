@@ -52,29 +52,29 @@ namespace WebApi.Controllers
 
         }
         
-        [Route("AgregarEditar/{IdReservaAereo?}")]
-        [HttpPost]
-        [AllowAnonymous]
-        public IHttpActionResult AgregarEditar([FromBody] ReservasAereos pf, int? IdReservaAereo = null)
-        {
-            try
-            {
-                ReservasAereosRules pfRules = new ReservasAereosRules();
-                if (IdReservaAereo.HasValue)
-                {
-                    pfRules.Modificar(IdReservaAereo.Value, pf.IdOrigen,  pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta, pf.Precio);
-                }
-                else
-                {
-                    pfRules.Agregar(pf.IdReservaAereo, pf.IdOrigen, pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta,pf.Precio);
-                }
-                return Ok(true);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        //[Route("AgregarEditar/{IdReservaAereo?}")]
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public IHttpActionResult AgregarEditar([FromBody] ReservasAereos pf, int? IdReservaAereo = null)
+        //{
+        //    try
+        //    {
+        //        ReservasAereosRules pfRules = new ReservasAereosRules();
+        //        if (IdReservaAereo.HasValue)
+        //        {
+        //            pfRules.Modificar(IdReservaAereo.Value, pf.IdOrigen,  pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta, pf.Precio);
+        //        }
+        //        else
+        //        {
+        //            pfRules.Agregar(pf.IdReservaAereo, pf.IdOrigen, pf.IdDestino, pf.CantPasajeros, pf.FechaViaje, pf.IdaVuelta,pf.Precio);
+        //        }
+        //        return Ok(true);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
 
 
         [Route("Borrar/{IdReservaAereo}")]

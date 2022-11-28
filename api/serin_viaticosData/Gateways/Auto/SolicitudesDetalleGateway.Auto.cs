@@ -246,6 +246,24 @@ reader.GetInt32(2),
         /// <summary>
         /// Get a SolicitudesDetalleObjectList by calling a Stored Procedure
         /// </summary>
+        public SolicitudesDetalleObjectList GetBySolicitudes(DbTransaction transaction,System.Int32 IdSolicitud)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// Get a SolicitudesDetalleObjectList by calling a Stored Procedure
+        /// </summary>
+        public SolicitudesDetalleObjectList GetBySolicitudes(DbTransaction transaction, IUniqueIdentifiable Solicitudes)
+        {
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", Solicitudes.Identifier());
+        }
+
+    
+
+        /// <summary>
+        /// Get a SolicitudesDetalleObjectList by calling a Stored Procedure
+        /// </summary>
         public SolicitudesDetalleObjectList GetBySolicitudesCategorias(DbTransaction transaction,System.Int32 IdSolicitudCategoria)
         {
             return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudesCategorias", IdSolicitudCategoria);
@@ -331,6 +349,24 @@ reader.GetInt32(2),
         public SolicitudesDetalleObjectList GetByReservasHotel(IUniqueIdentifiable ReservasHotel)
         {
             return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetByReservasHotel", ReservasHotel.Identifier());
+        }
+
+    
+
+        /// <summary>
+        /// Get a SolicitudesDetalleObjectList by calling a Stored Procedure
+        /// </summary>
+        public SolicitudesDetalleObjectList GetBySolicitudes(System.Int32 IdSolicitud)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// Get a SolicitudesDetalleObjectList by calling a Stored Procedure
+        /// </summary>
+        public SolicitudesDetalleObjectList GetBySolicitudes(IUniqueIdentifiable Solicitudes)
+        {
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_GetBySolicitudes", Solicitudes.Identifier());
         }
 
     
@@ -508,6 +544,41 @@ reader.GetInt32(2),
         public void DeleteByReservasHotel(DbTransaction transaction, IUniqueIdentifiable ReservasHotel)
         {
             base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteByReservasHotel", ReservasHotel.Identifier());
+        }
+
+
+    
+
+        /// <summary>
+        /// Delete SolicitudesDetalle by Solicitudes
+        /// </summary>
+        public void DeleteBySolicitudes(System.Int32 IdSolicitud)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// Delete SolicitudesDetalle by Solicitudes
+        /// </summary>
+        public void DeleteBySolicitudes(DbTransaction transaction, System.Int32 IdSolicitud)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", IdSolicitud);
+        }
+
+        /// <summary>
+        /// Delete SolicitudesDetalle by Solicitudes
+        /// </summary>
+        public void DeleteBySolicitudes(IUniqueIdentifiable Solicitudes)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", Solicitudes.Identifier());
+        }
+
+        /// <summary>
+        /// Delete SolicitudesDetalle by Solicitudes
+        /// </summary>
+        public void DeleteBySolicitudes(DbTransaction transaction, IUniqueIdentifiable Solicitudes)
+        {
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "SolicitudesDetalle_DeleteBySolicitudes", Solicitudes.Identifier());
         }
 
 

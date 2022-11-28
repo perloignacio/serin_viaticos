@@ -63,11 +63,7 @@ protected System.Int32 _IdItinerario;
 /// <summary>
 /// 
 /// </summary>
-protected System.Int32 _IdOrigen;
-/// <summary>
-/// 
-/// </summary>
-protected System.Int32 _IdDestino;
+protected System.Int32 _IdParada;
 
         #endregion
 
@@ -107,36 +103,17 @@ protected System.Int32 _IdDestino;
         /// <summary>
         /// 
         /// </summary>
-        public virtual System.Int32 IdOrigen
+        public virtual System.Int32 IdParada
         {
             get
             {
-                return _IdOrigen;
+                return _IdParada;
             }
             
             set
             {
                 base.PropertyModified();
-                _IdOrigen = value;
-                
-            }
-            
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual System.Int32 IdDestino
-        {
-            get
-            {
-                return _IdDestino;
-            }
-            
-            set
-            {
-                base.PropertyModified();
-                _IdDestino = value;
+                _IdParada = value;
                 
             }
             
@@ -188,13 +165,11 @@ protected System.Int32 _IdDestino;
         void IMappeableItinerarioDetalleObject.HydrateFields(
 			System.Int32 IdItinerarioDetalle,
 			System.Int32 IdItinerario,
-			System.Int32 IdOrigen,
-			System.Int32 IdDestino)
+			System.Int32 IdParada)
         {
         _IdItinerarioDetalle = IdItinerarioDetalle;
 _IdItinerario = IdItinerario;
-_IdOrigen = IdOrigen;
-_IdDestino = IdDestino;
+_IdParada = IdParada;
         }
 
         /// <summary>
@@ -202,11 +177,10 @@ _IdDestino = IdDestino;
         /// </summary>
         object[] IMappeableItinerarioDetalleObject.GetFieldsForInsert()
         {
-            object[] _myArray = new object[4];
+            object[] _myArray = new object[3];
             _myArray[0] = _IdItinerarioDetalle;
 _myArray[1] = _IdItinerario;
-_myArray[2] = _IdOrigen;
-_myArray[3] = _IdDestino;
+_myArray[2] = _IdParada;
 
             return _myArray;
         }
@@ -217,11 +191,10 @@ _myArray[3] = _IdDestino;
         object[] IMappeableItinerarioDetalleObject.GetFieldsForUpdate()
         {
             
-            object[] _myArray = new object[4];
+            object[] _myArray = new object[3];
             _myArray[0] = _IdItinerarioDetalle;
 _myArray[1] = _IdItinerario;
-_myArray[2] = _IdOrigen;
-_myArray[3] = _IdDestino;
+_myArray[2] = _IdParada;
 
             return _myArray;
         }
@@ -285,8 +258,7 @@ _myArray[3] = _IdDestino;
         /// </summary>
         void HydrateFields(System.Int32 IdItinerarioDetalle, 
 			System.Int32 IdItinerario, 
-			System.Int32 IdOrigen, 
-			System.Int32 IdDestino);
+			System.Int32 IdParada);
 
         /// <summary>
         /// 

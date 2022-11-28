@@ -56,11 +56,11 @@ namespace WebApi.Controllers
                 ItinerarioDetalleRules pfRules = new ItinerarioDetalleRules();
                 if (IdItinerarioDetalle.HasValue)
                 {
-                    pfRules.Modificar(IdItinerarioDetalle.Value, pf.IdItinerario, pf.IdOrigen, pf.IdDestino);
+                    pfRules.Modificar(IdItinerarioDetalle.Value, pf.IdItinerario, pf.IdParada);
                 }
                 else
                 {
-                    pfRules.Agregar(pf.IdItinerario, pf.IdOrigen, pf.IdDestino);
+                    pfRules.Agregar(pf.IdItinerario, pf.IdParada);
                 }
                 return Ok(true);
             }

@@ -64,7 +64,8 @@ if (_UbicacionesOrigenEntity == null) _UbicacionesOrigenEntity = new Entities.Ub
 			System.Int32 CantPasajeros,
 			System.DateTime FechaViaje,
 			System.Boolean IdaVuelta,
-			System.Nullable<System.Decimal> Precio)
+			System.Nullable<System.Decimal> Precio,
+			System.Nullable<System.DateTime> FechaRegreso)
             : base()
         {
 
@@ -75,6 +76,7 @@ if (_UbicacionesOrigenEntity == null) _UbicacionesOrigenEntity = new Entities.Ub
 			_FechaViaje = FechaViaje;
 			_IdaVuelta = IdaVuelta;
 			_Precio = Precio;
+			_FechaRegreso = FechaRegreso;
 
             if (_UbicacionesDestinoEntity == null) _UbicacionesDestinoEntity = new Entities.Ubicaciones();
 if (_UbicacionesOrigenEntity == null) _UbicacionesOrigenEntity = new Entities.Ubicaciones();

@@ -82,8 +82,7 @@ namespace serin_viaticosRules.Gateways
             ItinerarioDetalle.HydrateFields(
             reader.GetInt32(0),
 reader.GetInt32(1),
-reader.GetInt32(2),
-reader.GetInt32(3));
+reader.GetInt32(2));
             ((IObject)entity).State = ObjectState.Restored;
         }
 
@@ -188,35 +187,17 @@ reader.GetInt32(3));
         /// <summary>
         /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
         /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesDestino(DbTransaction transaction,System.Int32 IdDestino)
+        public ItinerarioDetalleObjectList GetByUbicaciones(DbTransaction transaction,System.Int32 IdParada)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesDestino", IdDestino);
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicaciones", IdParada);
         }
 
         /// <summary>
         /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
         /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesDestino(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
+        public ItinerarioDetalleObjectList GetByUbicaciones(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
         {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesDestino", Ubicaciones.Identifier());
-        }
-
-    
-
-        /// <summary>
-        /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
-        /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesOrigen(DbTransaction transaction,System.Int32 IdOrigen)
-        {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesOrigen", IdOrigen);
-        }
-
-        /// <summary>
-        /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
-        /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesOrigen(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
-        {
-            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesOrigen", Ubicaciones.Identifier());
+            return base.GetObjectListByAnyStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicaciones", Ubicaciones.Identifier());
         }
 
     
@@ -244,35 +225,17 @@ reader.GetInt32(3));
         /// <summary>
         /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
         /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesDestino(System.Int32 IdDestino)
+        public ItinerarioDetalleObjectList GetByUbicaciones(System.Int32 IdParada)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesDestino", IdDestino);
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicaciones", IdParada);
         }
 
         /// <summary>
         /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
         /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesDestino(IUniqueIdentifiable Ubicaciones)
+        public ItinerarioDetalleObjectList GetByUbicaciones(IUniqueIdentifiable Ubicaciones)
         {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesDestino", Ubicaciones.Identifier());
-        }
-
-    
-
-        /// <summary>
-        /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
-        /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesOrigen(System.Int32 IdOrigen)
-        {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesOrigen", IdOrigen);
-        }
-
-        /// <summary>
-        /// Get a ItinerarioDetalleObjectList by calling a Stored Procedure
-        /// </summary>
-        public ItinerarioDetalleObjectList GetByUbicacionesOrigen(IUniqueIdentifiable Ubicaciones)
-        {
-            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicacionesOrigen", Ubicaciones.Identifier());
+            return base.GetObjectListByAnyStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_GetByUbicaciones", Ubicaciones.Identifier());
         }
 
     
@@ -333,70 +296,35 @@ reader.GetInt32(3));
     
 
         /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesDestino
+        /// Delete ItinerarioDetalle by Ubicaciones
         /// </summary>
-        public void DeleteByUbicacionesDestino(System.Int32 IdDestino)
+        public void DeleteByUbicaciones(System.Int32 IdParada)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesDestino", IdDestino);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicaciones", IdParada);
         }
 
         /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesDestino
+        /// Delete ItinerarioDetalle by Ubicaciones
         /// </summary>
-        public void DeleteByUbicacionesDestino(DbTransaction transaction, System.Int32 IdDestino)
+        public void DeleteByUbicaciones(DbTransaction transaction, System.Int32 IdParada)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesDestino", IdDestino);
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicaciones", IdParada);
         }
 
         /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesDestino
+        /// Delete ItinerarioDetalle by Ubicaciones
         /// </summary>
-        public void DeleteByUbicacionesDestino(IUniqueIdentifiable Ubicaciones)
+        public void DeleteByUbicaciones(IUniqueIdentifiable Ubicaciones)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesDestino", Ubicaciones.Identifier());
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicaciones", Ubicaciones.Identifier());
         }
 
         /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesDestino
+        /// Delete ItinerarioDetalle by Ubicaciones
         /// </summary>
-        public void DeleteByUbicacionesDestino(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
+        public void DeleteByUbicaciones(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
         {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesDestino", Ubicaciones.Identifier());
-        }
-
-
-    
-
-        /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesOrigen
-        /// </summary>
-        public void DeleteByUbicacionesOrigen(System.Int32 IdOrigen)
-        {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesOrigen", IdOrigen);
-        }
-
-        /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesOrigen
-        /// </summary>
-        public void DeleteByUbicacionesOrigen(DbTransaction transaction, System.Int32 IdOrigen)
-        {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesOrigen", IdOrigen);
-        }
-
-        /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesOrigen
-        /// </summary>
-        public void DeleteByUbicacionesOrigen(IUniqueIdentifiable Ubicaciones)
-        {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesOrigen", Ubicaciones.Identifier());
-        }
-
-        /// <summary>
-        /// Delete ItinerarioDetalle by UbicacionesOrigen
-        /// </summary>
-        public void DeleteByUbicacionesOrigen(DbTransaction transaction, IUniqueIdentifiable Ubicaciones)
-        {
-            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicacionesOrigen", Ubicaciones.Identifier());
+            base.DataBaseHelper.ExecuteNoQueryByStoredProcedure(transaction, StoredProceduresPrefix() + "ItinerarioDetalle_DeleteByUbicaciones", Ubicaciones.Identifier());
         }
 
 

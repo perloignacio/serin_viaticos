@@ -12,7 +12,7 @@ namespace serin_viaticosRules
     public class ReservasHotelRules
     {
         
-        public void Agregar(int IdDestino, int CantHabitaciones, int CantPasajeros, int IdHotel, string CodigoReserva, decimal? Precio, DateTime Checkin, DateTime Checkout)
+        public int Agregar(int IdDestino, int CantHabitaciones, int CantPasajeros, int IdHotel, string CodigoReserva, decimal? Precio, DateTime Checkin, DateTime Checkout)
         {
             Validar(IdDestino, CantHabitaciones, CantPasajeros, IdHotel, CodigoReserva, Precio, Checkin, Checkout);
             ReservasHotel pf = new ReservasHotel();
@@ -28,6 +28,7 @@ namespace serin_viaticosRules
 
 
             ReservasHotelMapper.Instance().Insert(pf);
+            return pf.IdReservaHotel;
         }
 
         

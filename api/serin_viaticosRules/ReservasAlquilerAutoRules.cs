@@ -10,9 +10,9 @@ namespace serin_viaticosRules
 {
     public class ReservasAlquilerAutoRules
     {
-        public void Agregar(int IdDestino, int CantPasajeros, string Marca, string Modelo, DateTime FechaDesde, DateTime FechaHasta, decimal? Precio)
+        public int Agregar(int IdDestino, int CantPasajeros, string Marca, string Modelo, DateTime FechaDesde, DateTime FechaHasta, decimal? Precio)
         {
-            int IdReservaAlquilerAuto1 = 0;
+            
             Validar(IdDestino, CantPasajeros, Marca, Modelo, FechaDesde, FechaHasta,Precio);
             ReservasAlquilerAuto pf = new ReservasAlquilerAuto();
 
@@ -25,6 +25,7 @@ namespace serin_viaticosRules
             if (Precio != null) { pf.Precio = Precio; }
 
             ReservasAlquilerAutoMapper.Instance().Insert(pf);
+            return pf.IdReservaAlquilerAuto;
         }
 
       

@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using Cooperator.Framework.Core.Exceptions;
 
 namespace serin_viaticosRules.Entities
@@ -18,6 +19,7 @@ namespace serin_viaticosRules.Entities
     public partial class Itinerario
         // : IValidable
     {
+        public List<ItinerarioDetalle> Detalle { get; set; }
         // /// <summary>
         // /// When IValidable is implemented, this method is invoked by Gateway before Insert or Update to validate Object.
         // /// </summary>
