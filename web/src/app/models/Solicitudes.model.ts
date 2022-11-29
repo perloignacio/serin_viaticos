@@ -13,6 +13,7 @@ export class Solicitudes{
     Detalle:SolicitudesDetalle[]=[];
     SolcitudesUsuarios:SolicitudesUsuario[]=[];
     Usuario:Usuario;
-    SolicitudesEstadosEntity:SolicitudesEstados
+    SolicitudesEstadosEntity:SolicitudesEstados;
+    
     
 }

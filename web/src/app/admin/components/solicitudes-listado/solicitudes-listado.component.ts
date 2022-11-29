@@ -70,7 +70,7 @@ Borrar(obj:Solicitudes){
 }
 
 Nuevo(){
-  
+  this.srvShared.ObjEdit=null;
   this.router.navigate(['admin/solicitudes']);
 }
   Editar(obj:Solicitudes){

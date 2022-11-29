@@ -63,28 +63,39 @@ export class SolicitudesComponent implements OnInit {
     switch(this.idCategoria){
       case 1:
         compo=ReservasAereoFormComponent;
-        tmpObj=tmp.ReservasAereosEntity;
+        if(tmp!=null){
+          tmpObj=tmp.ReservasAereosEntity;
+        }
         break;
       case 2:
         compo=ReservaAlquilerAutoFormComponent;
-        tmpObj=tmp.ReservasAlquilerAutoEntity;
+        if(tmp!=null){
+          tmpObj=tmp.ReservasAlquilerAutoEntity;
+        }
 
         break;
       case 3:
         compo=ReservaHotelFormComponent;
-        tmpObj=tmp.ReservasHotelEntity;
+        if(tmp!=null){
+          tmpObj=tmp.ReservasHotelEntity;
+        }
         break;
       case 4:
         compo=ItinerarioFormComponent;
-        tmpObj=tmp.ItinerarioEntity;
+        if(tmp!=null){
+          tmpObj=tmp.ItinerarioEntity;
+        }
         break;
       default:
-        
+        if(tmp!=null){
+          tmpObj=tmp;
+        }
         break;
     }
     
-   
-    this.srvShared.objModal=tmpObj;
+    if(tmpObj!=null){
+      this.srvShared.objModal=tmpObj;
+    }
     this.modal.open(compo, { size: 'lg' }).result.then((result) => {
         if(result!=null){
           result.IdSolicitudCategoria=this.idCategoria;

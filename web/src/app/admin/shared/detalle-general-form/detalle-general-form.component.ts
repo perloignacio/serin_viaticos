@@ -14,8 +14,11 @@ export class DetalleGeneralFormComponent implements OnInit {
   Observaciones:string;
   
   constructor(private modal:NgbActiveModal,private srvShared:SharedService) {
+    console.log(this.srvShared.objModal);
     if(this.srvShared.objModal as SolicitudesDetalle!=null){
       this.detalle=this.srvShared.objModal as SolicitudesDetalle
+      this.Observaciones=this.detalle.Observaciones;
+      this.agregar=false;
     }
    }
 
